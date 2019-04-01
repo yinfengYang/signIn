@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>修改密码--layui后台管理模板 2.0</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="/resource/common/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="/resource/css/public.css" media="all"/>
+    <link rel="stylesheet" href="/resource/css/formSelects-v4.css" media="all"/>
+</head>
+<style>
+    .layui-Myinput {
+        width: 130%;
+    }
+
+    .layui-Myinput {
+        width: 130%;
+    }
+
+    .layui-form-label {
+        text-align: left;
+    }
+
+    .xm-select-parent .xm-select {
+        padding: 0 10px 0 10px;
+    }
+
+    .xm-select-parent .xm-select-title {
+        min-height: 25px !important;
+    }
+
+    .xm-select-parent .xm-input {
+        height: 25px !important;
+        width: 73.5%
+    }
+
+    .xm-select-parent .xm-select-title div.xm-select-label > span {
+        padding: 0 5px;
+        line-height: 16px;
+        height: 16px;
+        padding-right: 20px;
+    }
+
+    .xm-select-parent .xm-select-title div.xm-select-label > span i {
+        margin-left: 3px;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+</style>
+<body class="index">
+
+<form class="layui-form" action="" style="margin:auto;margin-top:30px">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">学生列表</label>
+            <input hidden name="courseId" th:value="${id}">
+            <div class="layui-input-block" style="width: 200%;">
+                <select name="userId" xm-select="userId">
+                    <option th:each="user:${userList}" th:value="${user.id}" th:text="${user.userName}"></option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="Submit">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="/resource/common/layui/layui.js"></script>
+<script type="text/javascript" src=" /resource/js/user.js"></script>
+<script type="text/javascript" src="/resource/js/formSelects-v4.js"></script>
+<script type="text/javascript">
+
+
+    layui.use(['table', 'layer', 'laydate', 'form'], function () {
+        var table = layui.table,
+            $ = layui.$,
+            layer = layui.layer,
+            laydate = layui.laydate,
+            formSelects = layui.formSelects,
+            form = layui.form;
+        laydate.render({
+            elem: '#time'
+            , type: 'time'
+        });
+
+        form.on('submit(Submit)', function (data) {
+            $.ajax({
+                url: '/course/student.do',
+                type: 'post',
+                data: data.field,
+                dataType: 'json',
+                async: false,
+                success: function (result) {
+                    if (!result.status) {
+                        parent.layer.msg(result.msg, {time: 2000});
+                        return false;
+                    } else {
+                        parent.layer.msg("添加成功!", {time: 1000});
+                        parent.layer.close(parent.layer.getFrameIndex(window.name));
+                        parent.layui.table.reload('tableId', {});
+                    }
+                }
+
+            });
+        });
+    });
+
+</script>
+
+</body>
+</html>

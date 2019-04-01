@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>修改密码--layui后台管理模板 2.0</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="/resource/common/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="/resource/css/common.css" media="all"/>
+</head>
+<body>
+<table id="userTables" lay-filter="userTables"></table>
+<script type="text/html" id="operate">
+    {{#  if(d.status=='待审核'){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="审核">审核</a>
+    {{#  } }}
+</script>
+<script type="text/javascript" src="/resource/common/layui/layui.js"></script>
+<script type="text/javascript" src=" /resource/js/user.js"></script>
+<script type="text/javascript" th:inline="javascript">
+
+
+    layui.use(['table', 'layer', 'laydate', 'form'], function () {
+        var table = layui.table,
+            $ = layui.$,
+            layer = layui.layer,
+            form = layui.form;
+        var otherHeight = Math.ceil($("blockquote").height() + 20);
+        var tableIns = table.render({
+            elem: '#userTables'
+            , url: '/checkingIn/applyTables.do' //数据接口
+            , method: 'get'
+            , toolbar: '#header'
+            , page: true //开启分页
+            , id: 'tableId'
+            , limits: [10, 15, 30]
+            , limit: 15
+            , cols: [
+                [ //表头
+
+                    {field: 'realNam', title: '申请人'}
+                    , {field: 'main', title: '申请内容'}
+                    , {field: 'createdDate', title: '创建时间'}
+                    , {field: 'status', title: '状态'}
+                    , {title: '操作', toolbar: '#operate', 'fixed': 'right'}
+                ]
+            ]
+        });
+        //监听工具条
+        table.on('tool(userTables)', function (obj) {
+            var data = obj.data;
+            console.log(data);
+            if (obj.event === '审核') {
+                layer.confirm('是否审核通过？', {
+                    btn: ['通过', '驳回'] //按钮
+                }, function () {
+                    $.ajax({
+                        url: "/applyInfo/status.do",
+                        type: "post",
+                        data: {"id": data.id, "status": "通过"},
+                        dataType: "json",
+                        success: function (result) {
+                            if (!result.status) {
+                                layer.msg(result.msg, {time: 2000});
+                                return false;
+                            }
+                            layer.msg("成功!", {time: 1000});
+                            active.reload();
+                        }
+                    });
+
+                }, function () {
+                    $.ajax({
+                        url: "/applyInfo/status.do",
+                        type: "post",
+                        data: {"id": data.id, "status": "未通过"},
+                        dataType: "json",
+                        success: function (result) {
+                            if (!result.status) {
+                                layer.msg(result.msg, {time: 2000});
+                                return false;
+                            }
+                            layer.msg("成功!", {time: 1000});
+                            active.reload();
+                        }
+                    });
+                });
+            }
+        });
+        active = {
+            reload: function () {
+                //执行重载
+                table
+                    .reload('tableId', {
+                        method: 'get'
+                        , page: {
+                            curr: 1 //重新从第 1 页开始
+                        }
+                    });
+            }
+        };
+    });
+</script>
+
+</body>
+</html>

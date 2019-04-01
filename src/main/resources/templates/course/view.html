@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>修改密码--layui后台管理模板 2.0</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="/resource/common/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="/resource/css/public.css" media="all"/>
+</head>
+<style>
+    .layui-Myinput {
+        width: 130%;
+    }
+</style>
+<body class="index">
+<div class="layui-form">
+    <table class="layui-table">
+        <thead>
+        <tr>
+            <th>用户名</th>
+            <th>班级</th>
+            <th>姓名</th>
+            <th>学号</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user:${userList}">
+            <th th:text="${user.userName}">人物</th>
+            <th th:text="${user.classs}">民族</th>
+            <th th:text="${user.realName}">出场时间</th>
+            <th th:text="${user.number}">格言</th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript" src="/resource/common/layui/layui.js"></script>
+<script type="text/javascript" src=" /resource/js/user.js"></script>
+<script type="text/javascript">
+
+
+    layui.use(['table', 'layer', 'laydate', 'form'], function () {
+        var table = layui.table,
+            $ = layui.$,
+            layer = layui.layer,
+            laydate = layui.laydate,
+            form = layui.form;
+
+    });
+
+</script>
+
+</body>
+</html>

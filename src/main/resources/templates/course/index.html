@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>修改密码--layui后台管理模板 2.0</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="/resource/common/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="/resource/css/common.css" media="all"/>
+</head>
+<style>
+    .layui-form-item {
+        width: 350px;
+    }
+
+    .layui-table-cell {
+        height: auto;
+    }
+</style>
+<body>
+<blockquote class="layui-elem-quote quoteBox layui-form">
+    <div class="layui-form">
+        <div class="layui-row ">
+            <div class="layui-col-md3">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">课程：</label>
+                    <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <input type="text" id="name" class="layui-input" placeholder=""/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">教室：</label>
+                    <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <input type="text" id="room" class="layui-input" placeholder=""/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">星期：</label>
+                    <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <select name="week" id="week">
+                                <option></option>
+                                <option>周一</option>
+                                <option>周二</option>
+                                <option>周三</option>
+                                <option>周四</option>
+                                <option>周五</option>
+                                <option>周六</option>
+                                <option>周日</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                <div class="layui-inline tableId">
+                    <button class="layui-btn" data-type="reload" id="search">搜索</button>
+                    <button class="layui-btn revocation" data-type="reload" id="revocation">撤销</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</blockquote>
+<table id="userTables" lay-filter="userTables"></table>
+<shiro:hasPermission name="button:course:index:caozuo">
+    <script type="text/html" id="operate">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+        <a class="layui-btn layui-btn-xs" lay-event="addStudent">添加上课学生</a>
+        {{# if(d.state == '关闭'){ }}
+        <a class="layui-btn layui-btn-xs" lay-event="open">开启签到</a>
+        {{# } }}
+        {{# if(d.state == '开启'){ }}
+        <a class="layui-btn layui-btn-xs" lay-event="cose">关闭签到</a>
+        <a class="layui-btn layui-btn-xs" lay-event="view">缺勤名单</a>
+        {{# } }}
+    </script>
+    <script type="text/html" id="header">
+        <div class="layui-btn-container" style="overflow: hidden">
+            <div style="float: right">
+                <button class="layui-btn layui-btn-sm" lay-event="addUser">新增我的课程</button>
+            </div>
+        </div>
+    </script>
+</shiro:hasPermission>
+<script type="text/javascript" src="/resource/common/layui/layui.js"></script>
+<script type="text/javascript" src=" /resource/js/user.js"></script>
+<script type="text/javascript">
+
+    var delStudent;
+    layui.use(['table', 'layer', 'laydate', 'form'], function () {
+        var table = layui.table,
+            $ = layui.$,
+            layer = layui.layer,
+            form = layui.form;
+        var otherHeight = Math.ceil($("blockquote").height() + 20);
+        var tableIns = table.render({
+            elem: '#userTables'
+            , height: 'full-' + otherHeight
+            , url: '/course/course.do' //数据接口
+            , method: 'get'
+            , toolbar: '#header'
+            , page: true //开启分页
+            , id: 'tableId'
+            , where: {
+                status: 1
+            }
+            , limits: [10, 15, 30]
+            , limit: 15
+            , cols: [
+                [ //表头
+
+                    {field: 'name', title: '课程'}
+                    , {field: 'time', title: '上课时间'}
+                    , {field: 'week', title: '星期'}
+                    , {field: 'room', title: '教室'}
+                    , {field: 'userName', title: '任课教师'}
+                    , {field: 'users', title: '学生'}
+                    , {title: '操作', toolbar: '#operate', 'fixed': 'right', 'width': 350}
+                ]
+            ]
+        });
+        //搜索
+        $('#search').on('click', function () {
+            console.log("搜索执行")
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+        //撤销
+        $("#revocation").on('click', function () {
+            $("#name").val("");
+            $("#room").val("");
+            $("#week").val("");
+            form.render();
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : ''
+        });
+        table.on('toolbar(userTables)', function (obj) {
+            var datas = table.checkStatus("tableId").data;
+            if (obj.event == "addUser") {
+                //新增用户
+                layer.open({
+                    type: 2,
+                    title: "新增教师",
+                    shadeClose: false, //点击遮罩关闭层
+                    area: ['50%', '70%'],
+                    content: "/course/add.do"
+                });
+                return false;
+            }
+            if (datas.length == 0) {
+                layer.alert("请选择数据后再进行操作！");
+            } else {
+                var ids = new Array();
+                for (d in datas) {
+                    ids.push(datas[d].id);
+                }
+                //删除选中
+                if (obj.event == "delUsers") {
+                    delUser(ids.toString());
+                }
+            }
+        });
+        //监听工具条
+        table.on('tool(userTables)', function (obj) {
+            var data = obj.data;
+            console.log(data);
+            if (obj.event === 'addStudent') {
+                //添加学生
+                layer.open({
+                    type: 2,
+                    title: "添加学生",
+                    shadeClose: false, //点击遮罩关闭层
+                    area: ['50%', '70%'],
+                    content: "/course/addStudent.do?id=" + data.id
+                });
+            } else if (obj.event === 'del') {
+                //删除
+                delUser(data.id);
+            } else if (obj.event === 'open') {
+                $.ajax({
+                    url: "/course/open.do",
+                    type: "post",
+                    data: {"id": data.id},
+                    dataType: "json",
+                    success: function (result) {
+                        if (!result.status) {
+                            layer.msg(result.msg, {time: 2000});
+                            return false;
+                        }
+                        layer.msg(result.msg, {time: 4000});
+                        active.reload();
+                    }
+                });
+            } else if (obj.event === 'cose') {
+                $.ajax({
+                    url: "/course/close.do",
+                    type: "put",
+                    data: {"id": data.id, "state": "关闭"},
+                    dataType: "json",
+                    success: function (result) {
+                        if (!result.status) {
+                            layer.msg(result.msg, {time: 2000});
+                            return false;
+                        }
+                        layer.msg('关闭成功', {time: 4000});
+                        active.reload();
+                    }
+                });
+            } else if (obj.event === 'view') {
+                layer.open({
+                    type: 2,
+                    title: "缺勤名单",
+                    shadeClose: false, //点击遮罩关闭层
+                    area: ['50%', '70%'],
+                    content: "/course/view.do?id=" + data.id
+                });
+            } else if (obj.event === "edit") {
+                //修改用户
+                layer.open({
+                    type: 2,
+                    title: "修改信息",
+                    shadeClose: false, //点击遮罩关闭层
+                    area: ['50%', '70%'],
+                    content: "/course/edit.do?id=" + data.id
+                });
+            }
+        });
+
+
+        active = {
+            reload: function () {
+                var name = $("#name").val();
+                var week = $("#week").val();
+                var room = $("#room").val();
+                console.log(status);
+                //执行重载
+                table
+                    .reload('tableId', {
+                        page: {
+                            curr: 1 //重新从第 1 页开始
+                        }
+                        , where: {
+                            name: name,
+                            week: week,
+                            room: room,
+
+                        }
+                    });
+            }
+        };
+        delStudent = function (id, courseId) {
+            console.log(courseId)
+            layer.confirm('是否剔除改学生?', function (index) {
+                $.ajax({
+                    url: "/course/student.do",
+                    type: "post",
+                    data: {_method: "DELETE", "id": id, "courseId": courseId},
+                    dataType: "json",
+                    success: function (result) {
+                        if (!result.status) {
+                            layer.msg(result.msg, {time: 2000});
+                            return false;
+                        }
+                        layer.msg("删除成功!", {time: 1000});
+                        active.reload();
+                    }
+                });
+                layer.close(index);
+            })
+        }
+
+        //删除用户函数
+        function delUser(ids) {
+            layer.confirm('是否删除?', function (index) {
+                $.ajax({
+                    url: "/course/course.do",
+                    type: "post",
+                    data: {_method: "DELETE", "id": ids},
+                    dataType: "json",
+                    success: function (result) {
+                        if (!result.status) {
+                            layer.msg(result.msg, {time: 2000});
+                            return false;
+                        }
+                        layer.msg("删除成功!", {time: 1000});
+                        active.reload();
+                    }
+                });
+                layer.close(index);
+            })
+        }
+    });
+</script>
+
+</body>
+</html>
