@@ -19,12 +19,13 @@
             <a href="javascript:void(0);" class="logo"><img alt="" src="/resource/image/favicon.ico"
                                                             style="width:25px;margin-left:-13px;margin-top:-2px"/>&nbsp;签到管理系统</a>
             <a href="javascript:;" class="seraph hideMenu layui-icon layui-icon-shrink-right"></a>
-            <input id="test" th:value="${menuInfo}" type="hidden"/>
+            <input id="test" th:value="${menuInfo}" type="hidden"/><!--menuInfo：系統设置、用户信息-->
             <!-- 显示/隐藏菜单图标 -->
             <ul class="layui-nav topLevelMenus" lay-filter="subSys">
                 <li class="layui-nav-item "><!--layui-this默认下方会有选中条  -->
                     <a href="javascript:;"><i class="layui-icon layui-icon-list"></i><cite id="systemSelect">系统选择</cite></a>
                     <dl class="layui-nav-child">
+                        <!--subSysInfo：基础管理、系统管理-->
                         <dd th:each="subSys:${subSysInfo}"
                             th:attr="data-menu=${subSys.subSystemId},data-name=${subSys.subSystemName}">
                             <a href="javascript:;"><i class="layui-icon layui-icon-set"></i><cite
@@ -35,9 +36,9 @@
             </ul>
             <!-- 顶部右侧菜单 -->
             <ul class="layui-nav top_menu">
-                <!--<li class="layui-nav-item">
+                <li class="layui-nav-item">
                     <a href="javascript:;" class="clearCache"><i class="layui-icon " data-icon="&#xe640;">&#xe640;</i><cite>清除缓存</cite><span class="layui-badge-dot"></span></a>
-                </li>-->
+                </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;"><i class="layui-icon layui-icon-chart-screen"></i><cite
                             id="fullscreen">全屏</cite></a>
@@ -46,7 +47,7 @@
                      <a href="javascript:;"><i class="layui-icon layui-icon-password"></i><cite>锁屏</cite></a>
                  </li>-->
                 <li class="layui-nav-item" id="userInfo">
-                    <a href="javascript:;"><img src="/resource/image/logo.jpg" class="layui-nav-img userAvatar"
+                    <a href="javascript:;"><img src="/resource/image/logo.png" class="layui-nav-img userAvatar"
                                                 width="35"
                                                 height="35"/><cite class="adminName" th:text="${role}"></cite><cite
                             class="adminName" th:text="${user.userName}"></cite></a>
@@ -104,7 +105,7 @@
     </div>
     <!--底部-->
     <div class="layui-footer footer">
-        <p class="layui-bg-cyan"><span>签到系统--版权归1516040123杨银锋所拥有</span>　　
+        <p class="layui-bg-cyan"><span>签到系统--版权归1516040123迎风所有</span>　　
     </div>
 </div>
 

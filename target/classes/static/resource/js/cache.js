@@ -27,12 +27,16 @@ layui.use(['form', 'jquery', "layer"], function () {
                 layer.open({
                     type: 1,
                     title: "系统公告",
-                    area: ['250px','170px'],
+                    area: ['450px','410px'],
                     shade: 0.8,
                     id: 'LAY_layuipro',
                     btn: ['确定'],
                     moveType: 1,
-                    content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p class="layui-red">欢迎进入签到系统</div>',
+                    content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p class="layui-red">' +
+                    "</br>"+'1、本系统主要分为学生用户，教师用户，管理员用户！' +"</br>"+"</br>"+
+                    '2、学生签到，修改个人信息等功能！' +"</br>"+"</br>"+
+                    '3、教师开启签到功能，批准请假功能等！' +"</br>"+"</br>"+
+                    '4、欢迎进入签到系统</div>',
                     success: function(layero){
                         var btn = layero.find('.layui-layer-btn');
                         btn.css('text-align', 'center');
@@ -46,6 +50,7 @@ layui.use(['form', 'jquery', "layer"], function () {
                 });
     }
 
+    /*进入系统时，小提示的展现*/
     function tipsShow() {
         window.sessionStorage.setItem("showNotice", "true");
         if ($(window).width() > 432) {  //如果页面宽度不足以显示顶部“系统公告”按钮，则不提示
@@ -55,7 +60,8 @@ layui.use(['form', 'jquery', "layer"], function () {
             });
         }
     }
-
+    /*showNotice class 调用showNotice();方法
+    * */
     $(".showNotice").on("click", function () {
         showNotice();
     })

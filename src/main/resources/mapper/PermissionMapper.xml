@@ -31,9 +31,17 @@
 
     <select id="getSubSystemInfoByUserId" parameterType="java.lang.String"
             resultType="com.yyf.entity.SubSystemInfo">
-			select distinct gm_permission.permissionId as subSystemId,gm_permission.permissionName as subSystemName from gm_permission,gm_role_permission,gm_user_role where permissionType = 'subsystem' and gm_role_permission.permissionId=gm_permission.permissionId
-			and gm_role_permission.roleId=gm_user_role.roleId and gm_user_role.userId=#{userId}
-			order by priority
+			SELECT DISTINCT
+				gm_permission.permissionId AS subSystemId,
+				gm_permission.permissionName AS subSystemName
+				FROM gm_permission,
+					 gm_role_permission,
+					 gm_user_role
+				WHERE permissionType = 'subsystem'
+				AND gm_role_permission.permissionId=gm_permission.permissionId
+				AND gm_role_permission.roleId=gm_user_role.roleId
+				AND gm_user_role.userId=#{userId}
+			ORDER BY priority
 	</select>
     <select id="getSubSystemInfo"
             resultType="com.yyf.entity.SubSystemInfo">
