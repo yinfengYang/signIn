@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a26735de-4ffa-466f-a470-b8f6023d4c8e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resource/image/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/resource/image/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resource/image/logo.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/resource/js/cache.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resource/js/cache.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/content/changePwd.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/content/changePwd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/content/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/content/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/resource/image/logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/resource/js/cache.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/resource/js/cache.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/content/changePwd.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/content/changePwd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/content/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/content/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +18,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/content/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="59" column="69" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="69" />
+            <state relative-caret-position="375">
+              <caret line="61" column="69" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -42,8 +27,8 @@
       <file leaf-file-name="cache.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/cache.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+            <state relative-caret-position="271">
+              <caret line="268" column="43" lean-forward="true" selection-start-line="268" selection-start-column="43" selection-end-line="268" selection-end-column="43" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -51,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/css/index.css">
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3625">
-              <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
+            <state>
+              <caret column="16" selection-start-column="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -63,7 +48,7 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
+            <state relative-caret-position="1500">
               <caret line="60" column="46" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="46" />
             </state>
           </provider>
@@ -72,8 +57,8 @@
       <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/IndexController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
+            <state relative-caret-position="3500">
+              <caret line="166" selection-start-line="166" selection-end-line="166" />
             </state>
           </provider>
         </entry>
@@ -81,7 +66,7 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2309">
+            <state relative-caret-position="1900">
               <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
             </state>
           </provider>
@@ -90,7 +75,7 @@
       <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
+            <state relative-caret-position="1450">
               <caret line="61" selection-start-line="61" selection-end-line="61" />
             </state>
           </provider>
@@ -99,8 +84,8 @@
       <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="127" column="35" lean-forward="true" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="35" />
+            <state relative-caret-position="2800">
+              <caret line="127" column="35" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="35" />
               <folding>
                 <element signature="e#7184#7185#0" expanded="true" />
                 <element signature="e#7232#7233#0" expanded="true" />
@@ -112,8 +97,8 @@
       <file leaf-file-name="ItdragonUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/util/ItdragonUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+            <state relative-caret-position="400">
+              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -142,6 +127,7 @@
       <find>fullscreen</find>
       <find>pwd</find>
       <find>showNotice</find>
+      <find>skinValue</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -222,6 +208,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -339,9 +328,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,11 +435,12 @@
       <workItem from="1554109820811" duration="5000" />
       <workItem from="1554110973883" duration="63000" />
       <workItem from="1554167752207" duration="8689000" />
+      <workItem from="1554187826620" duration="10191000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40493000" />
+    <option name="totallyTimeSpent" value="50684000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -477,7 +464,7 @@
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" id="Debug" order="13" weight="0.4231405" />
+      <window_info anchor="bottom" id="Debug" order="13" weight="0.12231405" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289256" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
@@ -488,10 +475,9 @@
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3289256" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info content_ui="combo" id="Project" order="7" weight="0.15355521" />
+      <window_info content_ui="combo" id="Project" order="7" weight="0.15204236" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.5322314" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -499,6 +485,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.5322314" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="1" />
@@ -523,7 +510,7 @@
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="right" id="Maven Projects" order="9" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.5322314" />
-      <window_info content_ui="combo" id="Project" order="7" weight="0.15355521" />
+      <window_info content_ui="combo" id="Project" order="7" weight="0.15204236" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info id="Web" order="5" side_tool="true" />
@@ -531,7 +518,7 @@
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Debug" order="13" visible="true" weight="0.338843" />
+      <window_info active="true" anchor="bottom" id="Debug" order="13" visible="true" weight="0.10247934" />
       <window_info anchor="right" id="Bean Validation" order="8" />
     </layout-to-restore>
   </component>
@@ -556,20 +543,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.15/tomcat-embed-core-8.5.15-sources.jar!/org/apache/coyote/http11/Http11Processor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="774" selection-start-line="774" selection-end-line="774" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.15/tomcat-embed-core-8.5.15-sources.jar!/org/apache/coyote/AbstractProcessorLight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/log/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -728,22 +701,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/image/favicon.ico">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/image/web_login_bg.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/image/logo.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/image/logo.jpg" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="893">
@@ -807,7 +771,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2309">
+        <state relative-caret-position="1900">
           <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
         </state>
       </provider>
@@ -821,15 +785,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
+        <state relative-caret-position="1450">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/util/ItdragonUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+        <state relative-caret-position="400">
+          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -842,19 +806,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="127" column="35" lean-forward="true" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="35" />
+        <state relative-caret-position="2800">
+          <caret line="127" column="35" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="35" />
           <folding>
             <element signature="e#7184#7185#0" expanded="true" />
             <element signature="e#7232#7233#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/formSelects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="1491" column="4" selection-start-line="1491" selection-start-column="4" selection-end-line="1491" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -874,29 +831,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/IndexController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
+        <state relative-caret-position="3500">
+          <caret line="166" selection-start-line="166" selection-end-line="166" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
+        <state relative-caret-position="1500">
           <caret line="60" column="46" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/formSelects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="371" column="22" selection-start-line="371" selection-start-column="22" selection-end-line="371" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1336">
+          <caret line="12996" column="4" selection-start-line="12996" selection-start-column="4" selection-end-line="12996" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/content/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="59" column="69" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="69" />
+        <state relative-caret-position="375">
+          <caret line="61" column="69" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/cache.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+        <state relative-caret-position="271">
+          <caret line="268" column="43" lean-forward="true" selection-start-line="268" selection-start-column="43" selection-end-line="268" selection-end-column="43" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>

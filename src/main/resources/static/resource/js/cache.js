@@ -222,11 +222,16 @@ layui.use(['form', 'jquery', "layer"], function () {
         }
     }
 
+    /*'<input type="text" class="layui-input topColor" name="topSkin" placeholder="顶部颜色" />' +
+    * '<input type="text" class="layui-input leftColor" name="leftSkin" placeholder="左侧颜色" />' +
+    '<input type="text" class="layui-input menuColor" name="btnSkin" placeholder="顶部菜单按钮" />' +
+    * */
+
     skins();
     $(".changeSkin").click(function () {
         layer.open({
             title: "更换皮肤",
-            area: ["310px", "280px"],
+            area: ["350px", "370px"],
             type: "1",
             content: '<div class="skins_box">' +
                 '<form class="layui-form">' +
@@ -236,9 +241,12 @@ layui.use(['form', 'jquery', "layer"], function () {
                 '<input type="radio" name="skin" value="蓝色" title="蓝色" lay-filter="blue">' +
                 '<input type="radio" name="skin" value="自定义" title="自定义" lay-filter="custom">' +
                 '<div class="skinCustom">' +
-                '<input type="text" class="layui-input topColor" name="topSkin" placeholder="顶部颜色" />' +
-                '<input type="text" class="layui-input leftColor" name="leftSkin" placeholder="左侧颜色" />' +
-                '<input type="text" class="layui-input menuColor" name="btnSkin" placeholder="顶部菜单按钮" />' +
+                '<select class="selectColor" name="leftSkin" lay-verify="" lay-search>' +
+                '<option value="紫色" selected>紫色</option>' +
+                '<option value="绿色">绿色</option>' +
+                '<option value="灰色">灰色</option>' +
+                '<option value="粉色">粉色</option>' +
+                '</select>'+
                 '</div>' +
                 '</div>' +
                 '<div class="layui-form-item skinBtn">' +
@@ -248,22 +256,31 @@ layui.use(['form', 'jquery', "layer"], function () {
                 '</form>' +
                 '</div>',
             success: function (index, layero) {
+                var skinColor;
                 var skin = window.sessionStorage.getItem("skin");
                 if (window.sessionStorage.getItem("skinValue")) {
                     $(".skins_box input[value=" + window.sessionStorage.getItem("skinValue") + "]").attr("checked", "checked");
-                }
-                ;
+                };
                 if ($(".skins_box input[value=自定义]").attr("checked")) {
                     $(".skinCustom").css("visibility", "inherit");
-                    $(".topColor").val(skin.split(',')[0]);
-                    $(".leftColor").val(skin.split(',')[1]);
-                    $(".menuColor").val(skin.split(',')[2]);
-                }
-                ;
+                    var col = $(".selectColor option:checked").text();
+                    if (col == "紫色"){
+                        skinColor = "purple";
+                    }else if (col == "绿色"){
+                        skinColor = "green";
+                    }else if (col == "粉色"){
+                        skinColor = "pink";
+                    }
+
+                    $("body").removeAttr("class").addClass("main_body " + skinColor + "");
+                    $(".skinCustom").removeAttr("style");
+                    $(".layui-bg-black,.hideMenu,.layui-layout-admin .layui-header").removeAttr("style");
+
+                };
                 form.render();
                 $(".skins_box").removeClass("layui-hide");
                 $(".skins_box .layui-form-radio").on("click", function () {
-                    var skinColor;
+
                     if ($(this).find("div").text() == "橙色") {
                         skinColor = "orange";
                     } else if ($(this).find("div").text() == "蓝色") {
@@ -271,25 +288,21 @@ layui.use(['form', 'jquery', "layer"], function () {
                     } else if ($(this).find("div").text() == "默认") {
                         skinColor = "";
                     }
+
                     if ($(this).find("div").text() != "自定义") {
-                        $(".topColor,.leftColor,.menuColor").val('');
+                        //点击按钮页面随着选中颜色进行改变
                         $("body").removeAttr("class").addClass("main_body " + skinColor + "");
                         $(".skinCustom").removeAttr("style");
                         $(".layui-bg-black,.hideMenu,.layui-layout-admin .layui-header").removeAttr("style");
                     } else {
+                        //自定義彈出框
                         $(".skinCustom").css("visibility", "inherit");
                     }
-                })
-                var skinStr, skinColor;
-                $(".topColor").blur(function () {
-                    $(".layui-layout-admin .layui-header").css("background-color", $(this).val() + " !important");
-                })
-                $(".leftColor").blur(function () {
-                    $(".layui-bg-black").css("background-color", $(this).val() + " !important");
-                })
-                $(".menuColor").blur(function () {
-                    $(".hideMenu").css("background-color", $(this).val() + " !important");
-                })
+                });
+                var skinStr;
+                $(".selectColor").blur(function () {
+                    $(".layui-layout-admin .layui-header").css("background-color", $(".selectColor option:checked").text() + " !important");
+                });
 
                 form.on("submit(changeSkin)", function (data) {
                     if (data.field.skin != "自定义") {
@@ -302,7 +315,16 @@ layui.use(['form', 'jquery', "layer"], function () {
                         }
                         window.sessionStorage.setItem("skin", skinColor);
                     } else {
-                        skinStr = $(".topColor").val() + ',' + $(".leftColor").val() + ',' + $(".menuColor").val();
+
+                        if (data.field.leftSkin == "紫色"){
+                            skinStr = "purple";
+                        }else if (data.field.leftSkin == "绿色"){
+                            skinStr = "green";
+                         }else if (data.field.leftSkin == "青色"){
+                             skinStr = "blue";
+                         }
+
+                        //skinStr = $(".topColor").val() + ',' + $(".leftColor").val() + ',' + $(".menuColor").val();
                         window.sessionStorage.setItem("skin", skinStr);
                         $("body").removeAttr("class").addClass("main_body");
                     }
