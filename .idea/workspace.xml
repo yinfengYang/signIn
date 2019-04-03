@@ -15,20 +15,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/content/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="250">
               <caret line="61" column="69" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cache.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cache.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/cache.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="268" column="43" lean-forward="true" selection-start-line="268" selection-start-column="43" selection-end-line="268" selection-end-column="43" />
+            <state relative-caret-position="-256">
+              <caret line="241" column="71" selection-start-line="241" selection-start-column="71" selection-end-line="241" selection-end-column="71" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -436,11 +436,12 @@
       <workItem from="1554110973883" duration="63000" />
       <workItem from="1554167752207" duration="8689000" />
       <workItem from="1554187826620" duration="10191000" />
+      <workItem from="1554252725508" duration="1333000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50684000" />
+    <option name="totallyTimeSpent" value="52017000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -464,7 +465,7 @@
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" id="Debug" order="13" weight="0.12231405" />
+      <window_info anchor="bottom" id="Debug" order="13" weight="0.14876033" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289256" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
@@ -490,10 +491,9 @@
     <layout-to-restore>
       <window_info id="Designer" order="1" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3289256" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
@@ -501,6 +501,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289256" />
@@ -509,7 +510,6 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="right" id="Maven Projects" order="9" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.5322314" />
       <window_info content_ui="combo" id="Project" order="7" weight="0.15204236" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Message" order="1" />
@@ -518,8 +518,9 @@
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Debug" order="13" visible="true" weight="0.10247934" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.5322314" />
       <window_info anchor="right" id="Bean Validation" order="8" />
+      <window_info active="true" anchor="bottom" id="Debug" order="13" visible="true" weight="0.10247934" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -761,11 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="1" column="54362" selection-start-line="1" selection-start-column="54362" selection-end-line="1" selection-end-column="54362" />
-          <folding>
-            <element signature="e#61532#61671#2" expanded="true" />
-            <element signature="e#63125#63264#2" expanded="true" />
-            <element signature="e#63812#63951#2" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -871,20 +867,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/content/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="61" column="69" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/cache.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="268" column="43" lean-forward="true" selection-start-line="268" selection-start-column="43" selection-end-line="268" selection-end-column="43" />
+        <state relative-caret-position="-256">
+          <caret line="241" column="71" selection-start-line="241" selection-start-column="71" selection-end-line="241" selection-end-column="71" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/content/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="61" column="69" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="69" />
         </state>
       </provider>
     </entry>

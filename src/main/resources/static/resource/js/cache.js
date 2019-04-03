@@ -263,6 +263,7 @@ layui.use(['form', 'jquery', "layer"], function () {
                 };
                 if ($(".skins_box input[value=自定义]").attr("checked")) {
                     $(".skinCustom").css("visibility", "inherit");
+                    /*
                     var col = $(".selectColor option:checked").text();
                     if (col == "紫色"){
                         skinColor = "purple";
@@ -275,6 +276,7 @@ layui.use(['form', 'jquery', "layer"], function () {
                     $("body").removeAttr("class").addClass("main_body " + skinColor + "");
                     $(".skinCustom").removeAttr("style");
                     $(".layui-bg-black,.hideMenu,.layui-layout-admin .layui-header").removeAttr("style");
+                    */
 
                 };
                 form.render();
@@ -294,12 +296,13 @@ layui.use(['form', 'jquery', "layer"], function () {
                         $("body").removeAttr("class").addClass("main_body " + skinColor + "");
                         $(".skinCustom").removeAttr("style");
                         $(".layui-bg-black,.hideMenu,.layui-layout-admin .layui-header").removeAttr("style");
+
                     } else {
                         //自定義彈出框
                         $(".skinCustom").css("visibility", "inherit");
                     }
                 });
-                var skinStr;
+
                 $(".selectColor").blur(function () {
                     $(".layui-layout-admin .layui-header").css("background-color", $(".selectColor option:checked").text() + " !important");
                 });
@@ -317,15 +320,17 @@ layui.use(['form', 'jquery', "layer"], function () {
                     } else {
 
                         if (data.field.leftSkin == "紫色"){
-                            skinStr = "purple";
+                            skinColor = "purple";
                         }else if (data.field.leftSkin == "绿色"){
-                            skinStr = "green";
-                         }else if (data.field.leftSkin == "青色"){
-                             skinStr = "blue";
-                         }
+                            skinColor = "green";
+                         }else if (data.field.leftSkin == "粉色"){
+                            skinColor = "pink";
+                         }else if (data.field.leftSkin == "灰色"){
+                            skinColor = "gray"
+                        }
 
                         //skinStr = $(".topColor").val() + ',' + $(".leftColor").val() + ',' + $(".menuColor").val();
-                        window.sessionStorage.setItem("skin", skinStr);
+                        window.sessionStorage.setItem("skin", skinColor);
                         $("body").removeAttr("class").addClass("main_body");
                     }
                     window.sessionStorage.setItem("skinValue", data.field.skin);
