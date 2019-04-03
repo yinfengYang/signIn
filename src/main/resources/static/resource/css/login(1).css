@@ -14,7 +14,8 @@ body,html{
     overflow:hidden;
 }
 body{
-    background:url(/resource/image/web_login_bg.jpg) no-repeat center;
+    /*background:url(/resource/image/web_login_bg.jpg) no-repeat center;*/
+    background:url(/resource/image/backg2.jpg) no-repeat center;
     background-size: cover;
 }
 a{

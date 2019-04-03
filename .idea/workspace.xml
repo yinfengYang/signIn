@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/resources/static/resource/js/bodyTab.js" line="422" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a26735de-4ffa-466f-a470-b8f6023d4c8e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resource/image/backg1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/resource/image/backg2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resource/js/cache.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resource/js/cache.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yyf/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yyf/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resource/css/login(1).css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resource/css/login(1).css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resource/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resource/js/bodyTab.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resource/js/bodyTab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resource/js/formSelects.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resource/js/formSelects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/resource/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/resource/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/content/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/content/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teacher/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/teacher/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teacher/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/teacher/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/resource/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/resource/js/bodyTab.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/resource/js/bodyTab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/resource/js/formSelects.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/resource/js/formSelects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/resource/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/resource/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/content/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/content/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/teacher/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/teacher/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,59 +34,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/content/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="61" column="69" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cache.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/cache.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-256">
-              <caret line="241" column="71" selection-start-line="241" selection-start-column="71" selection-end-line="241" selection-end-column="71" />
+            <state relative-caret-position="25">
+              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teacher/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="16" selection-start-column="16" selection-end-column="16" />
+            <state relative-caret-position="323">
+              <caret line="167" column="47" selection-start-line="167" selection-start-column="47" selection-end-line="167" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <file leaf-file-name="TeacherController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/TeacherController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="60" column="46" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="46" />
+            <state relative-caret-position="348">
+              <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/IndexController.java">
+      <file leaf-file-name="RoleService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/RoleService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3500">
-              <caret line="166" selection-start-line="166" selection-end-line="166" />
+            <state relative-caret-position="198">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/UserController.java">
+      <file leaf-file-name="RoleServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/impl/RoleServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1900">
-              <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
+            <state relative-caret-position="273">
+              <caret line="52" column="30" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teacher/add.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="421">
+              <caret line="88" column="46" selection-start-line="88" selection-start-column="46" selection-end-line="88" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login(1).css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/css/login(1).css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -75,8 +103,8 @@
       <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1450">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="275">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -84,21 +112,12 @@
       <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2800">
-              <caret line="127" column="35" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="35" />
+            <state relative-caret-position="345">
+              <caret line="60" column="35" lean-forward="true" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
               <folding>
                 <element signature="e#7184#7185#0" expanded="true" />
                 <element signature="e#7232#7233#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItdragonUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/util/ItdragonUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -128,6 +147,19 @@
       <find>pwd</find>
       <find>showNotice</find>
       <find>skinValue</find>
+      <find>navBar</find>
+      <find>top_tab</find>
+      <find>top_tabs</find>
+      <find>dataStr</find>
+      <find>#test</find>
+      <find>topLevelMenus</find>
+      <find>navs.json</find>
+      <find>subSys</find>
+      <find>test</find>
+      <find>teacher.do</find>
+      <find>hideMenu</find>
+      <find>seraph</find>
+      <find>web_login_bg</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -175,8 +207,17 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/content/changePwd.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/content/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/resource/js/cache.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/resource/js/formSelects.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/resource/js/index.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/resource/js/bodyTab.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/resource/css/login.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/resource/css/index.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/resource/css/login(1).css" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/content/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yyf/entity/Role.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/teacher/add.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/teacher/index.html" />
       </list>
     </option>
   </component>
@@ -197,9 +238,8 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="11" />
-    <option name="y" value="65" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
     <option name="width" value="1386" />
     <option name="height" value="785" />
   </component>
@@ -208,9 +248,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,16 +315,6 @@
               <item name="signIn" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="yyf" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="signIn" type="b2602c69:ProjectViewProjectNode" />
-              <item name="signIn" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -322,12 +349,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="teacher" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -437,11 +467,12 @@
       <workItem from="1554167752207" duration="8689000" />
       <workItem from="1554187826620" duration="10191000" />
       <workItem from="1554252725508" duration="1333000" />
+      <workItem from="1554254318630" duration="22969000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52017000" />
+    <option name="totallyTimeSpent" value="74986000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -453,7 +484,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="0" width="1386" height="785" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
@@ -465,7 +497,7 @@
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" id="Debug" order="13" weight="0.14876033" />
+      <window_info anchor="bottom" id="Debug" order="13" weight="0.16099072" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289256" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
@@ -476,9 +508,10 @@
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3289256" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info content_ui="combo" id="Project" order="7" weight="0.15204236" />
+      <window_info content_ui="combo" id="Project" order="7" weight="0.29185522" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.08049536" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -486,14 +519,14 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.5322314" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="1" />
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3289256" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
@@ -501,7 +534,6 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289256" />
@@ -510,7 +542,8 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="right" id="Maven Projects" order="9" />
-      <window_info content_ui="combo" id="Project" order="7" weight="0.15204236" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.08049536" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.29185522" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info id="Web" order="5" side_tool="true" />
@@ -518,9 +551,8 @@
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.5322314" />
+      <window_info anchor="bottom" id="Debug" order="13" weight="0.16099072" />
       <window_info anchor="right" id="Bean Validation" order="8" />
-      <window_info active="true" anchor="bottom" id="Debug" order="13" visible="true" weight="0.10247934" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +563,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="34" />
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
@@ -544,136 +576,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/log/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/systemSet/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-344">
-          <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/reg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1450">
-          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/LogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/config/ITDragonShiroRealm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="69" column="34" lean-forward="true" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/config/WebMvcConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/ApplyInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-370">
-          <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1384">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/CourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.2.5/shiro-core-1.2.5-sources.jar!/org/apache/shiro/subject/Subject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="332" column="9" selection-start-line="332" selection-start-column="9" selection-end-line="332" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/CaseJopApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-spring/1.2.5/shiro-spring-1.2.5-sources.jar!/org/apache/shiro/spring/web/ShiroFilterFactoryBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5900">
-          <caret line="131" column="11" selection-start-line="131" selection-start-column="11" selection-end-line="131" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/CheckingInController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4719">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/config/ShiroSpringConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="72" column="14" lean-forward="true" selection-start-line="72" selection-start-column="14" selection-end-line="72" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/RegisterController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/entity/SubSystemInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/entity/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1075">
-          <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/block.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="226" column="16" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="204" selection-start-line="204" selection-end-line="204" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/entity/Notice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="84" column="15" selection-start-line="84" selection-start-column="15" selection-end-line="84" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/entity/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -694,19 +596,6 @@
           <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/content/head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/image/favicon.ico">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/image/web_login_bg.jpg">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/image/logo.jpg" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/LoginController.java">
@@ -744,13 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3625">
-          <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/common/layui/css/layui.mobile.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -765,13 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1900">
-          <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.2.5/shiro-core-1.2.5-sources.jar!/org/apache/shiro/session/Session.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -779,35 +654,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1450">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/util/ItdragonUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-support/2.3.2/mybatis-plus-support-2.3.2-sources.jar!/com/baomidou/mybatisplus/mapper/BaseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="128" column="12" selection-start-line="128" selection-start-column="12" selection-end-line="128" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2800">
-          <caret line="127" column="35" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="35" />
-          <folding>
-            <element signature="e#7184#7185#0" expanded="true" />
-            <element signature="e#7232#7233#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -822,34 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-308">
           <caret line="27" column="58" lean-forward="true" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3500">
-          <caret line="166" selection-start-line="166" selection-end-line="166" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="60" column="46" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/formSelects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -869,18 +691,235 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/cache.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-256">
+        <state relative-caret-position="-4">
           <caret line="241" column="71" selection-start-line="241" selection-start-column="71" selection-end-line="241" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/content/head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/image/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/common/echarts.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="21" column="330304" selection-start-line="21" selection-start-column="330304" selection-end-line="21" selection-end-column="330304" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/userInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1767">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/jparticle.jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="153" column="12" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/common/layui/layui.all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="3" column="19409" selection-start-line="3" selection-start-column="19409" selection-end-line="3" selection-end-column="19409" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/user.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/formSelects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1263">
+          <caret line="1123" column="4" selection-start-line="1123" selection-start-column="4" selection-end-line="1123" selection-end-column="4" />
           <folding>
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#dd#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#dd#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#dd#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#dt#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2057">
+          <caret line="102" column="46" lean-forward="true" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="178" column="7" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teacher/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1084" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-775">
+          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/css/public.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="130" column="19" selection-start-line="130" selection-start-column="19" selection-end-line="130" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/image/login_ico.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/image/web_login_bg.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-404">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/image/backg1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/js/bodyTab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="20" column="150" lean-forward="true" selection-start-line="20" selection-start-column="142" selection-end-line="20" selection-end-column="150" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/resource/css/login(1).css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/content/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="61" column="69" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="69" />
+        <state relative-caret-position="25">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-support/2.3.2/mybatis-plus-support-2.3.2-sources.jar!/com/baomidou/mybatisplus/mapper/BaseMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="179" column="6" selection-start-line="179" selection-start-column="6" selection-end-line="179" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="60" column="35" lean-forward="true" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
+          <folding>
+            <element signature="e#7184#7185#0" expanded="true" />
+            <element signature="e#7232#7233#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/RoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/entity/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/impl/RoleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="52" column="30" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/TeacherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/log/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="98" column="12" selection-start-line="98" selection-start-column="12" selection-end-line="98" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teacher/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="88" column="46" selection-start-line="88" selection-start-column="46" selection-end-line="88" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teacher/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="167" column="47" selection-start-line="167" selection-start-column="47" selection-end-line="167" selection-end-column="47" />
         </state>
       </provider>
     </entry>

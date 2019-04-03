@@ -1,6 +1,8 @@
 var tabFilter,menu=[],liIndex,curNav,delMenu,
     changeRefreshStr = window.sessionStorage.getItem("changeRefresh");
+
 layui.define(["element","jquery"],function(exports){
+	//定义属性
 	var element = layui.element,
 		$ = layui.$,
 		layId,
@@ -11,7 +13,16 @@ layui.define(["element","jquery"],function(exports){
 				url : undefined  //获取菜单json地址
 			}
 		};
+
+
     //生成左侧菜单
+    /**
+	 * 最终ulHtml会得到一个带有urlhtml连接
+	 * ulHTML：基础管理 "<li class="layui-nav-item"><a><cite>用户信息</cite><span class="layui-nav-more"></span></a><dl class="layui-nav-child"><dd><a data-url="/teacher/index.do"><cite>教师信息</cite></a></dd><dd><a data-url="/student/index.do"><cite>学生信息</cite></a></dd></dl>"
+	 * 		   系统管理 "<li class="layui-nav-item"><a><cite>系统设置</cite><span class="layui-nav-more"></span></a><dl class="layui-nav-child"><dd><a data-url="/user/userManagerHouse.do"><cite>用户管理</cite></a></dd><dd><a data-url="/module/moduleManagerHouse.do"><cite>权限管理</cite></a></dd><dd><a data-url="/menu/menuManagerHouse.do"><cite>资源管理</cite></a></dd><dd><a data-url="/log/index.do"><cite>日志管理</cite></a></dd></dl></li>"
+     * @param strData
+     * @returns {string}
+     */
     Tab.prototype.navBar = function(strData){
         var data;
         if(typeof(strData) == "string"){
@@ -39,6 +50,8 @@ layui.define(["element","jquery"],function(exports){
                 ulHtml += '<span class="layui-nav-more"></span>';
                 ulHtml += '</a>';
                 ulHtml += '<dl class="layui-nav-child">';
+
+                //遍历子菜单
                 for(var j=0;j<data[i].children.length;j++){
                     if(data[i].children[j].target == "_blank"){
                         ulHtml += '<dd><a data-url="'+data[i].children[j].href+'" target="'+data[i].children[j].target+'">';
@@ -74,14 +87,16 @@ layui.define(["element","jquery"],function(exports){
         }
         return ulHtml;
     }
+
 	//获取二级菜单数据
 	Tab.prototype.render = function() {
 		//显示左侧菜单
 		var _this = this;
-		$(".navBar ul").html('<li class="layui-nav-item layui-this"><a data-url="content/main.html"><i class="layui-icon" data-icon=""></i><cite>首页</cite></a></li>').append(_this.navBar(dataStr)).height($(window).height()-90/*210 20180905*/);
-		element.init();  //初始化页面元素
+		//往首页下面append刚查询到的栏目和子栏目 dataStr
+		$(".navBar ul").html('<li class="layui-nav-item layui-this"><a data-url="content/main.html"><i class="layui-icon" data-icon=""></i><cite>首页</cite></a></li>').append(_this.navBar(dataStr)).height($(window).height()-90);
+		element.init();  //初始化页面元素210
 		$(window).resize(function(){
-			$(".navBar").height($(window).height()-90/*210 20180905*/);
+			$(".navBar").height($(window).height()-90);
 		})
 	}
 
@@ -108,6 +123,7 @@ layui.define(["element","jquery"],function(exports){
 		})
 		return layId;
 	}
+
 	//通过title判断tab是否存在
 	Tab.prototype.hasTab = function(title){
 		var tabIndex = -1;
@@ -118,6 +134,7 @@ layui.define(["element","jquery"],function(exports){
 		})
 		return tabIndex;
 	}
+
 
 	//右侧内容tab操作
 	var tabIdIndex = 0;
@@ -182,7 +199,7 @@ layui.define(["element","jquery"],function(exports){
 
 	//顶部窗口移动
 	Tab.prototype.tabMove = function(){
-		$(window).on("resize",function(event){
+		/*$(window).on("resize",function(event){
 			var topTabsBox = $("#top_tabs_box"),
 				topTabsBoxWidth = $("#top_tabs_box").width(),
 				topTabs = $("#top_tabs"),
@@ -267,7 +284,7 @@ layui.define(["element","jquery"],function(exports){
 				topTabs.removeAttr("style");
 				return false;
 			}
-		}).resize();
+		}).resize();*/
 	}
 
     //切换后获取当前窗口的内容
@@ -326,20 +343,29 @@ layui.define(["element","jquery"],function(exports){
 	})
 
 	//刷新当前
-	$(".refresh").on("click",function(){  //此处添加禁止连续点击刷新一是为了降低服务器压力，另外一个就是为了防止超快点击造成chrome本身的一些js文件的报错(不过貌似这个问题还是存在，不过概率小了很多)
+    //此处添加禁止连续点击刷新一是为了降低服务器压力，另外一个就是为了防止超快点击造成chrome本身的一些js文件的报错(不过貌似这个问题还是存在，不过概率小了很多)
+	$(".refresh").on("click",function(){
+
 		if($(this).hasClass("refreshThis")){
-			$(this).removeClass("refreshThis");
-			var iframe = $(".clildFrame .layui-show").find("iframe")[0];//.contentWindow.location.reload();
-			$(iframe).attr("src",$(iframe).attr("src"));
-			setTimeout(function(){
-				$(".refresh").addClass("refreshThis");
-			},2000)
-		}/*else{
-			layer.msg("您点击的速度超过了服务器的响应速度，还是等两秒再刷新吧！");
-		}*/
+            $(".refresh").removeClass("refreshThis");
+            setTimeout(function(){
+                var iframe = $(".clildFrame .layui-show").find("iframe")[0];
+                $(iframe).attr("src",$(iframe).attr("src"));
+                $(".refresh").addClass("refreshThis");
+                layer.msg("刷新成功《^_^》");
+            },600)
+		}else{
+            layer.msg("刷新中...");
+		}
+
 	})
 
 	//关闭其他
+    /*
+    	业务逻辑
+    	1、关闭首页之外的其他页面
+    	2、判断li标签是否是大于1
+     */
 	$(".closePageOther").on("click",function(){
 		if($("#top_tabs li").length>2 && $("#top_tabs li.layui-this cite").text()!="首页"){
 			var menu = JSON.parse(window.sessionStorage.getItem("menu"));
@@ -365,11 +391,12 @@ layui.define(["element","jquery"],function(exports){
 				}
 			})
 		}else{
-			layer.msg("没有可以关闭的窗口了@_@");
+			layer.msg("关闭其他窗口《^_^》");
 		}
 		//渲染顶部窗口
 		tab.tabMove();
 	})
+
 	//关闭全部
 	$(".closePageAll").on("click",function(){
 		if($("#top_tabs li").length > 1){
@@ -382,7 +409,7 @@ layui.define(["element","jquery"],function(exports){
 				}
 			})
 		}else{
-			layer.msg("没有可以关闭的窗口了@_@");
+			layer.msg("关闭全部窗口《^_^》");
 		}
 		//渲染顶部窗口
 		tab.tabMove();
@@ -392,4 +419,5 @@ layui.define(["element","jquery"],function(exports){
 	exports("bodyTab",function(option){
 		return bodyTab.set(option);
 	});
-})
+
+});

@@ -10,6 +10,10 @@ import java.util.List;
 
 /**
  * 角色表，决定用户可以访问的页面
+ * 2、表示超级管理员
+ * 3、表示管理员
+ * 4、教师
+ * 5、学生
  * @author itdragon
  */
 @Data

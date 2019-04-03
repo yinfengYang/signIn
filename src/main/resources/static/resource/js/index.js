@@ -32,6 +32,7 @@ layui.use(['bodyTab', 'form', 'element', 'layer', 'jquery'], function () {
         }
         $(".layui-layout-admin").removeClass("showMenu");
         $("body").addClass("site-mobile");*/
+        //调用getData()函数，渲染左侧菜单
         getData($(this).data("menu"), $(this).data("name"));
         //渲染顶部窗口
         tab.tabMove();
@@ -43,6 +44,7 @@ layui.use(['bodyTab', 'form', 'element', 'layer', 'jquery'], function () {
             layer.msg("此栏目状态下左侧菜单不可展开");  //主要为了避免左侧显示的内容与顶部菜单不匹配
             return false;
         }
+        //toggleClass方法时对设置和移除的状态切换，没有的补上，有的删除
         $(".layui-layout-admin").toggleClass("showMenu");
         /*切换左侧导航栏的展开/收回图标*/
         if ($(this).hasClass("layui-icon-shrink-right")) {
@@ -56,6 +58,7 @@ layui.use(['bodyTab', 'form', 'element', 'layer', 'jquery'], function () {
         tab.tabMove();
     })
 
+    //初始化渲染左侧菜单
     getData("482", "基础管理");//随后根据数据库存储的数据来初始化
 
     //手机设备的简单适配
@@ -174,19 +177,6 @@ function addTab(_this) {
     tab.tabAdd(_this);
 }
 
-//捐赠弹窗
-/*function donation(){
-	layer.tab({
-		area : ['260px', '367px'],
-		tab : [{
-			title : "微信",
-			content : "<div style='padding:30px;overflow:hidden;background:#d2d0d0;'><img src='images/wechat.jpg'></div>"
-		},{
-			title : "支付宝",
-			content : "<div style='padding:30px;overflow:hidden;background:#d2d0d0;'><img src='images/alipay.jpg'></div>"
-		}]
-	})
-}*/
 
 //图片管理弹窗
 function showImg() {

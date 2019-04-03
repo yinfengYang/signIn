@@ -176,8 +176,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 	//一些简单的处理方法
 	var Common = function Common() {
 		this.appender();
-		this.on();
-		this.onreset();
+        this.on();
+        this.onreset();
 	};
 
 	Common.prototype.appender = function () {
