@@ -37,10 +37,14 @@
         </div>
     </div>
 </blockquote>
+<!--定义一个table容器-->
 <table id="userTables" lay-filter="userTables"></table>
+
 <script type="text/html" id="operate">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon"></i></a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del"><i class="layui-icon"></i></a>
+    <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="startUsing"><i class="layui-icon">&#xe617;</i></a>
+    <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="forbidden"><i class="layui-icon">&#xe63f;</i></a>
 </script>
 <script type="text/html" id="header">
     <div class="layui-btn-container" style="overflow: hidden">
@@ -52,7 +56,6 @@
 <script type="text/javascript" src="/resource/common/layui/layui.js"></script>
 <script type="text/javascript" src=" /resource/js/user.js"></script>
 <script type="text/javascript">
-
 
     layui.use(['table', 'layer', 'laydate', 'form'], function () {
         var table = layui.table,
@@ -103,6 +106,7 @@
         });*/
 
         table.on('toolbar(userTables)', function (obj) {
+            //table数据条数
             var datas = table.checkStatus("tableId").data;
             //新增用户
             if (obj.event == "addUser") {
@@ -119,7 +123,7 @@
                 layer.alert("请选择数据后再进行操作！");
             } else {
                 var ids = new Array();
-                for (d in datas) {
+                for (var d in datas) {
                     ids.push(datas[d].id);
                 }
                 //删除选中
@@ -128,9 +132,11 @@
                 }
             }
         });
+
         //监听工具条
         table.on('tool(userTables)', function (obj) {
             var data = obj.data;
+            var statusMsg;
             console.log(data);
             if (obj.event === 'details') {
                 查看详情
@@ -139,10 +145,12 @@
                 delUser(data.id);
             } else if (obj.event === 'startUsing') {
                 //启用用户
-                editStatus(data.id, 1)
+                statusMsg = "启用用户";
+                editStatus(data.id, 1,statusMsg);
             } else if (obj.event === "forbidden") {
                 //禁用用户
-                editStatus(data.id, 0)
+                statusMsg = "禁用用户";
+                editStatus(data.id, 0,statusMsg);
             } else if (obj.event === "edit") {
                 //修改用户
                 layer.open({
@@ -155,6 +163,7 @@
             }
         });
 
+        //重新加载
         active = {
             reload: function () {
                 var userName = $("#userName").val();
@@ -162,7 +171,7 @@
                 //执行重载
                 table.reload('tableId', {
                         page: {
-                            curr: 1 //重新从第 1 页开始
+                            curr: 1  //重新从第 1 页开始
                         },
                         where: {
                             userName: userName,
@@ -193,8 +202,8 @@
         }
 
         //更改用户状态函数
-        function editStatus(id, status) {
-            layer.confirm('确认更改用户状态?', function (index) {
+        function editStatus(id, status,msg) {
+            layer.confirm('确认'+msg+'?', function (index) {
                 $.ajax({
                     url: "/user/status.do",
                     type: "post",
