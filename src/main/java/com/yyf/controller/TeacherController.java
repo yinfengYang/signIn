@@ -59,12 +59,13 @@ public class TeacherController {
     @GetMapping("teacher.do")
     public TableResultResponse userTables(User user, int page, int limit) {
         List<Map<String, Object>> infoList = new ArrayList<>();
-        Page<User> pageInfo = userService.getUserListByRoleId("4", page, limit);
+        Page<User> pageInfo = userService.getUserListByRoleId("4", page, limit,user);
         for (User userEntity : pageInfo.getRecords()) {
             Map<String, Object> userMap = new HashMap<>(16);
             userMap.put("id", userEntity.getId());
             userMap.put("userName", userEntity.getUserName());
             userMap.put("realName", userEntity.getRealName());
+            userMap.put("number", userEntity.getNumber());
             userMap.put("iphone", userEntity.getIphone());
             userMap.put("createdDate", userEntity.getCreatedDate() == null ? "" : userEntity.getCreatedDate().substring(0, 19));
             userMap.put("updateDate", userEntity.getUpdatedDate() == null ? "" : userEntity.getUpdatedDate().substring(0, 19));
@@ -97,6 +98,10 @@ public class TeacherController {
         User checkUser = userService.getUserByUserName(user.getUserName());
         if (checkUser != null) {
             return Result.resuleError("用户名已存在");
+        }
+        checkUser = userService.getUserByNumber(user.getNumber(),"4");
+        if(checkUser != null){
+            return Result.resuleError("教学工号已被占用");
         }
         boolean result = userService.insert(user);
         if (!result) {
@@ -162,6 +167,7 @@ public class TeacherController {
     @ResponseBody
     @PutMapping("/teacher.do")
     public ResultResponse editUser(User user) {
+
         boolean result = userService.updateByPrimaryKey(user);
         if (!result) {
             return Result.resuleError("修改失败,未知错误");

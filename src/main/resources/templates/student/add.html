@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>修改密码--layui后台管理模板 2.0</title>
+    <title>新增学生</title>
     <meta name="renderer" content="webkit"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -39,6 +39,24 @@
     </div>
     <div class="layui-form-item">
         <div class="layui-inline">
+            <label class="layui-form-label">学号</label>
+            <div class="layui-input-block">
+                <input id="number" name="number" class="layui-input layui-Myinput"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">班级</label>
+            <div class="layui-input-block">
+                <input id="classs" name="classs" class="layui-input layui-Myinput"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
             <label class="layui-form-label">真实姓名</label>
             <div class="layui-input-block">
                 <input id="realName" value="" type="text" name="realName" lay-verify="required"
@@ -54,22 +72,7 @@
             </div>
         </div>
     </div>
-    <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">学号</label>
-            <div class="layui-input-block">
-                <input id="number" name="number" class="layui-input layui-Myinput"/>
-            </div>
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <div class="layui-inline">
-            <label class="layui-form-label">班级</label>
-            <div class="layui-input-block">
-                <input id="classs" name="classs" class="layui-input layui-Myinput"/>
-            </div>
-        </div>
-    </div>
+
     <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit="" lay-filter="Submit">立即提交</button>

@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yyf.mapper.UserMapper">
+
     <!-- 根据roleId查询旗下的所有用户-->
-    <select id="selectUserListByRoleId" resultType="com.yyf.entity.User">
-		select gm_user.* from gm_user,gm_user_role where gm_user_role.roleId =#{roleId} and
+	<select id="selectUserListByRoleId" parameterType="string" resultType="com.yyf.entity.User">
+		select gm_user.* from gm_user,gm_user_role where gm_user_role.roleId =#{roleId}
+		<if test="userName!=null">
+			and gm_user.userName like CONCAT('%',#{userName,jdbcType=VARCHAR},'%')
+		</if>
+		and
 			gm_user_role.userId =gm_user.id
+	</select>
+
+	<select id="getUserByNumber" parameterType="string" resultType="com.yyf.entity.User">
+		select  gm_user.*
+			from gm_user,
+			gm_user_role
+			where gm_user.number = #{number}
+			and gm_user_role.roleId =#{roleId}
+			and gm_user_role.userId =gm_user.id
 	</select>
 </mapper>

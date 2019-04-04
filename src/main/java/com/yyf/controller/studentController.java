@@ -59,7 +59,7 @@ public class studentController {
     @GetMapping("student.do")
     public TableResultResponse userTables(User user, int page, int limit) {
         List<Map<String, Object>> infoList = new ArrayList<>();
-        Page<User> pageInfo = userService.getUserListByRoleId("5", page, limit);
+        Page<User> pageInfo = userService.getUserListByRoleId("5", page, limit,user);
         for (User userEntity : pageInfo.getRecords()) {
             Map<String, Object> userMap = new HashMap<>(16);
             userMap.put("id", userEntity.getId());
@@ -99,6 +99,10 @@ public class studentController {
         User checkUser = userService.getUserByUserName(user.getUserName());
         if (checkUser != null) {
             return Result.resuleError("用户名已存在");
+        }
+        checkUser = userService.getUserByNumber(user.getNumber(),"5");
+        if(checkUser != null){
+            return Result.resuleError("学号已被占用");
         }
         boolean result = userService.insert(user);
         if (!result) {
@@ -151,7 +155,7 @@ public class studentController {
     public ModelAndView editUserHouser(ModelAndView mv, String id) {
         User student = userService.selectByPrimaryKey(id);
         mv.addObject("student", student);
-        mv.setViewName("student/edit");
+        mv.setViewName("student/edit1");
         return mv;
     }
 
@@ -164,6 +168,7 @@ public class studentController {
     @ResponseBody
     @PutMapping("/student.do")
     public ResultResponse editUser(User user) {
+
         boolean result = userService.updateByPrimaryKey(user);
         if (!result) {
             return Result.resuleError("修改失败,未知错误");
@@ -171,4 +176,5 @@ public class studentController {
         logService.insert("修改个人信息");
         return Result.resuleSuccess();
     }
+
 }

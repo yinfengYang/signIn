@@ -143,7 +143,7 @@ public class CourseServiceImpl implements CourseService {
     public List<User> getListNoUserByCourseId(String courseId) {
         //查询出所有学生的集合
         Page<User> pageInfo = new Page<>(1, 1000);
-        List<User> userList1 = userMapper.selectUserListByRoleId(pageInfo, "5");
+        List<User> userList1 = userMapper.selectUserListByRoleId(pageInfo, "5",null);
         List<User> userList = new ArrayList<>();
         EntityWrapper<Relevance> wrapper = new EntityWrapper<>();
         wrapper.eq("courseId", courseId);

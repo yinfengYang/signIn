@@ -45,8 +45,8 @@
             <label class="layui-form-label">性别</label>
             <div class="layui-input-block userSex">
                 <select name="number">
-                    <option th:selected="${user.number} eq '1'">男</option>
-                    <option th:selected="${user.number} eq '0'">女</option>
+                    <option th:selected="${user.sex} eq '男'">男</option>
+                    <option th:selected="${user.sex} eq '女'">女</option>
                 </select>
             </div>
         </div>

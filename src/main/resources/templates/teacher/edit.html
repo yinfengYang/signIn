@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>修改密码--layui后台管理模板 2.0</title>
+    <title>教师个人信息编辑</title>
     <meta name="renderer" content="webkit"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -20,6 +20,17 @@
 <body class="index">
 
 <form class="layui-form" action="" style="margin:auto;margin-top:30px">
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">教学工号</label>
+            <div class="layui-input-block">
+                <input id="number" name="number" th:value="${teacher.number}" lay-verify="required"
+                       class="layui-input layui-Myinput" disabled="disabled"/>
+            </div>
+        </div>
+    </div>
+
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">用户名</label>

@@ -2,6 +2,7 @@ package com.yyf.service;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.yyf.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -51,7 +52,7 @@ public interface UserService {
      * @param limit
      * @return
      */
-    Page<User> getUserListByRoleId(String roleId, int page, int limit);
+    Page<User> getUserListByRoleId(String roleId, int page, int limit,User user);
 
     /**
      * 修改密码
@@ -120,4 +121,15 @@ public interface UserService {
      * 统计用户总户数
      */
     String zumNumber();
+
+    /**
+     * 查询学生所有信息
+     */
+
+    /**
+     *
+     * 根据user.number查询用户是否存在
+     */
+
+    User getUserByNumber(String userName,String roleId);
 }

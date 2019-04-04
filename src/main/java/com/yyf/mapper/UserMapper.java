@@ -22,5 +22,12 @@ public interface UserMapper extends BaseMapper<User> {
      * @param roleId
      * @return
      */
-    List<User> selectUserListByRoleId(RowBounds var1, @Param(value = "roleId") String roleId);
+    List<User> selectUserListByRoleId(RowBounds var1, @Param(value = "roleId") String roleId,@Param("userName")String userName);
+
+    /**
+     * 根据number查询用户
+     * @param number
+     * @return
+     */
+    User getUserByNumber(@Param("number") String number,@Param("roleId") String roleId);
 }

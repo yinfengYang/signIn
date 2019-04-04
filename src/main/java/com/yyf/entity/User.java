@@ -47,10 +47,11 @@ public class User implements Serializable {
      * 邮箱
      */
     private String email;
+
     /**
      * 用户来自的平台
      */
-    private String platform;
+    private String sex;
     /**
      * 用户注册时间
      */
@@ -81,6 +82,14 @@ public class User implements Serializable {
     private String number;
 
     private String classs;
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
     public String getId() {
         return id;
@@ -136,14 +145,6 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPlatform() {
-        return platform;
-    }
-
-    public void setPlatform(String platform) {
-        this.platform = platform;
     }
 
     public String getCreatedDate() {

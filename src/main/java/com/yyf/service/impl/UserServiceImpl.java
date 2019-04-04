@@ -109,9 +109,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Page<User> getUserListByRoleId(String roleId, int page, int limit) {
+    public Page<User> getUserListByRoleId(String roleId, int page, int limit,User user) {
         Page<User> pageInfo = new Page<>(page, limit);
-        List<User> userList = userMapper.selectUserListByRoleId(pageInfo, roleId);
+        List<User> userList = userMapper.selectUserListByRoleId(pageInfo, roleId,user.getUserName());
         if (!userList.isEmpty()) {
             pageInfo.setRecords(userList);
         }
@@ -210,6 +210,12 @@ public class UserServiceImpl implements UserService {
     public String zumNumber() {
         return userMapper.selectList(null).size() + "";
     }
+
+    @Override
+    public User getUserByNumber(String userName,String roleId) {
+        return userMapper.getUserByNumber(userName,roleId);
+    }
+
 
     @Override
     public boolean deleteByPrimaryKey(String ids) {

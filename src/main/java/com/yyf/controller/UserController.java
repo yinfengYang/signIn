@@ -134,7 +134,7 @@ public class UserController {
     public ResultResponse addUser(User user) {
         User checkUser = userService.getUserByUserName(user.getUserName());
         if (checkUser != null) {
-            return Result.resuleError("用户名已存在");
+            return Result.resuleError("用户名已存在或者用户编号已经被占用");
         }
         boolean result = userService.insert(user);
         if (!result) {

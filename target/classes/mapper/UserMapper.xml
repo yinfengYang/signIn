@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yyf.mapper.UserMapper">
+	<!--<resultMap id="BaseResultMap" type="com.yyf.entity.User">
+		<result column="ID" property="id" jdbcType="VARCHAR"/>
+		<result column="userName" property="userName" jdbcType="VARCHAR"/>
+		<result column="password" property="password" jdbcType="VARCHAR"/>
+		<result column="salt" property="salt" jdbcType="VARCHAR"/>
+		<result column="iphone" property="iphone" jdbcType="VARCHAR"/>
+		<result column="email" property="email" jdbcType="VARCHAR"/>
+		<result column="sex" property="sex" jdbcType="VARCHAR"/>
+		<result column="createdDate" property="createdDate" jdbcType="VARCHAR"/>
+		<result column="status" property="status" jdbcType="INTEGER"/>
+		<result column="realName" property="realName" jdbcType="VARCHAR"/>
+		<result column="address" property="address" jdbcType="VARCHAR"/>
+		<result column="number" property="number" jdbcType="VARCHAR"/>
+		<result column="classs" property="classs" jdbcType="VARCHAR"/>
+	</resultMap>-->
+
     <!-- 根据roleId查询旗下的所有用户-->
-    <select id="selectUserListByRoleId" resultType="com.yyf.entity.User">
-		select gm_user.* from gm_user,gm_user_role where gm_user_role.roleId =#{roleId} and
+	<select id="selectUserListByRoleId" parameterType="string" resultType="com.yyf.entity.User">
+		select gm_user.* from gm_user,gm_user_role where gm_user_role.roleId =#{roleId}
+		<if test="userName!=null">
+			and gm_user.userName like CONCAT('%',#{userName,jdbcType=VARCHAR},'%')
+		</if>
+		and
 			gm_user_role.userId =gm_user.id
+	</select>
+
+<!--    <select id="selectUserListByRoleId" parameterType="string" resultType="com.yyf.entity.User">
+		select  gm_user.* from gm_user,
+				gm_user_role
+				where gm_user_role.roleId =#{roleId}
+				and gm_user_role.userId =gm_user.id
+		/*select  gm_user.* from gm_user,
+				gm_user_role
+		where gm_user_role.roleId =#{roleId} and gm_user_role.userId =gm_user.id*/
+		&lt;!&ndash;<if test="userName!=null">
+		and gm_user.userName like CONCAT('%',#{userName,jdbcType=VARCHAR},'%')
+		</if>&ndash;&gt;
+
+	</select>-->
+
+	<select id="getUserByNumber" parameterType="string" resultType="com.yyf.entity.User">
+		select  gm_user.*
+			from gm_user,
+			gm_user_role
+			where gm_user.number = #{number}
+			and gm_user_role.roleId =#{roleId}
+			and gm_user_role.userId =gm_user.id
 	</select>
 </mapper>
