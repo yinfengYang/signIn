@@ -23,6 +23,22 @@
         <div class="layui-inline">
             <input class="layui-input" name="userName" id="userName" autocomplete="off" placeholder="按用户名搜索">
         </div>
+      <!--  <span class="input-group-btn">
+                            <select name="keyType" id="key_type" class="layui-btn">
+                                <option value="userid" selected="selected">userid</option>
+                                 <option value="content"  >content</option>
+                            </select>
+        </span>-->
+
+    <!--    reload:function () {
+        var keyWord=$("#keyWord").val();
+        var keyType=$("#key_type option:selected").val();
+        table.reload('contenttable',{
+        method:'post',
+        where:{keyWord:keyWord,keyType:keyType}
+        });
+        }-->
+
         <button id="searchTea" class="layui-btn layui-btn-primary layui-btn-radius" data-type="reload"><i class="layui-icon">&#xe615;</i></button>
 
     </div>
@@ -172,7 +188,7 @@
                     where: {userName: userName}
                 });
             }
-        }
+        };
 
 
           /*  reload: function () {

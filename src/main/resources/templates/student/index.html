@@ -91,7 +91,7 @@
             ]
         });
         //搜索
-        $('#search').on('click', function () {
+        $('#searchTea').on('click', function () {
             console.log("搜索执行")
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
@@ -158,21 +158,14 @@
         });
 
 
+        //搜索
         active = {
             reload: function () {
                 var userName = $("#userName").val();
-                console.log(status);
-                //执行重载
-                table
-                    .reload('tableId', {
-                        page: {
-                            curr: 1 //重新从第 1 页开始
-                        }
-                        , where: {
-                            userName: userName,
-
-                        }
-                    });
+                table.reload('tableId', {
+                    method: 'get',
+                    where: {userName: userName}
+                });
             }
         };
 
