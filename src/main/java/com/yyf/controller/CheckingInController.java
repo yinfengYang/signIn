@@ -161,7 +161,9 @@ public class CheckingInController {
     public ModelAndView addIndex(ModelAndView mv) {
         List<Course> listByType = courseService.getListByType("");
         mv.addObject("courseList", listByType);
-        Page<User> userListByRoleId = userService.getUserListByRoleId("5", 1, 1000,null);
+        User user = new User();
+        user.setRoleId("5");
+        Page<User> userListByRoleId = userService.getUserListByRoleId(1, 1000,user);
         mv.addObject("userList", userListByRoleId.getRecords());
         mv.setViewName("checkingIn/add");
         return mv;

@@ -47,12 +47,12 @@ public interface UserService {
     /**
      * 通过角色id得到下面的用户
      *
-     * @param roleId
+     * @param user
      * @param page
      * @param limit
      * @return
      */
-    Page<User> getUserListByRoleId(String roleId, int page, int limit,User user);
+    Page<User> getUserListByRoleId( int page, int limit,User user);
 
     /**
      * 修改密码

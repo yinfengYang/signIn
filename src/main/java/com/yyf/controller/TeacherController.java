@@ -1,6 +1,7 @@
 package com.yyf.controller;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.yyf.entity.Role;
 import com.yyf.entity.User;
 import com.yyf.service.LogService;
 import com.yyf.service.RoleService;
@@ -59,7 +60,7 @@ public class TeacherController {
     @GetMapping("teacher.do")
     public TableResultResponse userTables(User user, int page, int limit) {
         List<Map<String, Object>> infoList = new ArrayList<>();
-        Page<User> pageInfo = userService.getUserListByRoleId("4", page, limit,user);
+        Page<User> pageInfo = userService.getUserListByRoleId(page, limit,user);
         for (User userEntity : pageInfo.getRecords()) {
             Map<String, Object> userMap = new HashMap<>(16);
             userMap.put("id", userEntity.getId());

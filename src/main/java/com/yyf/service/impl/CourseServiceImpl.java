@@ -2,10 +2,7 @@ package com.yyf.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
-import com.yyf.entity.CheckingIn;
-import com.yyf.entity.Course;
-import com.yyf.entity.Relevance;
-import com.yyf.entity.User;
+import com.yyf.entity.*;
 import com.yyf.mapper.CheckingInMapper;
 import com.yyf.mapper.CourseMapper;
 import com.yyf.mapper.RelevanceMapper;
@@ -143,7 +140,10 @@ public class CourseServiceImpl implements CourseService {
     public List<User> getListNoUserByCourseId(String courseId) {
         //查询出所有学生的集合
         Page<User> pageInfo = new Page<>(1, 1000);
-        List<User> userList1 = userMapper.selectUserListByRoleId(pageInfo, "5",null);
+        /*List<User> userList1 = userMapper.selectUserListByRoleId(pageInfo, "5",null);*/
+        User u = new User();
+        u.setRoleId("5");
+        List<User> userList1 = userMapper.selectUserListByRoleId(pageInfo, u);
         List<User> userList = new ArrayList<>();
         EntityWrapper<Relevance> wrapper = new EntityWrapper<>();
         wrapper.eq("courseId", courseId);

@@ -61,7 +61,9 @@ public class ModuleController {
     @GetMapping("user.do")
     public TableResultResponse userTables(String roleId, int page, int limit) {
         List<Map<String, Object>> infoList = new ArrayList<>();
-        Page<User> pageInfo = userService.getUserListByRoleId(roleId, page, limit,null);
+        User user = new User();
+        user.setRoleId(roleId);
+        Page<User> pageInfo = userService.getUserListByRoleId(page, limit,user);
         int i = (page - 1) * limit + 1;
         for (User userEntity : pageInfo.getRecords()) {
             Map<String, Object> userMap = new HashMap<>(16);

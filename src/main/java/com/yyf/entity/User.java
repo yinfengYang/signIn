@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import lombok.Data;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -66,8 +65,35 @@ public class User implements Serializable {
     @TableField(exist = false)
     private List<Role> roleList;
 
+  /*  @TableField(exist = false)
+    private String role;*/
+
     @TableField(exist = false)
-    private String role;
+    private  String roleId;
+
+    @TableField(exist = false)
+    private  String keyWord;
+
+    @TableField(exist = false)
+    private  String keyType;
+
+    public String getKeyWord() {
+        return keyWord;
+    }
+
+    public void setKeyWord(String keyWord) {
+        this.keyWord = keyWord;
+    }
+
+    public String getKeyType() {
+        return keyType;
+    }
+
+    public void setKeyType(String keyType) {
+        this.keyType = keyType;
+    }
+
+
     /**
      * 用户状态，0表示用户已禁用，1表示用户可用
      */
@@ -82,6 +108,14 @@ public class User implements Serializable {
     private String number;
 
     private String classs;
+
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
 
     public String getSex() {
         return sex;
@@ -171,13 +205,13 @@ public class User implements Serializable {
         this.roleList = roleList;
     }
 
-    public String getRole() {
+   /* public String getRole() {
         return role;
     }
 
     public void setRole(String role) {
         this.role = role;
-    }
+    }*/
 
     public Integer getStatus() {
         return status;

@@ -3,13 +3,25 @@
 <mapper namespace="com.yyf.mapper.UserMapper">
 
     <!-- 根据roleId查询旗下的所有用户-->
-	<select id="selectUserListByRoleId" parameterType="string" resultType="com.yyf.entity.User">
-		select gm_user.* from gm_user,gm_user_role where gm_user_role.roleId =#{roleId}
-		<if test="userName!=null">
+	<select id="selectUserListByRoleId" parameterType="com.yyf.entity.User" resultType="com.yyf.entity.User">
+		select gm_user.* from gm_user,gm_user_role
+
+		where gm_user_role.roleId =#{roleId}
+
+		<if test="userName!=null and userName!=''">
 			and gm_user.userName like CONCAT('%',#{userName,jdbcType=VARCHAR},'%')
 		</if>
+		<if test="number!=null and number!=''">
+			and gm_user.number like CONCAT('%',#{number,jdbcType=VARCHAR},'%')
+		</if>
+		<if test="classs!=null and classs!=''">
+			and gm_user.classs like CONCAT('%',#{classs,jdbcType=VARCHAR},'%')
+		</if>
+		<if test="realName!=null and realName!=''">
+			and gm_user.realName like CONCAT('%',#{realName,jdbcType=VARCHAR},'%')
+		</if>
 		and
-			gm_user_role.userId =gm_user.id
+		gm_user_role.userId =gm_user.id
 	</select>
 
 	<select id="getUserByNumber" parameterType="string" resultType="com.yyf.entity.User">

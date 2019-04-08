@@ -109,9 +109,27 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Page<User> getUserListByRoleId(String roleId, int page, int limit,User user) {
+    public Page<User> getUserListByRoleId(int page, int limit,User user) {
+
         Page<User> pageInfo = new Page<>(page, limit);
-        List<User> userList = userMapper.selectUserListByRoleId(pageInfo, roleId,user.getUserName());
+        if (user.getKeyType() != null || user.getKeyWord() != null) {
+            if(user.getKeyType().equals("") || user.getKeyWord().equals("")){
+
+            }else if (user.getKeyType().equals("userName")) {
+                    user.setUserName(user.getKeyWord());
+            }else if (user.getKeyType().equals("number")) {
+                    user.setNumber(user.getKeyWord());
+            } else if (user.getKeyType().equals("classs")) {
+                user.setClasss(user.getKeyWord());
+            } else if (user.getKeyType().equals("realName")) {
+                user.setRealName(user.getKeyWord());
+            }
+                user.setKeyWord(null);
+                user.setKeyType(null);
+            }
+
+
+        List<User> userList = userMapper.selectUserListByRoleId(pageInfo,user);
         if (!userList.isEmpty()) {
             pageInfo.setRecords(userList);
         }

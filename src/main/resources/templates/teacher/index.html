@@ -21,25 +21,16 @@
 <blockquote class="layui-elem-quote quoteBox layui-form">
     <div class="demoTable">
         <div class="layui-inline">
-            <input class="layui-input" name="userName" id="userName" autocomplete="off" placeholder="按用户名搜索">
+            <input class="layui-input" name="keyWord" id="keyWord" autocomplete="off" placeholder="搜索教师">
         </div>
-      <!--  <span class="input-group-btn">
-                            <select name="keyType" id="key_type" class="layui-btn">
-                                <option value="userid" selected="selected">userid</option>
-                                 <option value="content"  >content</option>
+        <span class="input-group-btn layui-inline" style="width: 10%">
+                            <select name="keyType" id="key_type" lay-search="">
+                                <option value="userName" selected="selected">用户名</option>
+                                 <option value="number">教学工号</option>
+                                 <option value="realName">姓名</option>
                             </select>
-        </span>-->
-
-    <!--    reload:function () {
-        var keyWord=$("#keyWord").val();
-        var keyType=$("#key_type option:selected").val();
-        table.reload('contenttable',{
-        method:'post',
-        where:{keyWord:keyWord,keyType:keyType}
-        });
-        }-->
-
-        <button id="searchTea" class="layui-btn layui-btn-primary layui-btn-radius" data-type="reload"><i class="layui-icon">&#xe615;</i></button>
+        </span>
+        <button id="searchTea" class="layui-btn layui-btn-sm layui-btn-primary  layui-btn-radius" data-type="reload"><i class="layui-icon">&#xe615;</i></button>
 
     </div>
 
@@ -96,7 +87,9 @@
             page: true ,//开启分页
             id: 'tableId',
             where: {
-                status: 1
+                status: 1,
+                /*4,代表的是教师*/
+                roleId:"4"
             },
             limits: [10, 15, 30],
             limit: 15,
@@ -179,8 +172,17 @@
             }
         });
 
-
         active = {
+            reload: function () {
+                var keyWord = $("#keyWord").val();
+                var keyType = $("#key_type option:selected").val();
+                table.reload('tableId', {
+                    method: 'get',
+                    where: {keyWord: keyWord, keyType: keyType}
+                });
+            }
+        };
+       /* active = {
             reload: function () {
                 var userName = $("#userName").val();
                 table.reload('tableId', {
@@ -188,23 +190,8 @@
                     where: {userName: userName}
                 });
             }
-        };
+        };*/
 
-
-          /*  reload: function () {
-                var userName = $("#name").val();
-                console.log(status);
-                //执行重载
-                table.reload('tableId', {
-                        page: {
-                            curr: 1  //重新从第 1 页开始
-                        },
-                        where: {
-                            userName: userName,
-                        }
-                    });
-            }
-        }*/
 
         //删除用户函数
         function delUser(ids) {
