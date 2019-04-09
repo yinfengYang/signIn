@@ -92,17 +92,12 @@
         <div class="layui-inline">
             <label class="layui-form-label">状态</label>
             <div class="layui-input-block">
-                <!--<input id="status" name="status" type="checkbox" lay-skin="switch" lay-text="启用|禁用">-->
+                <input type="hidden" id="status1" th:value="${teacher.status}"/>
+                <input class="stat" id="status" name="status" type="checkbox"  lay-skin="switch" lay-text="启用|禁用" >
 
-                <!--input id="status" name="status" type="checkbox" lay-skin="switch" lay-text="启用|禁用" {{teacher.status ==1?"checked":"" }}>-->
                 <!--<input id="status" name="status" th:value="${teacher.status}" class="layui-input layui-Myinput"/>-->
             </div>
-            <script>
-                console.log("input");
-                var data = ${teacher};
-                    console.log(data)
-                console.log(data.status)
-            </script>
+
         </div>
     </div>
 
@@ -123,6 +118,23 @@
             $ = layui.$,
             layer = layui.layer,
             form = layui.form
+
+        var val = $("#status1").val()
+
+        if(val == 1){
+            console.log(val)
+           // $("input[type='checkbox']").attr("checked","checked" );
+            var o = $(".layui-form-switch");
+            console.log(o)
+            o.find("em").text("ON")
+            o.prop("class","layui-unselect layui-form-switch")
+
+        }
+        if(val == 0){
+            console.log(val)
+            $("#status").removeAttr("checked");
+        }
+
         form.on('submit(Submit)', function (data) {
             console.log(data.field)
             $.ajax({
