@@ -68,9 +68,11 @@ public class TeacherController {
             userMap.put("realName", userEntity.getRealName());
             userMap.put("number", userEntity.getNumber());
             userMap.put("iphone", userEntity.getIphone());
+            userMap.put("status", userEntity.getStatus());
             userMap.put("createdDate", userEntity.getCreatedDate() == null ? "" : userEntity.getCreatedDate().substring(0, 19));
             userMap.put("updateDate", userEntity.getUpdatedDate() == null ? "" : userEntity.getUpdatedDate().substring(0, 19));
             infoList.add(userMap);
+
         }
         return Result.tableResule(pageInfo.getTotal(), infoList);
     }
@@ -96,6 +98,10 @@ public class TeacherController {
     @ResponseBody
     @PostMapping("/teacher.do")
     public ResultResponse addUser(User user) {
+
+        if(!user.getPlainPassword().equals(user.getRePassword())){
+            return Result.resuleError("密码不一致,请再次输入！");
+        }
         User checkUser = userService.getUserByUserName(user.getUserName());
         if (checkUser != null) {
             return Result.resuleError("用户名已存在");

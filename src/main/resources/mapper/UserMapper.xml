@@ -8,6 +8,10 @@
 
 		where gm_user_role.roleId =#{roleId}
 
+		<if test="status!=null and status!=''">
+			and gm_user.status like CONCAT('%',#{status,jdbcType=INTEGER},'%')
+		</if>
+
 		<if test="userName!=null and userName!=''">
 			and gm_user.userName like CONCAT('%',#{userName,jdbcType=VARCHAR},'%')
 		</if>
@@ -20,8 +24,7 @@
 		<if test="realName!=null and realName!=''">
 			and gm_user.realName like CONCAT('%',#{realName,jdbcType=VARCHAR},'%')
 		</if>
-		and
-		gm_user_role.userId =gm_user.id
+		and gm_user_role.userId =gm_user.id
 	</select>
 
 	<select id="getUserByNumber" parameterType="string" resultType="com.yyf.entity.User">

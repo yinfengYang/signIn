@@ -85,6 +85,7 @@ public class ShiroSpringConfig {
         filterChainDefinitionMap.put("/home/productList.do", "anon");
         filterChainDefinitionMap.put("/home/product.do", "anon");
         filterChainDefinitionMap.put("/product/productAjax.do", "anon");
+        filterChainDefinitionMap.put("/user/details.do", "anon");
 
 
         // 用户退出，只需配置logout即可实现该功能

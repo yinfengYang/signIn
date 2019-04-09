@@ -96,6 +96,10 @@ public class studentController {
     @ResponseBody
     @PostMapping("/student.do")
     public ResultResponse addUser(User user) {
+
+        if(!user.getPlainPassword().equals(user.getRePassword())){
+            return Result.resuleError("密码不一致,请再次输入！");
+        }
         User checkUser = userService.getUserByUserName(user.getUserName());
         if (checkUser != null) {
             return Result.resuleError("用户名已存在");

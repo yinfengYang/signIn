@@ -227,4 +227,18 @@ public class UserController {
         }
         return Result.resuleSuccess();
     }
+
+    /**
+     * 用户详细信息跳转界面
+     *
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/details.do")
+    public ModelAndView detailsUserHouser(ModelAndView mv, String id) {
+        User user = userService.selectByPrimaryKey(id);
+        mv.addObject("user", user);
+        mv.setViewName("user/detail");
+        return mv;
+    }
 }

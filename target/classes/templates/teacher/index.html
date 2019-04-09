@@ -19,52 +19,37 @@
 </style>
 <body>
 <blockquote class="layui-elem-quote quoteBox layui-form">
-    <div class="demoTable">
+
+    <div>
         <div class="layui-inline">
             <input class="layui-input" name="keyWord" id="keyWord" autocomplete="off" placeholder="搜索教师">
         </div>
-        <span class="input-group-btn layui-inline" style="width: 10%">
-                            <select name="keyType" id="key_type" lay-search="">
-                                <option value="userName" selected="selected">用户名</option>
-                                 <option value="number">教学工号</option>
-                                 <option value="realName">姓名</option>
-                            </select>
-        </span>
-        <button id="searchTea" class="layui-btn layui-btn-sm layui-btn-primary  layui-btn-radius" data-type="reload"><i class="layui-icon">&#xe615;</i></button>
+        <span  class="input-group-btn layui-inline" style="width: 8%">
+                 <select name="keyType"  id="key_type" lay-search="">
+                        <option value="userName" selected="selected">用户名</option>
+                        <option value="number">教学工号</option>
+                        <option value="realName">姓名</option>
+                  </select>
 
+        </span>
+
+        <a id="searchTea" class="layui-btn layui-btn-primary layui-btn-xs layui-btn-radius" data-type="reload"><i class="layui-icon">&#xe615;</i></a>
     </div>
 
-    <!--<div class="layui-form">
-        <div class="layui-row ">
-            <div class="layui-col-md1">
-                <div class="layui-form-item">
-                   &lt;!&ndash; <label class="layui-form-label">用户名：</label>&ndash;&gt;
-                    <div class="layui-inline">
-                        <div class="layui-input-inline">
-                            <input type="text" id="name" class="layui-input" placeholder="按姓名搜索"/>
-                        </div>
-                        <div class="layui-inline">
-                            <button class="layui-btn layui-btn-radius layui-btn-primary" data-type="reload" id="searchTea"><i class="layui-icon">&#xe615;</i></button>
-                        </div>
-                    </div>
-                </div>
-         </div>
-        </div>
-    </div>-->
 </blockquote>
 <!--定义一个table容器-->
 <table id="userTables" lay-filter="userTables"></table>
 
 <script type="text/html" id="operate">
-    <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon"></i></a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon"></i></a>
-    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="startUsing"><i class="layui-icon">&#xe617;</i></a>
-    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="forbidden"><i class="layui-icon">&#xe63f;</i></a>
+    <a class="layui-btn layui-btn-xs" lay-event="details" id="details_user"><i class="layui-icon">&#xe705;</i></a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit" id="edit_user"><i class="layui-icon"></i></a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" id="del_user"><i class="layui-icon"></i></a>
 </script>
+
 <script type="text/html" id="header">
     <div class="layui-btn-container" style="overflow: hidden">
         <div style="float: right">
-            <button class="layui-btn layui-btn-sm" lay-event="addUser">新增教师</button>
+            <button class="layui-btn layui-btn-sm layui-btn-xs" lay-event="addUser"><i class="layui-icon">&#xe654;</i></button>
         </div>
     </div>
 </script>
@@ -77,6 +62,13 @@
             $ = layui.$,
             layer = layui.layer,
             form = layui.form;
+
+        //定义模板，显示用户是否禁用
+        var statusTpl = function (d) {
+            var isCkecked = d.status == "1" ?"checked":"";
+            return '<input type="checkbox" disabled="disabled" lay-skin="switch" lay-text="启用|禁用" '+ isCkecked +'> ';
+        };
+
         var otherHeight = Math.ceil($("blockquote").height() + 20);
         var tableIns = table.render({
             elem: '#userTables',
@@ -86,8 +78,8 @@
             toolbar: '#header',
             page: true ,//开启分页
             id: 'tableId',
-            where: {
-                status: 1,
+        where: {
+               /* status: 1,*/
                 /*4,代表的是教师*/
                 roleId:"4"
             },
@@ -102,10 +94,12 @@
                     {field: 'iphone', title: '电话'},
                     {field: 'createdDate', title: '创建时间'},
                     {field: 'updateDate', title: '最后一次登录时间'},
-                    {title: '操作', toolbar: '#operate', 'fixed': 'right'},
+                    {field: 'status', title: '状态',align:'center',templet: statusTpl},
+                    {title: '操作', align:'center',toolbar: '#operate', 'fixed': 'right'},
                 ]
             ]
         });
+
 
         //搜索
         $('#searchTea').on('click', function () {
@@ -113,6 +107,15 @@
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
+
+         //监听指定开关
+        /* form.on('switch(switchBtn)', function(data){
+             console.log(data)
+             layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                 offset: '6px'
+             });
+
+      });*/
 
         table.on('toolbar(userTables)', function (obj) {
             //table数据条数
@@ -123,7 +126,7 @@
                     type: 2,
                     title: "新增教师",
                     shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
+                    area: ['50%', '80%'],
                     content: "/teacher/add.do"
                 });
                 return false;
@@ -142,13 +145,25 @@
             }
         });
 
+      /*  //操作按钮过多隐藏掉的按钮，点击使之有效
+        table.on('row(userTables)', function(obj) {
+            var data = obj.data;
+            console.log("12345")
+            console.log(layui.$(obj.tr).parents('.layui-table-view').attr('lay-id'))
+            $(document).on("click", "#edit_user", function () {
+                editUserFun(data.id);
+            });
+        });*/
+
+
         //监听工具条
         table.on('tool(userTables)', function (obj) {
             var data = obj.data;
             var statusMsg;
-            console.log(data);
+            console.log(obj.event);
             if (obj.event === 'details') {
                // 查看详情
+                detailUserFun(data.id);
             } else if (obj.event === 'del') {
                 //删除
                 delUser(data.id);
@@ -161,16 +176,35 @@
                 statusMsg = "禁用教师";
                 editStatus(data.id, 0,statusMsg);
             } else if (obj.event === "edit") {
-                //修改用户
-                layer.open({
-                    type: 2,
-                    title: "修改信息",
-                    shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
-                    content: "/teacher/edit.do?id=" + data.id
-                });
+                editUserFun(data.id);
+            }else if(obj.event === "switch_user"){
+                console.log(1111134565)
             }
+
         });
+
+        //用户详细信息
+        function detailUserFun(id){
+
+            layer.open({
+                type: 2,
+                title: "教师详细信息",
+                shadeClose: false,
+                area: ['60%','90%'],
+                content: "/user/details.do?id=" + id
+            });
+        }
+
+        //修改用户
+        function editUserFun(id){
+           layer.open({
+               type: 2,
+               title: "修改信息",
+               shadeClose: false, //点击遮罩关闭层
+               area: ['50%', '80%'],
+               content: "/teacher/edit.do?id=" + id
+           });
+       }
 
         active = {
             reload: function () {

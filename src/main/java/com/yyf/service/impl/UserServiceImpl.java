@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -266,6 +267,8 @@ public class UserServiceImpl implements UserService {
                 itdragonUtils.entryptPassword(user);
             }
         }
+        //更新时间
+        user.setUpdatedDate(DateUtil.dateToString(new Date()));
         int result = userMapper.updateById(user);
 
         if (result > 0) {

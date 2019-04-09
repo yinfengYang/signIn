@@ -32,7 +32,16 @@
         <div class="layui-inline">
             <label class="layui-form-label">密码</label>
             <div class="layui-input-block">
-                <input id="passWord" value="" type="text" name="plainPassword" lay-verify="required"
+                <input id="passWord" value="" type="password" name="plainPassword" lay-verify="required"
+                       class="layui-input layui-Myinput"/>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">验证密码</label>
+            <div class="layui-input-block">
+                <input id="rePassWord" name="rePassword" value="" type="password" lay-verify="required"
                        class="layui-input layui-Myinput"/>
             </div>
         </div>
@@ -66,11 +75,21 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">邮箱</label>
+            <div class="layui-input-block">
+                <input id="email" name="email" class="layui-input layui-Myinput" lay-verify="email"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit="" lay-filter="Submit">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
+
 </form>
 <script type="text/javascript" src="/resource/common/layui/layui.js"></script>
 <script type="text/javascript" src=" /resource/js/user.js"></script>

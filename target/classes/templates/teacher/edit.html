@@ -60,6 +60,52 @@
             </div>
         </div>
     </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">性别</label>
+            <div class="layui-input-block">
+                <input id="sex" name="sex" th:value="${teacher.sex}" class="layui-input layui-Myinput"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">地址</label>
+            <div class="layui-input-block">
+                <input id="address" name="address" th:value="${teacher.address}" class="layui-input layui-Myinput"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">邮箱</label>
+            <div class="layui-input-block">
+                <input id="email" name="email" th:value="${teacher.email}" class="layui-input layui-Myinput" lay-verify="email"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+                <!--<input id="status" name="status" type="checkbox" lay-skin="switch" lay-text="启用|禁用">-->
+
+                <!--input id="status" name="status" type="checkbox" lay-skin="switch" lay-text="启用|禁用" {{teacher.status ==1?"checked":"" }}>-->
+                <!--<input id="status" name="status" th:value="${teacher.status}" class="layui-input layui-Myinput"/>-->
+            </div>
+            <script>
+                console.log("input");
+                var data = ${teacher};
+                    console.log(data)
+                console.log(data.status)
+            </script>
+        </div>
+    </div>
+
     <div class="layui-form-item">
         <div class="layui-input-block">
             <input th:value="${teacher.id}" name="id" hidden=""/>
@@ -69,9 +115,8 @@
     </div>
 </form>
 <script type="text/javascript" src="/resource/common/layui/layui.js"></script>
-<script type="text/javascript" src=" /resource/js/teacher.js"></script>
+<!--<script type="text/javascript" src="/resource/js/teacher.js"></script>-->
 <script type="text/javascript">
-
 
     layui.use(['table', 'layer', 'laydate', 'form'], function () {
         var table = layui.table,
@@ -79,6 +124,7 @@
             layer = layui.layer,
             form = layui.form
         form.on('submit(Submit)', function (data) {
+            console.log(data.field)
             $.ajax({
                 url: '/teacher/teacher.do',
                 type: 'put',
