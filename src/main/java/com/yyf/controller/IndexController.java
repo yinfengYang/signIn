@@ -46,6 +46,7 @@ public class IndexController {
     @GetMapping("/indexWbe")
     public ModelAndView index(ModelAndView mv, Model model) {
         User user = userService.selectByPrimaryKey(itdragonUtils.getSessionUser().getId());
+        //获取系统主目录
         List<SubSystemInfo> sysList = permissionService.getSubSystemInfoByUserId(user.getId());
         Map<String, LinkedHashMap<String, List<Menu>>> menuMap = permissionService.getMenuInfoByUserId(user.getId());
         JSONObject allMenu = new JSONObject();

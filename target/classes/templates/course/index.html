@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>修改密码--layui后台管理模板 2.0</title>
+    <title>课程管理</title>
     <meta name="renderer" content="webkit"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -16,7 +16,6 @@
     .layui-form-item {
         width: 350px;
     }
-
     .layui-table-cell {
         height: auto;
     }
@@ -49,7 +48,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">星期：</label>
                     <div class="layui-inline">
-                        <div class="layui-input-inline">
+                        <div class="layui-input-inline" style="width: 80%">
                             <select name="week" id="week">
                                 <option></option>
                                 <option>周一</option>
@@ -64,10 +63,10 @@
                     </div>
                 </div>
             </div>
-            <div class="layui-col-md3">
+            <div class="layui-col-md2">
                 <div class="layui-inline tableId">
-                    <button class="layui-btn" data-type="reload" id="search">搜索</button>
-                    <button class="layui-btn revocation" data-type="reload" id="revocation">撤销</button>
+                    <button class="layui-btn layui-btn-sm layui-btn-primary" data-type="reload" id="search"><i class="layui-icon">&#xe615;</i></button>
+                    <button class="layui-btn layui-btn-sm layui-btn-primary revocation" data-type="reload" id="revocation"><i class="layui-icon">&#xe65c;</i></button>
                 </div>
             </div>
         </div>

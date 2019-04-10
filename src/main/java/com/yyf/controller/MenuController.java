@@ -22,10 +22,6 @@ import java.util.Map;
 
 /**
  * 资源管理
- *
- * @author 王钰尧
- * @create 2018/10/21 10:50
- * @since 1.0.0
  */
 @Controller
 @RequestMapping("/menu")

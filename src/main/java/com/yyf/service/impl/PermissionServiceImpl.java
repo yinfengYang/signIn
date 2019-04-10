@@ -182,6 +182,7 @@ public class PermissionServiceImpl implements PermissionService {
                 tmp.put(menu.getMenuId(), menu);
             }
         }
+
         //子目录菜单信息
         List<Menu> childMenu = null;
         //主目录与子目录MAP映射

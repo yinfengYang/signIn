@@ -22,9 +22,6 @@ import java.util.Map;
 /**
  * 菜单管理接口
  *
- * @author 王钰尧
- * @create 2018/10/10 16:38
- * @since 1.0.0
  */
 @Controller
 @RequestMapping("/module")
