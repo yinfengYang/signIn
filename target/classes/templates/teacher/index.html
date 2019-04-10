@@ -89,12 +89,12 @@
                 [ //表头
                     {'type': 'checkbox', 'fixed': 'left'},
                     {field: 'userName', title: '用户名'},
-                    {field: 'realName', title: '姓名'},
+                    {field: 'realName',width:120,title: '姓名'},
                     {field: 'number', title: '教学工号'},
-                    {field: 'iphone', title: '电话'},
+                    {field: 'iphone',title: '电话'},
                     {field: 'createdDate', title: '创建时间'},
                     {field: 'updateDate', title: '最后一次登录时间'},
-                    {field: 'status', title: '状态',align:'center',templet: statusTpl},
+                    {field: 'status', width:100,title: '状态',align:'center',templet: statusTpl},
                     {title: '操作', align:'center',toolbar: '#operate', 'fixed': 'right'},
                 ]
             ]
@@ -107,15 +107,6 @@
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
-
-         //监听指定开关
-        /* form.on('switch(switchBtn)', function(data){
-             console.log(data)
-             layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
-                 offset: '6px'
-             });
-
-      });*/
 
         table.on('toolbar(userTables)', function (obj) {
             //table数据条数
@@ -167,18 +158,8 @@
             } else if (obj.event === 'del') {
                 //删除
                 delUser(data.id);
-            } else if (obj.event === 'startUsing') {
-                //启用用户
-                statusMsg = "启用教师";
-                editStatus(data.id, 1,statusMsg);
-            } else if (obj.event === "forbidden") {
-                //禁用用户
-                statusMsg = "禁用教师";
-                editStatus(data.id, 0,statusMsg);
-            } else if (obj.event === "edit") {
+            }else if (obj.event === "edit") {
                 editUserFun(data.id);
-            }else if(obj.event === "switch_user"){
-                console.log(1111134565)
             }
 
         });
@@ -248,7 +229,7 @@
             })
         }
 
-        //更改用户状态函数
+       /* //更改用户状态函数
         function editStatus(id, status,msg) {
             layer.confirm('确认'+msg+'?', function (index) {
                 $.ajax({
@@ -267,7 +248,7 @@
                 });
                 layer.close(index);
             })
-        }
+        }*/
     });
 </script>
 

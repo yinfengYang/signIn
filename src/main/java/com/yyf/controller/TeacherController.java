@@ -100,7 +100,8 @@ public class TeacherController {
     public ResultResponse addUser(User user) {
 
         if(!user.getPlainPassword().equals(user.getRePassword())){
-            return Result.resuleError("密码不一致,请再次输入！");
+
+            return Result.resuleError(user,"密码不一致,请再次输入！");
         }
         User checkUser = userService.getUserByUserName(user.getUserName());
         if (checkUser != null) {
@@ -174,7 +175,6 @@ public class TeacherController {
     @ResponseBody
     @PutMapping("/teacher.do")
     public ResultResponse editUser(User user) {
-
         boolean result = userService.updateByPrimaryKey(user);
         if (!result) {
             return Result.resuleError("修改失败,未知错误");

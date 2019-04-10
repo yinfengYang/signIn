@@ -68,6 +68,7 @@ public class studentController {
             userMap.put("classs", userEntity.getClasss());
             userMap.put("number", userEntity.getNumber());
             userMap.put("iphone", userEntity.getIphone());
+            userMap.put("status",userEntity.getStatus());
             userMap.put("createdDate", userEntity.getCreatedDate() == null ? "" : userEntity.getCreatedDate().substring(0, 19));
             userMap.put("updateDate", userEntity.getUpdatedDate() == null ? "" : userEntity.getUpdatedDate().substring(0, 19));
             infoList.add(userMap);

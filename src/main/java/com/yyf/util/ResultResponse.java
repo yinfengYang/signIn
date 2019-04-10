@@ -1,6 +1,7 @@
 package com.yyf.util;
 
 import lombok.Data;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -27,6 +28,16 @@ public class ResultResponse {
      * 返回数据
      */
     private Object obje;
+
+    private ModelAndView mv;
+
+    public ModelAndView getMv() {
+        return mv;
+    }
+
+    public void setMv(ModelAndView mv) {
+        this.mv = mv;
+    }
 
     public int getCode() {
         return code;

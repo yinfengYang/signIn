@@ -25,6 +25,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">学号</label>
             <div class="layui-input-block">
+                <input type="hidden" id="ides" th:value="${student.id}"/>
                 <input id="number" name="number" th:value="${student.number}" lay-verify="required"
                        class="layui-input layui-Myinput" disabled="disabled"/>
             </div>
@@ -80,6 +81,36 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">地址</label>
+            <div class="layui-input-block">
+                <input id="address" name="address" th:value="${student.address}" class="layui-input layui-Myinput"/>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">邮箱</label>
+            <div class="layui-input-block">
+                <input id="email" name="email" th:value="${student.email}" class="layui-input layui-Myinput" lay-verify="email"/>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+                <input type="hidden" id="status1" th:value="${student.status}"/>
+                <input id="status" type="checkbox"  lay-skin="switch" lay-filter="switchIn" lay-text="启用|禁用" >
+
+                <!--<input id="status" name="status" th:value="${teacher.status}" class="layui-input layui-Myinput"/>-->
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
         <div class="layui-input-block">
             <input th:value="${student.id}" name="id" hidden=""/>
             <button class="layui-btn" lay-submit="" lay-filter="Submit">立即提交</button>
@@ -96,6 +127,26 @@
             $ = layui.$,
             layer = layui.layer,
             form = layui.form
+
+        /*通过后端传来的状态值，控制开关是否开启或者禁用*/
+        var val = $("#status1").val()
+        if(val == 1){
+            var obj = $("#status");
+            obj.prop("checked",true );
+            obj.next().addClass("layui-form-onswitch");
+            obj.next().find("em").text("启用");
+        }
+
+        //监听指定开关
+        form.on('switch(switchIn)', function(data){
+            var id = $("#ides").val();
+            if(this.checked === true){
+                editSta(id,1,"启用");
+            }else if(this.checked === false){
+                editSta(id,0,"禁用");
+            }
+        });
+
         form.on('submit(Submit)', function (data) {
             $.ajax({
                 url: '/student/student.do',
@@ -115,6 +166,55 @@
 
             });
         });
+
+        //更改用户状态函数
+        function editSta(id, status,msg) {
+            layer.confirm('确认'+msg+'学生?',{btn:['确认','取消'],cancel: function(index, layero){
+                    //取消操作，点击右上角的X
+                    resetSwitchStatus(status);
+
+                }}, function (index) {
+                $.ajax({
+                    url: "/user/status.do",
+                    type: "post",
+                    data: {"id": id, "status": status},
+                    dataType: "json",
+                    success: function (result) {
+                        if (!result.status) {
+                            layer.msg(result.msg, {time: 2000});
+                            return false;
+                        }
+                        layer.msg("更改成功!", {time: 1000});
+                        //parent.layui.table.reload('tableId', {});
+                    }
+                });
+                layer.close(index);
+            }, function (index) {
+                //取消
+                resetSwitchStatus(status);
+
+            });
+        }
+
+        //点击改取消，重新刷新开关状态
+        function resetSwitchStatus(status){
+            console.log("jiangjiajia 傻瓜")
+            if(status === 1){
+                var obj = $("#status");
+                console.log(obj)
+                obj.removeAttr("checked");
+                obj.next().removeClass("layui-form-onswitch")
+                obj.next().find("em").text("禁用");
+
+            }else if(status === 0){
+                var obj = $("#status");
+                console.log(obj)
+                obj.prop("checked",true);
+                obj.next().addClass("layui-form-onswitch")
+                obj.next().find("em").text("启用");
+            }
+        }
+
     });
 
 </script>

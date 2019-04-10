@@ -1,5 +1,8 @@
 package com.yyf.util;
 
+import com.yyf.entity.User;
+import org.springframework.web.servlet.ModelAndView;
+
 import java.util.List;
 import java.util.Map;
 
@@ -49,6 +52,20 @@ public class Result {
 
     public static ResultResponse resuleError(String msg){
         ResultResponse response =new ResultResponse();
+        response.setMsg(msg);
+        return  response;
+    }
+    public static ResultResponse resuleError(Object o,String msg){
+        ResultResponse response =new ResultResponse();
+        response.setObje(o);
+        response.setMsg(msg);
+        return  response;
+    }
+
+    public static ResultResponse resuleError(Object o,ModelAndView mv, String msg){
+        ResultResponse response =new ResultResponse();
+        response.setObje(o);
+        response.setMv(mv);
         response.setMsg(msg);
         return  response;
     }

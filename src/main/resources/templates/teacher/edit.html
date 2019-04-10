@@ -25,6 +25,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">教学工号</label>
             <div class="layui-input-block">
+                <input type="hidden" id="ides" th:value="${teacher.id}"/>
                 <input id="number" name="number" th:value="${teacher.number}" lay-verify="required"
                        class="layui-input layui-Myinput" disabled="disabled"/>
             </div>
@@ -64,8 +65,11 @@
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">性别</label>
-            <div class="layui-input-block">
-                <input id="sex" name="sex" th:value="${teacher.sex}" class="layui-input layui-Myinput"/>
+            <div class="layui-input-block" style="width: 73%">
+                <select name="sex">
+                    <option th:selected="${teacher.sex} eq '男'">男</option>
+                    <option th:selected="${teacher.sex} eq '女'">女</option>
+                </select>
             </div>
         </div>
     </div>
@@ -93,7 +97,7 @@
             <label class="layui-form-label">状态</label>
             <div class="layui-input-block">
                 <input type="hidden" id="status1" th:value="${teacher.status}"/>
-                <input class="stat" id="status" name="status" type="checkbox"  lay-skin="switch" lay-text="启用|禁用" >
+                <input id="status" type="checkbox"  lay-skin="switch" lay-filter="switchIn" lay-text="启用|禁用" >
 
                 <!--<input id="status" name="status" th:value="${teacher.status}" class="layui-input layui-Myinput"/>-->
             </div>
@@ -119,24 +123,34 @@
             layer = layui.layer,
             form = layui.form
 
+        /*通过后端传来的状态值，控制开关是否开启或者禁用*/
         var val = $("#status1").val()
-
         if(val == 1){
-            console.log(val)
-           // $("input[type='checkbox']").attr("checked","checked" );
-            var o = $(".layui-form-switch");
-            console.log(o)
-            o.find("em").text("ON")
-            o.prop("class","layui-unselect layui-form-switch")
+                var obj = $("#status");
+                obj.prop("checked",true );
+                //layui-form-switch 通过 layui-form-onswitch class 来控制 开关是否亮色")
+                obj.next().addClass("layui-form-onswitch");
+                obj.next().find("em").text("启用");
+        }
 
-        }
-        if(val == 0){
-            console.log(val)
-            $("#status").removeAttr("checked");
-        }
+        //监听指定开关
+         form.on('switch(switchIn)', function(data){
+            var id = $("#ides").val();
+            if(this.checked === true){
+                console.log("启用教师")
+                editSta(id,1,"启用");
+            }else if(this.checked === false){
+                console.log("禁用教师")
+                editSta(id,0,"禁用");
+            }
+           /* layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                 offset: '6px'
+             });*/
+
+      });
 
         form.on('submit(Submit)', function (data) {
-            console.log(data.field)
+            console.log(data.field.status)
             $.ajax({
                 url: '/teacher/teacher.do',
                 type: 'put',
@@ -155,6 +169,55 @@
 
             });
         });
+
+        //更改用户状态函数
+        function editSta(id, status,msg) {
+            layer.confirm('确认'+msg+'教师?',{btn:['确认','取消'],cancel: function(index, layero){
+                //取消操作，点击右上角的X
+                    resetSwitchStatus(status);
+
+            }}, function (index) {
+                $.ajax({
+                    url: "/user/status.do",
+                    type: "post",
+                    data: {"id": id, "status": status},
+                    dataType: "json",
+                    success: function (result) {
+                        if (!result.status) {
+                            layer.msg(result.msg, {time: 2000});
+                            return false;
+                        }
+                        layer.msg("更改成功!", {time: 1000});
+                        //parent.layui.table.reload('tableId', {});
+                    }
+                });
+                layer.close(index);
+            }, function (index) {
+                //取消
+                resetSwitchStatus(status);
+
+            });
+        }
+
+        //点击改取消，重新刷新开关状态
+        function resetSwitchStatus(status){
+            console.log("jiangjiajia 傻瓜")
+            if(status === 1){
+                var obj = $("#status");
+                console.log(obj)
+                obj.removeAttr("checked");
+                obj.next().removeClass("layui-form-onswitch")
+                obj.next().find("em").text("禁用");
+
+            }else if(status === 0){
+                var obj = $("#status");
+                console.log(obj)
+                obj.prop("checked",true);
+                obj.next().addClass("layui-form-onswitch")
+                obj.next().find("em").text("启用");
+            }
+        }
+
     });
 
 </script>
