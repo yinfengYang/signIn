@@ -66,14 +66,11 @@ public class UserController {
             userMap.put("address", userEntity.getAddress());
             userMap.put("number", userEntity.getNumber());
             userMap.put("iphone", userEntity.getIphone());
+            userMap.put("sex", userEntity.getSex());
+            userMap.put("status", userEntity.getStatus());
             userMap.put("email", userEntity.getEmail());
             userMap.put("createdDate", userEntity.getCreatedDate() == null ? "" : userEntity.getCreatedDate().substring(0, 19));
             userMap.put("updateDate", userEntity.getUpdatedDate() == null ? "" : userEntity.getUpdatedDate().substring(0, 19));
-            if (userEntity.getStatus() == 1) {
-                userMap.put("status", "启用");
-            } else if (userEntity.getStatus() == 0) {
-                userMap.put("status", "禁用");
-            }
             infoList.add(userMap);
             i++;
         }

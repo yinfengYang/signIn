@@ -22,6 +22,17 @@
 <form class="layui-form" action="" style="margin:auto;margin-top:30px">
     <div class="layui-form-item">
         <div class="layui-inline">
+            <label class="layui-form-label">选择学期</label>
+            <div class="layui-input-block" style="width: 73%;">
+                <select name="term" id="term">
+                    <option></option>
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
             <label class="layui-form-label">课程</label>
             <div class="layui-input-block">
                 <input id="name" name="name" lay-verify="required" class="layui-input layui-Myinput"/>
@@ -80,10 +91,26 @@
             laydate = layui.laydate,
             form = layui.form;
 
+        $(function(){
+            $.ajax({
+                type:"get",
+                url:"/course/term.do",
+                dataType:"json",
+                success:function(data){
+                    $.each(data,function(index,item){
+                        $("#term").append(new Option(item.name));
+                    });
+                    layui.form.render("select");
+                },error:function () {
+                    layer.msg("查询学期失败");
+                }
+            });
+
+        });
         //时间组件
         laydate.render({
             elem: '#time'
-            , type: 'time'
+            ,type: 'time'
         });
 
         form.on('submit(Submit)', function (data) {

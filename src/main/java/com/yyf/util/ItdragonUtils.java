@@ -85,6 +85,11 @@ public class ItdragonUtils {
         return currentUser.isAuthenticated();
     }
 
+    /**
+     * 判断string数据是否为空
+     * 返回true 不为空
+     * 返回 false  为空
+     * */
     public static boolean stringIsNotBlack(String string) {
         if (string != null && !"".equals(string)) {
             return true;

@@ -3,9 +3,11 @@ package com.yyf.controller;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.yyf.entity.Course;
 import com.yyf.entity.Relevance;
+import com.yyf.entity.Term;
 import com.yyf.entity.User;
 import com.yyf.service.CheckingInService;
 import com.yyf.service.CourseService;
+import com.yyf.service.TermService;
 import com.yyf.service.UserService;
 import com.yyf.util.ItdragonUtils;
 import com.yyf.util.Result;
@@ -39,6 +41,8 @@ public class CourseController {
     private CheckingInService checkingInService;
     @Autowired
     private ItdragonUtils itdragonUtils;
+    @Autowired
+    private TermService termService;
 
     /**
      * 管理界面跳转
@@ -50,6 +54,19 @@ public class CourseController {
     public ModelAndView enIndex(ModelAndView mv) {
         mv.setViewName("course/index");
         return mv;
+    }
+
+    /**
+     *获取学期跳转界面
+     *
+     * @param
+     * @return
+     */
+    @RequestMapping("/term.do")
+    @ResponseBody
+    public List<Term> editEnIndex() {
+        List<Term> termList = termService.getAllTerm();
+        return termList;
     }
 
     /**
@@ -68,15 +85,17 @@ public class CourseController {
         Page<Course> pageInfo = courseService.selectPage(course, page, limit);
         for (Course record : pageInfo.getRecords()) {
             Map<String, Object> resultMap = new HashMap<>(16);
-            resultMap.put("id", record.getId());
+            resultMap.put("id",   record.getId());
             resultMap.put("name", record.getName());
             resultMap.put("room", record.getRoom());
             resultMap.put("week", record.getWeek());
-            resultMap.put("state", record.getState());
+            resultMap.put("state",record.getState());
+            resultMap.put("term", record.getTerm());
             //学生集合
             List<User> userList = courseService.getListByUserId(record.getId());
             String users = "";
             for (User user : userList) {
+                //返回带样式的users集合
                 users = users + "&nbsp;&nbsp; <span onclick=\"delStudent('" + user.getId() + "','" + record.getId() + "')\" style=\"color: #1e9fff\">" + user.getUserName() + "</span>";
             }
             resultMap.put("users", users);
@@ -108,7 +127,7 @@ public class CourseController {
     @ResponseBody
     @PostMapping("/course.do")
     public ResultResponse add(Course course) {
-        course.setTime("2000-10-10 " + course.getTime());
+
         boolean result = courseService.insert(course);
         if (!result) {
             return Result.resuleError("新增失败");

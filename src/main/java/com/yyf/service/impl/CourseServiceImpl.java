@@ -8,11 +8,14 @@ import com.yyf.mapper.CourseMapper;
 import com.yyf.mapper.RelevanceMapper;
 import com.yyf.mapper.UserMapper;
 import com.yyf.service.CourseService;
+import com.yyf.util.DateUtil;
 import com.yyf.util.ItdragonUtils;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.util.DateUtils;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,22 +39,27 @@ public class CourseServiceImpl implements CourseService {
     private CheckingInMapper checkingInMapper;
 
     @Override
-    public Page<Course> selectPage(Course Course, int page, int limit) {
+    public Page<Course> selectPage(Course course, int page, int limit) {
         EntityWrapper<Course> searchInfo = new EntityWrapper<>();
         Page<Course> pageInfo = new Page<>(page, limit);
-        if (ItdragonUtils.stringIsNotBlack(Course.getName())) {
-            searchInfo.like("name", Course.getName());
+        //mybatis-plus 条件查询实现的一种方法
+
+        if (ItdragonUtils.stringIsNotBlack(course.getName())) {
+            //mybatis-plus的模糊查询
+            searchInfo.like("name", course.getName());
         }
-        if (ItdragonUtils.stringIsNotBlack(Course.getRoom())) {
-            searchInfo.eq("room", Course.getRoom());
+        if (ItdragonUtils.stringIsNotBlack(course.getTerm())) {
+            searchInfo.eq("term", course.getTerm());
         }
-        if (ItdragonUtils.stringIsNotBlack(Course.getWeek())) {
-            searchInfo.eq("week", Course.getWeek());
+        if (ItdragonUtils.stringIsNotBlack(course.getWeek())) {
+            searchInfo.eq("week", course.getWeek());
         }
-        if (ItdragonUtils.stringIsNotBlack(Course.getUserId())) {
-            searchInfo.eq("userId", Course.getUserId());
+        if (ItdragonUtils.stringIsNotBlack(course.getUserId())) {
+            searchInfo.eq("userId", course.getUserId());
         }
         searchInfo.orderBy("time desc");
+
+        //mybatis-plus分页查询
         List<Course> resultList = CourseMapper.selectPage(pageInfo, searchInfo);
         if (!resultList.isEmpty()) {
             pageInfo.setRecords(resultList);
@@ -60,10 +68,13 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public boolean insert(Course Course) {
-        Course.setState("关闭");
-        Course.setUserId(itdragonUtils.getSessionUser().getId());
-        Integer insert = CourseMapper.insert(Course);
+    public boolean insert(Course course) {
+
+
+      //  course.setTime(DateUtil.getTimeN()+"-"+ course.getTime());
+        course.setState("关闭");
+        course.setUserId(itdragonUtils.getSessionUser().getId());
+        Integer insert = CourseMapper.insert(course);
         if (insert > 0) {
             return true;
         }

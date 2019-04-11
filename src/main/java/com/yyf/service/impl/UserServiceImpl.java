@@ -11,6 +11,7 @@ import com.yyf.mapper.UserMapper;
 import com.yyf.service.UserService;
 import com.yyf.util.DateUtil;
 import com.yyf.util.ItdragonUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -27,13 +28,13 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl implements UserService {
-    @Resource
+    @Autowired
     private UserMapper userMapper;
-    @Resource
+    @Autowired
     private RoleMapper roleMapper;
-    @Resource
+    @Autowired
     private PermissionMapper permissionMapper;
-    @Resource
+    @Autowired
     private ItdragonUtils itdragonUtils;
 
     @Override

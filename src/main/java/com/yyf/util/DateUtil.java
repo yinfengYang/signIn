@@ -24,8 +24,12 @@ public class DateUtil {
      * 获取现在的年月
      * @return
      */
-    public static String getTimeNY() {
+public static String getTimeNY() {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM");
+        return sf.format(new Date());
+    }
+public static String getTimeN() {
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy");
         return sf.format(new Date());
     }
 

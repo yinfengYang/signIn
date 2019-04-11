@@ -48,7 +48,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">星期：</label>
                     <div class="layui-inline">
-                        <div class="layui-input-inline" style="width: 80%">
+                        <div class="layui-input-inline" style="width: 70%">
                             <select name="week" id="week">
                                 <option></option>
                                 <option>周一</option>
@@ -63,10 +63,26 @@
                     </div>
                 </div>
             </div>
-            <div class="layui-col-md2">
+            <div class="layui-col-md3">
                 <div class="layui-inline tableId">
                     <button class="layui-btn layui-btn-sm layui-btn-primary" data-type="reload" id="search"><i class="layui-icon">&#xe615;</i></button>
                     <button class="layui-btn layui-btn-sm layui-btn-primary revocation" data-type="reload" id="revocation"><i class="layui-icon">&#xe65c;</i></button>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row ">
+            <div class="layui-col-md3">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">选择学期</label>
+                    <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <select name="term" id="term">
+                                <option></option>
+                                <option value=""></option>
+                            </select>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,6 +90,7 @@
     </div>
 </blockquote>
 <table id="userTables" lay-filter="userTables"></table>
+<!--验证当前用户是否拥有指定权限-->
 <shiro:hasPermission name="button:course:index:caozuo">
     <script type="text/html" id="operate">
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
@@ -90,7 +107,7 @@
     <script type="text/html" id="header">
         <div class="layui-btn-container" style="overflow: hidden">
             <div style="float: right">
-                <button class="layui-btn layui-btn-sm" lay-event="addUser">新增我的课程</button>
+                <button class="layui-btn layui-btn-sm" lay-event="addCourse">新增我的课程</button>
             </div>
         </div>
     </script>
@@ -105,6 +122,25 @@
             $ = layui.$,
             layer = layui.layer,
             form = layui.form;
+
+            //select 框数据从数据库渲染
+            $(function(){
+                $.ajax({
+                    type:"get",
+                    url:"/course/term.do",
+                    dataType:"json",
+                    success:function(data){
+                        $.each(data,function(index,item){
+                            $("#term").append(new Option(item.name));
+                        });
+                        layui.form.render("select");
+                    },error:function () {
+                        layer.msg("查询学期失败");
+                    }
+                });
+
+            });
+
         var otherHeight = Math.ceil($("blockquote").height() + 20);
         var tableIns = table.render({
             elem: '#userTables'
@@ -121,20 +157,20 @@
             , limit: 15
             , cols: [
                 [ //表头
-
-                    {field: 'name', title: '课程'}
-                    , {field: 'time', title: '上课时间'}
-                    , {field: 'week', title: '星期'}
-                    , {field: 'room', title: '教室'}
-                    , {field: 'userName', title: '任课教师'}
-                    , {field: 'users', title: '学生'}
-                    , {title: '操作', toolbar: '#operate', 'fixed': 'right', 'width': 350}
+                    /*{field: 'term', title: 'term', width: 50,style:'display:none;'},*/
+                    { field: 'name', title: '课程'},
+                     {field: 'time', title: '上课时间'},
+                     {field: 'week', title: '星期'},
+                     {field: 'room', title: '教室'},
+                     {field: 'userName', title: '任课教师'},
+                    /*逻辑有错，应该是点击进去查看学生详细信息，包括学号，姓名，班级，电话*/
+                     {field: 'users', title: '学生'},
+                     {title: '操作', toolbar: '#operate', 'fixed': 'right', 'width': 350}
                 ]
             ]
         });
         //搜索
         $('#search').on('click', function () {
-            console.log("搜索执行")
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
@@ -143,19 +179,21 @@
             $("#name").val("");
             $("#room").val("");
             $("#week").val("");
+            $("#term").val("");
             form.render();
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : ''
         });
+
         table.on('toolbar(userTables)', function (obj) {
             var datas = table.checkStatus("tableId").data;
-            if (obj.event == "addUser") {
-                //新增用户
+            if (obj.event == "addCourse") {
+                //新增课程
                 layer.open({
                     type: 2,
-                    title: "新增教师",
+                    title: "新增课程",
                     shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
+                    area: ['50%', '85%'],
                     content: "/course/add.do"
                 });
                 return false;
@@ -245,7 +283,8 @@
                 var name = $("#name").val();
                 var week = $("#week").val();
                 var room = $("#room").val();
-                console.log(status);
+                var term = $("#term").val();
+
                 //执行重载
                 table
                     .reload('tableId', {
@@ -256,6 +295,7 @@
                             name: name,
                             week: week,
                             room: room,
+                            term: term
 
                         }
                     });
