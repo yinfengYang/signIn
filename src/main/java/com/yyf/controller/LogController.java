@@ -86,4 +86,20 @@ public class LogController {
         }
         return Result.resuleSuccess();
     }
+
+    /**
+     * 删除
+     *
+     * @param
+     * @return
+     */
+    @ResponseBody
+    @DeleteMapping("/clear.do")
+    public ResultResponse clearLog() {
+        boolean result = logService.clearLog();
+        if (!result) {
+            return Result.resuleError("删除失败");
+        }
+        return Result.resuleSuccess();
+    }
 }

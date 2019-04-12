@@ -20,8 +20,8 @@
             资源类型：
             <div class="layui-inline">
                 <div class="layui-input-inline">
-                    <select id="permissionType" name="modules" lay-verify="required" lay-search="">
-                        <option value="">直接选择或搜索选择</option>
+                    <select id="permissionType" name="modules" lay-verify="required">
+                        <option></option>
                         <option value="menu">menu</option>
                         <option value="button">button</option>
                         <option value="subsystem">subsystem</option>
@@ -61,21 +61,21 @@
             form = layui.form
         var roleId = [[${roleId}]];
         var tableIns = table.render({
-            elem: '#permissionTables'
-            , cellMinWidth: 100
-            , url: '/permission/permissionForTable.do' //数据接口
-            , method: 'get'
-            , toolbar: '#header'
-            , id: 'tableId'
-            , where: {
+            elem: '#permissionTables',
+            cellMinWidth: 100,
+            url: '/permission/permissionForTable.do', //数据接口
+            method: 'get',
+            toolbar: '#header',
+            id: 'tableId',
+            where: {
                 roleId: roleId
-            }
-            , cols: [
+            },
+            cols: [
                 [ //表头
-                    {'type': 'checkbox', 'fixed': 'left'}
-                    , {field: 'permissionName', title: '资源名'}
-                    , {field: 'permissionType', title: '类型'}
-                    , {field: 'url', title: '资源路径'}
+                    {'type': 'checkbox', 'fixed': 'left'},
+                    {field: 'permissionName', title: '资源名'},
+                    {field: 'permissionType', title: '类型'},
+                    {field: 'url', title: '资源路径'}
                 ]
             ]
         });
@@ -135,6 +135,8 @@
             reload: function () {
                 var permissionType = $('#permissionType').val();
                 var permissionName = $('#permissionName').val();
+                console.log(permissionType)
+                console.log(permissionName)
                 //执行重载
                 table.reload('tableId', {
                     where: {

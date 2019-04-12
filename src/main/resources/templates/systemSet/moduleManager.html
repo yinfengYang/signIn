@@ -19,19 +19,20 @@
     }
 
     .expa {
-        border-right: 6px solid #009688;
+        border-right: 6px solid #5F9EA0;
         height: 934px;
     }
 </style>
 <body>
 <div class="layui-row">
     <div class="layui-col-md1 expa">
-        <button class="layui-btn layui-btn-xs" lay-event="addRole">添加角色</button>
-        <button class="layui-btn layui-btn-xs" lay-event="addRole">删除角色</button>
+        <a class="layui-btn layui-btn-xs"  style="margin: 10px" lay-event="addRole">添加角色</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" style="margin-top: 10px" lay-event="addRole">删除角色</a>
         <!--树-->
-        <ul id="moduleTree" style="margin-top: 10px"></ul>
+     <ul id="moduleTree" style="margin-top: 10px"></ul>
     </div>
     <div class="layui-col-md11">
+        <!--定义右侧两个表格-->
         <table id="moduleTables" lay-filter="moduleTables"></table>
         <table id="table1" class="layui-table" lay-filter="table1"></table>
     </div>
@@ -59,6 +60,9 @@
 </script>
 <script type="text/javascript" src="/resource/common/layui/layui.js"></script>
 <script type="text/javascript" th:inline="javascript">
+    /*
+    layui config的设置是全局,设定扩展模块
+    */
     layui.config({
         base: '/resource/'
     }).extend({
@@ -70,21 +74,22 @@
             layer = layui.layer,
             form = layui.form;
         var treetable = layui.treetable;
+        //获取ModelAndView 传过来的值
         var roleList = [[${roleList}]];
         console.log(roleList)
         var roleId;
         //树
         layui.tree({
-            elem: '#moduleTree' //传入元素选择器
-            , nodes: [{ //节点
-                name: '角色列'
+            elem: '#moduleTree' ,//传入元素选择器,
+                nodes: [{ //节点
+                name: '角色'
                 , children: roleList
             }]
             //点击函数
             , click: function (node) {
                 console.log(node) //node即为当前点击的节点数据
                 roleId = node.id;
-                if (node.name != "角色列") {
+                if (node.name != "角色") {
                     active.reload();
                     renderTable(roleId);
                 }
@@ -92,32 +97,34 @@
         });
         //用户列表
         var tableIns = table.render({
-            elem: '#moduleTables'
-            , url: '/module/user.do' //数据接口
-            , method: 'get'
-            , toolbar: '#header'
-            , page: true //开启分页
-            , id: 'tableId'
-            , where: {
+            elem: '#moduleTables',
+            url: '/module/user.do' ,//数据接口,
+            method: 'get',
+            toolbar: '#header',
+            page: true ,//开启分页,
+            id: 'tableId',
+            where: {
                 roleId: roleId
-            }
-            , limits: [10, 15, 30]
-            , limit: 15
-            , cols: [
+            },
+            limits: [10, 15, 30],
+            limit: 15,
+            cols: [
                 [ //表头
-                    {'type': 'checkbox', 'fixed': 'left'}
-                    , {field: 'index', title: '序号'}
-                    , {field: 'userName', title: '用户名'}
-                    , {field: 'iphone', title: '手机号'}
-                    , {field: 'email', title: '电子邮件'}
-                    , {field: 'createdDate', title: '创建时间'}
-                    , {field: 'updateDate', title: '最后一次登录时间'}
-                    , {field: 'status', title: '状态'}
-                    , {title: '操作', toolbar: '#operate', 'fixed': 'right'}
+                    {'type': 'checkbox', 'fixed': 'left'},
+                    {field: 'index', title: '序号'},
+                    {field: 'userName', title: '用户名'},
+                    {field: 'iphone', title: '手机号'},
+                    {field: 'email', title: '电子邮件'},
+                    {field: 'createdDate', title: '创建时间'},
+                    {field: 'updateDate', title: '最后一次登录时间'},
+                    {field: 'status', title: '状态'},
+                    {title: '操作', toolbar: '#operate', 'fixed': 'right'}
                 ]
             ]
         });
+        //添加权限表
         renderTable();
+
         //监听用户列的头部工具
         table.on('toolbar(moduleTables)', function (obj) {
             if (obj.event == "addUser") {
@@ -146,7 +153,7 @@
                     type: 2,
                     title: "添加权限",
                     shadeClose: false, //点击遮罩关闭层
-                    area: ['1300px', '700px'],
+                    area: ['1170px', '500px'],
                     content: "/permission/addPermissionForRole.do?roleId=" + roleId
                 });
             }

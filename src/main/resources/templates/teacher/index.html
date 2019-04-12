@@ -150,8 +150,6 @@
         //监听工具条
         table.on('tool(userTables)', function (obj) {
             var data = obj.data;
-            var statusMsg;
-            console.log(obj.event);
             if (obj.event === 'details') {
                // 查看详情
                 detailUserFun(data.id);
@@ -229,26 +227,6 @@
             })
         }
 
-       /* //更改用户状态函数
-        function editStatus(id, status,msg) {
-            layer.confirm('确认'+msg+'?', function (index) {
-                $.ajax({
-                    url: "/user/status.do",
-                    type: "post",
-                    data: {"id": id, "status": status},
-                    dataType: "json",
-                    success: function (result) {
-                        if (!result.status) {
-                            layer.msg(result.msg, {time: 2000});
-                            return false;
-                        }
-                        layer.msg("更改成功!", {time: 1000});
-                        active.reload();
-                    }
-                });
-                layer.close(index);
-            })
-        }*/
     });
 </script>
 

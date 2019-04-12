@@ -62,7 +62,7 @@ public class PermissionServiceImpl implements PermissionService {
             searchInfo.eq("permissionType", permissionType);
         }
         if (permissionName != null && !"".equals(permissionName)) {
-            searchInfo.eq("permissionName", permissionName);
+            searchInfo.like("permissionName", permissionName);
         }
         searchInfo.ne("permissionName", "资源管理");
         searchInfo.ne("permissionId", "334");

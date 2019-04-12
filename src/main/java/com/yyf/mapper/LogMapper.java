@@ -11,4 +11,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 public interface LogMapper extends BaseMapper<Log> {
 
+    Integer clearLog();
+
 }

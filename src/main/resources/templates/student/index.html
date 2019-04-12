@@ -201,26 +201,6 @@
             })
         }
 
-        //更改用户状态函数
-        function editStatus(id, status) {
-            layer.confirm('确认更改用户状态?', function (index) {
-                $.ajax({
-                    url: "/user/status.do",
-                    type: "post",
-                    data: {"id": id, "status": status},
-                    dataType: "json",
-                    success: function (result) {
-                        if (!result.status) {
-                            layer.msg(result.msg, {time: 2000});
-                            return false;
-                        }
-                        layer.msg("更改成功!", {time: 1000});
-                        active.reload();
-                    }
-                });
-                layer.close(index);
-            })
-        }
     });
 </script>
 

@@ -25,11 +25,11 @@
 </style>
 <body>
 <div class="layui-row">
-    <div class="layui-col-md1 expa">
+    <div class="layui-col-md2 expa">
         <!--树-->
         <ul id="moduleTree" style="margin-top: 10px"></ul>
     </div>
-    <div class="layui-col-md11">
+    <div class="layui-col-md10">
         <table id="moduleTables" lay-filter="moduleTables"></table>
     </div>
 </div>
@@ -87,13 +87,13 @@
             , limit: 15
             , cols: [
                 [ //表头
-                    {'type': 'checkbox', 'fixed': 'left'}
-                    , {field: 'index', title: '序号'}
-                    , {field: 'permissionName', title: '资源名'}
-                    , {field: 'permissionMark', title: '权限标识'}
-                    , {field: 'permissionType', title: '资源类型'}
-                    , {field: 'url', title: 'url'}
-                    , {title: '操作', toolbar: '#operate', 'fixed': 'right'}
+                    {'type': 'checkbox', 'fixed': 'left'},
+                    {field: 'index', title: '序号'},
+                    {field: 'permissionName', title: '资源名'},
+                    {field: 'permissionMark', title: '权限标识'},
+                    {field: 'permissionType', title: '资源类型'},
+                    {field: 'url', title: 'url'},
+                    {title: '操作', toolbar: '#operate', 'fixed': 'right'}
                 ]
             ]
         });

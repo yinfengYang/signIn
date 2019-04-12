@@ -21,7 +21,7 @@
 <blockquote class="layui-elem-quote quoteBox layui-form">
     <div class="layui-form">
         <div class="layui-row ">
-            <div class="layui-col-md3">
+            <div class="layui-col-md3" style="width: 30%">
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户名：</label>
                     <div class="layui-inline">
@@ -31,10 +31,16 @@
                     </div>
                 </div>
             </div>
+            <div class="layui-col-md2" style="width: 30%">
+                <div class="layui-inline tableId">
+                    <button class="layui-btn" data-type="reload" id="search"><i class="layui-icon">&#xe615;</i></button>
+                    <button class="layui-btn revocation" data-type="reload" id="revocation"><i class="layui-icon">&#xe65c;</i></button>
+                </div>
+            </div>
+
             <div class="layui-col-md2">
                 <div class="layui-inline tableId">
-                    <button class="layui-btn" data-type="reload" id="search">搜索</button>
-                    <button class="layui-btn revocation" data-type="reload" id="revocation">撤销</button>
+                    <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="reload" id="clear_log"><i class="layui-icon">清空日志</i></button>
                 </div>
             </div>
         </div>
@@ -44,7 +50,7 @@
 <table id="logTables" lay-filter="logTables"></table>
 <!--<shiro:hasPermission name="button:student:index:edit">-->
 <script type="text/html" id="operate">
-    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
 </script>
 <!--</shiro:hasPermission>-->
 <script type="text/javascript" src="/resource/common/layui/layui.js"></script>
@@ -56,35 +62,58 @@
             layer = layui.layer,
             form = layui.form;
         var tableIns = table.render({
-            elem: '#logTables'
-            , url: '/log/log.do' //数据接口
-            , method: 'get'
-            , toolbar: '#header'
-            , page: true //开启分页
-            , id: 'tableId'
-            , limits: [10, 15, 30]
-            , limit: 15
-            , cols: [
+            elem: '#logTables',
+            url: '/log/log.do', //数据接口
+            method: 'get',
+            toolbar: '#header',
+            page: true ,//开启分页,
+            id: 'tableId',
+            limits: [10, 15, 30],
+            limit: 15,
+            cols: [
                 [ //表头
-                    {field: 'userName', title: '用户名'}
-                    , {field: 'time', title: '记录时间'}
-                    , {field: 'operation', title: '相关操作'}
-                    , {title: '操作', toolbar: '#operate', 'fixed': 'right'}
+                    {field: 'userName', title: '用户名'},
+                    {field: 'time', title: '记录时间'},
+                    {field: 'operation', title: '相关操作'},
+                    {title: '操作', width: 80,align:'center',toolbar: '#operate', 'fixed': 'right'}
                 ]
             ]
         });
+
         //搜索
         $('#search').on('click', function () {
-            console.log("搜索执行")
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
+
         //撤销
         $("#revocation").on('click', function () {
-            $("#type").val("");
+            $("#userName").val("");
             form.render();
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : ''
+        });
+
+        //清空日志数据库
+        $("#clear_log").on('click',function () {
+
+            layer.confirm('是否清空所有日志?', function (index) {
+                $.ajax({
+                    url: "/log/clear.do",
+                    type: "post",
+                    data: {_method: "DELETE"},
+                    dataType: "json",
+                    success: function (result) {
+                        if (!result.status) {
+                            layer.msg(result.msg, {time: 2000});
+                            return false;
+                        }
+                        layer.msg("清空成功!", {time: 1000});
+                        active.reload();
+                    }
+                });
+                layer.close(index);
+            })
         });
         //监听工具条
         table.on('tool(logTables)', function (obj) {
@@ -99,12 +128,11 @@
             reload: function () {
                 var userName = $("#userName").val();
                 //执行重载
-                table
-                    .reload('tableId', {
+                table.reload('tableId', {
                         page: {
                             curr: 1 //重新从第 1 页开始
-                        }
-                        , where: {
+                        },
+                        where: {
                             userName: userName,
                         }
                     });

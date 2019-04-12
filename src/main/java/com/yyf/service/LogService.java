@@ -27,5 +27,14 @@ public interface LogService {
      */
     boolean delById(String id);
 
+    /**
+     * 清空日志表
+     * @param
+     * @return
+     */
+
+    boolean clearLog();
+
+
 
 }

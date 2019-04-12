@@ -22,7 +22,7 @@ import java.util.List;
 @Service
 public class LogServiceImpl implements LogService {
     @Resource
-    private LogMapper LogMapper;
+    private LogMapper logMapper;
     @Resource
     private ItdragonUtils itdragonUtils;
 
@@ -31,10 +31,10 @@ public class LogServiceImpl implements LogService {
         EntityWrapper<Log> searchInfo = new EntityWrapper<>();
         Page<Log> pageInfo = new Page<>(page, limit);
         if (ItdragonUtils.stringIsNotBlack(Log.getUserName())) {
-            searchInfo.eq("type", Log.getUserName());
+            searchInfo.eq("userName", Log.getUserName());
         }
         searchInfo.orderBy("time desc");
-        List<Log> resultList = LogMapper.selectPage(pageInfo, searchInfo);
+        List<Log> resultList = logMapper.selectPage(pageInfo, searchInfo);
         if (!resultList.isEmpty()) {
             pageInfo.setRecords(resultList);
         }
@@ -52,7 +52,7 @@ public class LogServiceImpl implements LogService {
         log.setOperation(operation);
         log.setTime(DateUtil.getNowDateSS());
         log.setUserName(itdragonUtils.getSessionUser().getUserName());
-        Integer insert = LogMapper.insert(log);
+        Integer insert = logMapper.insert(log);
         if (insert > 0) {
             return true;
         }
@@ -61,10 +61,19 @@ public class LogServiceImpl implements LogService {
 
     @Override
     public boolean delById(String id) {
-        Integer delete = LogMapper.deleteById(id);
+        Integer delete = logMapper.deleteById(id);
         if (delete > 0) {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean clearLog() {
+        Integer result = logMapper.clearLog();
+        if(result > 0){
+            return true;
+        }
+            return false;
     }
 }

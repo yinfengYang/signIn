@@ -57,6 +57,18 @@ public class CourseController {
     }
 
     /**
+     * 管理界面跳转
+     *
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/stu_cource.do")
+    public ModelAndView stu_cource(ModelAndView mv) {
+        mv.setViewName("course/student/selectedCourse");
+        return mv;
+    }
+
+    /**
      *获取学期跳转界面
      *
      * @param
@@ -178,6 +190,22 @@ public class CourseController {
         List<User> userList = courseService.getListNoUserByCourseId(id);
         mv.addObject("userList", userList);
         mv.setViewName("course/addStudent");
+        return mv;
+    }
+
+    /**
+     * 查看选课学生跳转界面
+     *
+     * @param mv
+     * @return
+     */
+
+    @RequestMapping("/lookStudent.do")
+    public ModelAndView lookStudent(ModelAndView mv, String id) {
+        mv.addObject("id", id);
+        List<User> userList = courseService.getListNoUserByCourseId(id);
+        mv.addObject("userList", userList);
+        mv.setViewName("course/lookStudent");
         return mv;
     }
 

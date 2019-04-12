@@ -56,6 +56,7 @@ public class UserController {
     @GetMapping("user.do")
     public TableResultResponse userTables(User user, int page, int limit) {
         List<Map<String, Object>> infoList = new ArrayList<>();
+        //序号自动增加删减
         Page<User> pageInfo = userService.getUserList(user, page, limit);
         int i = (page - 1) * limit + 1;
         for (User userEntity : pageInfo.getRecords()) {
@@ -63,6 +64,7 @@ public class UserController {
             userMap.put("index", i + "");
             userMap.put("id", userEntity.getId());
             userMap.put("userName", userEntity.getUserName());
+            userMap.put("realName", userEntity.getRealName());
             userMap.put("address", userEntity.getAddress());
             userMap.put("number", userEntity.getNumber());
             userMap.put("iphone", userEntity.getIphone());

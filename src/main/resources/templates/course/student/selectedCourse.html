@@ -91,11 +91,7 @@
 </blockquote>
 <table id="userTables" lay-filter="userTables"></table>
 <!--验证当前用户是否拥有指定权限-->
-<shiro:hasPermission name="button:course:index:caozuo">
-
-    <script type="text/html" id="studentDetail">
-        <a class="layui-btn layui-btn-xs" lay-event="lookStudent">查看</a>
-    </script>
+<shiro:hasPermission name="button:course:stu_cource:operate">
     <script type="text/html" id="operate">
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
@@ -111,7 +107,7 @@
     <script type="text/html" id="header">
         <div class="layui-btn-container" style="overflow: hidden">
             <div style="float: right">
-                <button class="layui-btn layui-btn-sm" lay-event="addCourse">新增我的课程</button>
+                <button class="layui-btn layui-btn-sm" lay-event="addCourse">选课</button>
             </div>
         </div>
     </script>
@@ -165,10 +161,9 @@
                      {field: 'time', title: '上课时间'},
                      {field: 'week', title: '星期'},
                      {field: 'room', title: '教室'},
-                     /*{field: 'userName', title: '任课教师'},*/
+                     {field: 'userName', title: '任课教师'},
                     /*逻辑有错，应该是点击进去查看学生详细信息，包括学号，姓名，班级，电话*/
-                    {title: '查看选课学生', align:'center',toolbar: '#studentDetail', 'fixed': 'right'},
-                     /*{field: 'users', title: '学生'},*/
+                     {field: 'users', title: '学生'},
                      {title: '操作', toolbar: '#operate', 'fixed': 'right', 'width': 350}
                 ]
             ]
@@ -279,15 +274,6 @@
                     content: "/course/edit.do?id=" + data.id
                 });
             }
-            else if(obj.event === "lookStudent"){
-                layer.open({
-                    type: 2,
-                    title: "查看选课学生",
-                    shadeClose: false, //点击遮罩关闭层
-                    area: ['100%', '100%'],
-                    content: "/course/addStudent.do?id=" + data.id
-                });
-            }
         });
 
 
@@ -331,7 +317,7 @@
                         active.reload();
                     }
                 });
-                layer.close(index);
+                layer.close(selectedCourse);
             })
         }
 
@@ -352,7 +338,7 @@
                         active.reload();
                     }
                 });
-                layer.close(index);
+                layer.close(selectedCourse);
             })
         }
     });

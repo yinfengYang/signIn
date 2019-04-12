@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>教师页面</title>
+    <title>查看选课学生</title>
     <meta name="renderer" content="webkit"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -22,18 +22,18 @@
 
     <div>
         <div class="layui-inline">
-            <input class="layui-input" name="keyWord" id="keyWord" autocomplete="off" placeholder="搜索教师">
+            <input class="layui-input" name="keyWord" id="keyWord" autocomplete="off" placeholder="搜索">
         </div>
         <span  class="input-group-btn layui-inline" style="width: 8%">
-                 <select name="keyType"  id="key_type" lay-search="">
+                 <select name="keyType"  id="key_type">
                         <option value="userName" selected="selected">用户名</option>
-                        <option value="number">教学工号</option>
+                        <option value="number">学号</option>
                         <option value="realName">姓名</option>
                   </select>
 
         </span>
 
-        <a id="searchTea" class="layui-btn layui-btn-primary layui-btn-xs layui-btn-radius" data-type="reload"><i class="layui-icon">&#xe615;</i></a>
+        <a id="searchTea" class="layui-btn layui-btn-primary layui-btn-xs" data-type="reload"><i class="layui-icon">&#xe615;</i></a>
     </div>
 
 </blockquote>
@@ -63,23 +63,17 @@
             layer = layui.layer,
             form = layui.form;
 
-        //定义模板，显示用户是否禁用
-        var statusTpl = function (d) {
-            var isCkecked = d.status == "1" ?"checked":"";
-            return '<input type="checkbox" disabled="disabled" lay-skin="switch" lay-text="启用|禁用" '+ isCkecked +'> ';
-        };
-
         var otherHeight = Math.ceil($("blockquote").height() + 20);
         var tableIns = table.render({
             elem: '#userTables',
             height: 'full-' + otherHeight,
-            url: '/teacher/teacher.do',//数据接口
+            url: '',//数据接口
             method: 'get',
             toolbar: '#header',
             page: true ,//开启分页
             id: 'tableId',
-        where: {
-               /* status: 1,*/
+            where: {
+                /* status: 1,*/
                 /*4,代表的是教师*/
                 roleId:"4"
             },
@@ -88,17 +82,17 @@
             cols: [
                 [ //表头
                     {'type': 'checkbox', 'fixed': 'left'},
-                    {field: 'userName', title: '用户名'},
                     {field: 'realName',width:120,title: '姓名'},
-                    {field: 'number', title: '教学工号'},
+                    {field: 'number', title: '学号'},
+                    {field: 'sex', title: '性别'},
                     {field: 'iphone',title: '电话'},
-                    {field: 'createdDate', title: '创建时间'},
-                    {field: 'updateDate', title: '最后一次登录时间'},
-                    {field: 'status', width:100,title: '状态',align:'center',templet: statusTpl},
+                    {field: 'email',title: '邮箱'},
                     {title: '操作', align:'center',toolbar: '#operate', 'fixed': 'right'},
                 ]
             ]
         });
+
+        //搜索缺一个接口，查出所有选课的学生
 
 
         //搜索
@@ -136,22 +130,22 @@
             }
         });
 
-      /*  //操作按钮过多隐藏掉的按钮，点击使之有效
-        table.on('row(userTables)', function(obj) {
-            var data = obj.data;
-            console.log("12345")
-            console.log(layui.$(obj.tr).parents('.layui-table-view').attr('lay-id'))
-            $(document).on("click", "#edit_user", function () {
-                editUserFun(data.id);
-            });
-        });*/
+        /*  //操作按钮过多隐藏掉的按钮，点击使之有效
+          table.on('row(userTables)', function(obj) {
+              var data = obj.data;
+              console.log("12345")
+              console.log(layui.$(obj.tr).parents('.layui-table-view').attr('lay-id'))
+              $(document).on("click", "#edit_user", function () {
+                  editUserFun(data.id);
+              });
+          });*/
 
 
         //监听工具条
         table.on('tool(userTables)', function (obj) {
             var data = obj.data;
             if (obj.event === 'details') {
-               // 查看详情
+                // 查看详情
                 detailUserFun(data.id);
             } else if (obj.event === 'del') {
                 //删除
@@ -176,14 +170,14 @@
 
         //修改用户
         function editUserFun(id){
-           layer.open({
-               type: 2,
-               title: "修改信息",
-               shadeClose: false, //点击遮罩关闭层
-               area: ['50%', '80%'],
-               content: "/teacher/edit.do?id=" + id
-           });
-       }
+            layer.open({
+                type: 2,
+                title: "修改信息",
+                shadeClose: false, //点击遮罩关闭层
+                area: ['50%', '80%'],
+                content: "/teacher/edit.do?id=" + id
+            });
+        }
 
         active = {
             reload: function () {
@@ -195,15 +189,15 @@
                 });
             }
         };
-       /* active = {
-            reload: function () {
-                var userName = $("#userName").val();
-                table.reload('tableId', {
-                    method: 'get',
-                    where: {userName: userName}
-                });
-            }
-        };*/
+        /* active = {
+             reload: function () {
+                 var userName = $("#userName").val();
+                 table.reload('tableId', {
+                     method: 'get',
+                     where: {userName: userName}
+                 });
+             }
+         };*/
 
 
         //删除用户函数
