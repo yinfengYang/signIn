@@ -1,5 +1,6 @@
 package com.yyf.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
@@ -21,13 +22,26 @@ public class Relevance implements Serializable {
     @TableId(value = "id", type = IdType.UUID)
     private String id;
     /**
-     * 用户Id
+     * 用户Id,这里的用户Id是指学生Id 和 已选课程Id 的关系
      */
     private String userId;
     /**
      * 课程Id
      */
     private String courseId;
+
+    /**
+     * 临时存放教师ID
+     */
+    private String teacherId;
+
+    public String getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
+    }
 
     public String getId() {
         return id;

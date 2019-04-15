@@ -124,8 +124,8 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public boolean insertRelevan(Relevance relevance) {
-        Integer delete = relevanceMapper.insert(relevance);
-        if (delete > 0) {
+        Integer result = relevanceMapper.insert(relevance);
+        if (result > 0) {
             return true;
         }
         return false;
@@ -147,6 +147,11 @@ public class CourseServiceImpl implements CourseService {
         return userList;
     }
 
+    /**
+     * 查询已经选课的学生
+     * @param courseId
+     * @return
+     */
     @Override
     public List<User> getListNoUserByCourseId(String courseId) {
 
@@ -222,5 +227,21 @@ public class CourseServiceImpl implements CourseService {
             }
         }
         return resultList;
+    }
+
+    @Override
+    public Boolean selectCourseByUserId(Relevance relevance) {
+
+            Integer result = CourseMapper.selectCourseByUserId(relevance);
+            if(result > 0){
+                return false;
+            }
+
+        return true;
+    }
+
+    @Override
+    public List<User>getUserBySelectedCourse(String courseId) {
+        return  CourseMapper.getUserByCourseId(courseId);
     }
 }

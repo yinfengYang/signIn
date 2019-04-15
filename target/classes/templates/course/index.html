@@ -221,12 +221,13 @@
             console.log(data);
             if (obj.event === 'addStudent') {
                 //添加学生
+                var data = obj.data;
                 layer.open({
                     type: 2,
                     title: "添加学生",
                     shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
-                    content: "/course/addStudent.do?id=" + data.id
+                    area: ['100%', '100%'],
+                    content: "/course/addStudent.do?userId="+data.userId+"&id="+data.id
                 });
             } else if (obj.event === 'del') {
                 //删除
@@ -282,11 +283,11 @@
             else if(obj.event === "lookStudent"){
                 layer.open({
                     type: 2,
-                    title: "查看选课学生",
+                    title: "查看学生",
                     shadeClose: false, //点击遮罩关闭层
                     area: ['100%', '100%'],
-                    content: "/course/addStudent.do?id=" + data.id
-                });
+                    content: "/course/lookStudent.do?id=" + data.id
+            });
             }
         });
 

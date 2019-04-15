@@ -101,6 +101,7 @@ public class CourseController {
             resultMap.put("name", record.getName());
             resultMap.put("room", record.getRoom());
             resultMap.put("week", record.getWeek());
+            resultMap.put("userId", record.getUserId());
             resultMap.put("state",record.getState());
             resultMap.put("term", record.getTerm());
             //学生集合
@@ -185,29 +186,32 @@ public class CourseController {
      * @return
      */
     @RequestMapping("/addStudent.do")
-    public ModelAndView addStudent(ModelAndView mv, String id) {
+    public ModelAndView addStudent(ModelAndView mv,String id,String userId) {
         mv.addObject("id", id);
-        List<User> userList = courseService.getListNoUserByCourseId(id);
-        mv.addObject("userList", userList);
-        mv.setViewName("course/addStudent");
+        mv.addObject("userId", userId);
+        mv.setViewName("course/teacher/addStudent");
         return mv;
+
+     /*List<User> userList = courseService.getListNoUserByCourseId(id);
+        mv.addObject("userList", userList);*/
     }
 
     /**
      * 查看选课学生跳转界面
-     *
+
      * @param mv
      * @return
      */
 
     @RequestMapping("/lookStudent.do")
     public ModelAndView lookStudent(ModelAndView mv, String id) {
-        mv.addObject("id", id);
-        List<User> userList = courseService.getListNoUserByCourseId(id);
+        mv.addObject("courseId", id);
+        List<User> userList = courseService.getUserBySelectedCourse(id);
         mv.addObject("userList", userList);
-        mv.setViewName("course/lookStudent");
+        mv.setViewName("course/teacher/lookStudent");
         return mv;
     }
+
 
     /**
      * 修改
@@ -249,20 +253,30 @@ public class CourseController {
      * @param relevance
      * @return
      */
-    @ResponseBody
+
     @PostMapping("/student.do")
+    @ResponseBody
     public ResultResponse student(Relevance relevance) {
         String[] split = relevance.getUserId().split(",");
         boolean result = false;
+        boolean flag = false;
+
         for (String s : split) {
             Relevance relevance1 = new Relevance();
             relevance1.setUserId(s);
             relevance1.setCourseId(relevance.getCourseId());
-            result = courseService.insertRelevan(relevance1);
+            relevance1.setTeacherId(relevance.getTeacherId());
+
+            flag = courseService.selectCourseByUserId(relevance1);
+            if(flag){
+                result = courseService.insertRelevan(relevance1);
+            }else{
+                continue;
+            }
             relevance1.setId(null);
         }
         if (!result) {
-            return Result.resuleError("新增失败");
+            return Result.resuleError("添加失败");
         }
         return Result.resuleSuccess();
     }
@@ -270,13 +284,13 @@ public class CourseController {
     /**
      * 删除
      *
-     * @param id
+     * @param studentId
      * @return
      */
     @ResponseBody
     @DeleteMapping("/student.do")
-    public ResultResponse delStudent(String id, String courseId) {
-        boolean result = courseService.delRelevanByUserId(id, courseId);
+    public ResultResponse delStudent(String studentId, String courseId) {
+        boolean result = courseService.delRelevanByUserId(studentId, courseId);
         if (!result) {
             return Result.resuleError("删除失败");
         }

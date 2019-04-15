@@ -27,7 +27,7 @@
         <span class="input-group-btn layui-inline" style="width: 10%">
                             <select name="keyType" id="key_type">
                                 <option></option>
-                                <option value="userName">用户名</option>
+                                <option value="userName" selected="selected">用户名</option>
                                 <option value="number">学号</option>
                                 <option value="classs">班级</option>
                                 <option value="realName">姓名</option>
@@ -40,26 +40,27 @@
 
 <table id="userTables" lay-filter="userTables"></table>
 <script type="text/html" id="operate">
-    <a class="layui-btn layui-btn-xs" lay-event="details" id="details_user"><i class="layui-icon">&#xe705;</i></a>
-    <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon"></i></a>
-    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del"><i class="layui-icon"></i></a>
+    <a class="layui-btn layui-btn-sm layui-btn-xs" lay-event="addStudent">添加学生</a>
 </script>
 <script type="text/html" id="header">
     <div class="layui-btn-container" style="overflow: hidden">
         <div style="float: right">
-            <button class="layui-btn layui-btn-sm layui-btn-xs" lay-event="addUser"><i class="layui-icon">&#xe654;</i></button>
+           <button class="layui-btn layui-btn-sm layui-btn-xs" lay-event="addStudentsTo">添加上课学生</button>
         </div>
     </div>
 </script>
 <script type="text/javascript" src="/resource/common/layui/layui.js"></script>
 <script type="text/javascript" src=" /resource/js/user.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" th:inline="javascript">
 
     layui.use(['table', 'layer', 'laydate', 'form'], function () {
         var table = layui.table,
             $ = layui.$,
             layer = layui.layer,
             form = layui.form;
+
+        var courceId = [[${id}]];
+        var teacherId = [[${userId}]];
 
         //定义模板，显示用户是否禁用
         var statusTpl = function (d) {
@@ -69,18 +70,18 @@
         var otherHeight = Math.ceil($("blockquote").height() + 20);
         var tableIns = table.render({
             elem: '#userTables',
-             height: 'full-' + otherHeight,
-             url: '/student/student.do', //数据接口
-             method: 'get',
-             toolbar: '#header',
-             page: true, //开启分页
-             id: 'tableId',
-             where: {
+            height: 'full-' + otherHeight,
+            url: '/student/student.do', //数据接口
+            method: 'get',
+            toolbar: '#header',
+            page: true, //开启分页
+            id: 'tableId',
+            where: {
                 roleId: "5"
             },
-             limits: [10, 15, 30],
-             limit: 15,
-             cols: [
+            limits: [10, 15, 30],
+            limit: 15,
+            cols: [
                 [ //表头
                     {'type': 'checkbox', 'fixed': 'left'},
                     {field: 'userName',width:120,title: '用户名'},
@@ -88,8 +89,6 @@
                     {field: 'iphone',width:120, title: '电话'},
                     {field: 'number', title: '学号'},
                     {field: 'classs', title: '班级'},
-                    {field: 'createdDate', title: '创建时间'},
-                    {field: 'updateDate', title: '最后一次登录时间'},
                     {field: 'status',width:95,title:'状态',templet: statusTpl},
                     {title: '操作', toolbar: '#operate', 'fixed': 'right'},
                 ]
@@ -108,65 +107,6 @@
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : ''
         });
-        table.on('toolbar(userTables)', function (obj) {
-            var datas = table.checkStatus("tableId").data;
-            if (obj.event == "addUser") {
-                //新增用户
-                layer.open({
-                    type: 2,
-                    title: "新增学生",
-                    shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '85%'],
-                    content: "/student/add.do"
-                });
-                return false;
-            }
-            if (datas.length == 0) {
-                layer.alert("请选择数据后再进行操作！");
-            } else {
-                var ids = new Array();
-                for (d in datas) {
-                    ids.push(datas[d].id);
-                }
-                //删除选中
-                if (obj.event == "delUsers") {
-                    delUser(ids.toString());
-                }
-            }
-        });
-        //监听工具条
-        table.on('tool(userTables)', function (obj) {
-            var data = obj.data;
-            console.log(data);
-            if (obj.event === 'details') {
-                //查看详情
-                detailUserFun(data.id);
-            } else if (obj.event === 'del') {
-                //删除
-                delUser(data.id);
-            }else if (obj.event === "edit") {
-                //修改用户
-                layer.open({
-                    type: 2,
-                    title: "修改信息",
-                    shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
-                    content: "/student/edit.do?id=" + data.id
-                });
-            }
-        });
-
-        //用户详细信息
-        function detailUserFun(id){
-
-            layer.open({
-                type: 2,
-                title: "学生详细信息",
-                shadeClose: false,
-                area: ['60%','90%'],
-                content: "/user/details.do?id=" + id
-            });
-        }
 
         //搜索
         active = {
@@ -180,28 +120,62 @@
             }
         };
 
-        //删除用户函数
-        function delUser(ids) {
-            layer.confirm('是否删除?', function (index) {
-                $.ajax({
-                    url: "/student/student.do",
-                    type: "post",
-                    data: {_method: "DELETE", "ids": ids},
-                    dataType: "json",
-                    success: function (result) {
-                        if (!result.status) {
-                            layer.msg(result.msg, {time: 2000});
-                            return false;
-                        }
-                        layer.msg("删除成功!", {time: 1000});
-                        active.reload();
-                    }
-                });
+        table.on('toolbar(userTables)', function (obj) {
+            var datas = table.checkStatus("tableId").data;
+            console.log(datas)
+            if (datas.length == 0) {
+                layer.alert("请选择数据后再进行操作！");
+            } else {
+                var ids = new Array();
+                for (d in datas) {
+                    ids.push(datas[d].id);
+                }
+                //删除选中
+                if (obj.event == "addStudentsTo") {
+                    addBatch(ids.toString());
+                }
+            }
+        });
+
+        //监听工具条
+        table.on('tool(userTables)', function (obj) {
+            var data = obj.data;
+            console.log(data);
+           if (obj.event === "addStudent") {
+               //老师添加上课学生
+               addStudents(data.id,courceId,teacherId);
+            }
+        });
+
+        function addBatch(ids){
+            layer.confirm('是否添加选中?', function (index) {
+                addStudents(ids,courceId,teacherId);
                 layer.close(index);
             });
         }
 
-    });
+        function addStudents(stuId,couId,teaId){
+            $.ajax({
+                url: '/course/student.do',
+                type: 'post',
+                data: {userId:stuId,courseId:couId,teacherId:teaId},
+                dataType: 'json',
+                async: false,
+                success: function (result) {
+                    if (!result.status) {
+                        parent.layer.msg(result.msg, {time: 2000});
+                        return false;
+                    } else {
+                        parent.layer.msg("添加成功!", {time: 1000});
+                        parent.layer.close(parent.layer.getFrameIndex(window.name));
+                        parent.layui.table.reload('tableId', {});
+                    }
+                }
+
+            });
+        }
+
+        });
 </script>
 
 </body>

@@ -74,4 +74,21 @@ public interface CourseService {
      * 查询该课程下缺勤的用户
      */
     List<User> absence(String courseId);
+
+    /**
+     * 查詢学生是否已经选过的课程
+     * @param relevance
+     * @return
+     */
+    Boolean selectCourseByUserId(Relevance relevance);
+
+    /**
+     * 查询选当前课程的所有学生
+     * @param
+     * @param
+     * @param courseId
+     * @return
+     */
+    List<User> getUserBySelectedCourse(String courseId);
+
 }

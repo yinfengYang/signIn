@@ -25,7 +25,6 @@
             form = layui.form;
 
         var userList = [[${userList}]];
-        var courseId = [[${courseId}]];
 
         //展示已知数据
         table.render({
@@ -54,21 +53,7 @@
             console.log(data)
             if(obj.event === 'del'){
                 layer.confirm('真的删除行么', function(index){
-                   // obj.del();
-                    $.ajax({
-                        url: "/course/student.do",
-                        type: "post",
-                        data: {_method: "DELETE", "ids": ids},
-                        dataType: "json",
-                        success: function (result) {
-                            if (!result.status) {
-                                layer.msg(result.msg, {time: 2000});
-                                return false;
-                            }
-                            layer.msg("删除成功!", {time: 1000});
-                            active.reload();
-                        }
-                    });
+                    obj.del();
                     layer.close(index);
                 });
             }
