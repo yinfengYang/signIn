@@ -274,4 +274,13 @@ public class CourseServiceImpl implements CourseService {
         }
         return pageInfo;
     }
+
+    @Override
+    public Boolean countStudentWithCourseFromRelevance(Relevance relevance) {
+        Integer count = relevanceMapper.countStudentWithCourse(relevance);
+        if(count > 0){
+            return false;
+        }
+        return true;
+    }
 }

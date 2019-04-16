@@ -105,4 +105,11 @@ public interface CourseService {
      */
     Page<Course> getCourseByStudentId(Course course,int page,int limit);
 
+    /**
+     * 统计学生所选的课程是否已经选过
+     * @param relevance
+     * @return
+     */
+    Boolean countStudentWithCourseFromRelevance(Relevance relevance);
+
 }

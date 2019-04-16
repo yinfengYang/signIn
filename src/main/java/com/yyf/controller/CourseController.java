@@ -403,14 +403,20 @@ public class CourseController {
     public ResultResponse addCourse(Relevance relevance){
 
         boolean bool;
+        boolean flag;
         //获取学生信息
         String studentId = itdragonUtils.getSessionUser().getId();
         relevance.setUserId(studentId);
-        bool = courseService.insertRelevan(relevance);
-        if(!bool){
-            return Result.resuleError("添加失败");
+        flag = courseService.countStudentWithCourseFromRelevance(relevance);
+        if(flag){
+            bool = courseService.insertRelevan(relevance);
+            if(!bool){
+                return Result.resuleError("添加失败");
+            }
+            return Result.resuleSuccess();
         }
-        return Result.resuleSuccess();
+
+        return Result.resuleError("已经选过该课程，请不要重复选择");
     }
 
 
