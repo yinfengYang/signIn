@@ -91,18 +91,18 @@
 </blockquote>
 <table id="userTables" lay-filter="userTables"></table>
     <script type="text/html" id="operate">
-        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+        <a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="addCourse"><i class="layui-icon">&#xe654;</i></a>
     </script>
     <script type="text/html" id="header">
         <div class="layui-btn-container" style="overflow: hidden">
             <div style="float: right">
-s            </div>
+               <!--<button class="layui-btn layui-btn-sm" lay-event="addCourse">选课</button>-->
+            </div>
         </div>
     </script>
 <script type="text/javascript" src="/resource/common/layui/layui.js"></script>
 <script type="text/javascript" src=" /resource/js/user.js"></script>
-<script type="text/javascript" th:inline="javascript">
+<script type="text/javascript">
 
     layui.use(['table', 'layer', 'laydate', 'form'], function () {
         var table = layui.table,
@@ -110,32 +110,29 @@ s            </div>
             layer = layui.layer,
             form = layui.form;
 
-        var courseList = [[${courseList}]];
-        console.log(courseList)
-
-           /* select 框数据从数据库渲染*/
-            $(function(){
-                $.ajax({
-                    type:"get",
-                    url:"/course/term.do",
-                    dataType:"json",
-                    success:function(data){
-                        $.each(data,function(index,item){
-                            $("#term").append(new Option(item.name));
-                        });
-                        layui.form.render("select");
-                    },error:function () {
-                        layer.msg("查询学期失败");
-                    }
-                });
-
+        //select 框数据从数据库渲染
+        $(function(){
+            $.ajax({
+                type:"get",
+                url:"/course/term.do",
+                dataType:"json",
+                success:function(data){
+                    $.each(data,function(index,item){
+                        $("#term").append(new Option(item.name));
+                    });
+                    layui.form.render("select");
+                },error:function () {
+                    layer.msg("查询学期失败");
+                }
             });
+
+        });
 
         var otherHeight = Math.ceil($("blockquote").height() + 20);
         var tableIns = table.render({
             elem: '#userTables'
             , height: 'full-' + otherHeight
-            , url: '/course/getcourse.do' //数据接口
+            , url: '/course/get_detail.do' //数据接口
             , method: 'get'
             , toolbar: '#header'
             , page: true //开启分页
@@ -163,6 +160,7 @@ s            </div>
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
+
         //撤销
         $("#revocation").on('click', function () {
             $("#name").val("");
@@ -174,95 +172,15 @@ s            </div>
             active[type] ? active[type].call(this) : ''
         });
 
-        table.on('toolbar(userTables)', function (obj) {
-            var datas = table.checkStatus("tableId").data;
-            if (obj.event == "addCourse") {
-                //新增课程
-                layer.open({
-                    type: 2,
-                    title: "新增课程",
-                    shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '85%'],
-                    content: "/course/add.do"
-                });
-                return false;
-            }
-            if (datas.length == 0) {
-                layer.alert("请选择数据后再进行操作！");
-            } else {
-                var ids = new Array();
-                for (d in datas) {
-                    ids.push(datas[d].id);
-                }
-                //删除选中
-                if (obj.event == "delUsers") {
-                    delUser(ids.toString());
-                }
-            }
-        });
         //监听工具条
         table.on('tool(userTables)', function (obj) {
             var data = obj.data;
             console.log(data);
-            if (obj.event === 'addStudent') {
-                //添加学生
-                layer.open({
-                    type: 2,
-                    title: "添加学生",
-                    shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
-                    content: "/course/addStudent.do?id=" + data.id
-                });
-            } else if (obj.event === 'del') {
-                //删除
-                delUser(data.id);
-            } else if (obj.event === 'open') {
-                $.ajax({
-                    url: "/course/open.do",
-                    type: "post",
-                    data: {"id": data.id},
-                    dataType: "json",
-                    success: function (result) {
-                        if (!result.status) {
-                            layer.msg(result.msg, {time: 2000});
-                            return false;
-                        }
-                        layer.msg(result.msg, {time: 4000});
-                        active.reload();
-                    }
-                });
-            } else if (obj.event === 'cose') {
-                $.ajax({
-                    url: "/course/close.do",
-                    type: "put",
-                    data: {"id": data.id, "state": "关闭"},
-                    dataType: "json",
-                    success: function (result) {
-                        if (!result.status) {
-                            layer.msg(result.msg, {time: 2000});
-                            return false;
-                        }
-                        layer.msg('关闭成功', {time: 4000});
-                        active.reload();
-                    }
-                });
-            } else if (obj.event === 'view') {
-                layer.open({
-                    type: 2,
-                    title: "缺勤名单",
-                    shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
-                    content: "/course/view.do?id=" + data.id
-                });
-            } else if (obj.event === "edit") {
-                //修改用户
-                layer.open({
-                    type: 2,
-                    title: "修改信息",
-                    shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
-                    content: "/course/edit.do?id=" + data.id
-                });
+            if (obj.event === 'addCourse') {
+                //添加课程
+                var courseId = data.id;
+                var teacherId = data.userId;
+                addStudents(courseId,teacherId);
             }
         });
 
@@ -275,8 +193,7 @@ s            </div>
                 var term = $("#term").val();
 
                 //执行重载
-                table
-                    .reload('tableId', {
+                table.reload('tableId', {
                         page: {
                             curr: 1 //重新从第 1 页开始
                         }
@@ -285,52 +202,32 @@ s            </div>
                             week: week,
                             room: room,
                             term: term
-
                         }
                     });
             }
         };
-        delStudent = function (id, courseId) {
-            console.log(courseId)
-            layer.confirm('是否剔除改学生?', function (index) {
-                $.ajax({
-                    url: "/course/student.do",
-                    type: "post",
-                    data: {_method: "DELETE", "id": id, "courseId": courseId},
-                    dataType: "json",
-                    success: function (result) {
-                        if (!result.status) {
-                            layer.msg(result.msg, {time: 2000});
-                            return false;
-                        }
-                        layer.msg("删除成功!", {time: 1000});
-                        active.reload();
+
+        function addStudents(couId,teaId){
+            $.ajax({
+                url: '/course/add_course.do',
+                type: 'post',
+                data: {courseId:couId,teacherId:teaId},
+                dataType: 'json',
+                async: false,
+                success: function (result) {
+                    if (!result.status) {
+                        parent.layer.msg(result.msg, {time: 2000});
+                        return false;
+                    } else {
+                        parent.layer.msg("添加成功!", {time: 1000});
+                        parent.layer.close(parent.layer.getFrameIndex(window.name));
+                        parent.layui.table.reload('tableId', {});
                     }
-                });
-                layer.close(selectedCourse);
-            })
+                }
+
+            });
         }
 
-        //删除用户函数
-        function delUser(ids) {
-            layer.confirm('是否删除?', function (index) {
-                $.ajax({
-                    url: "/course/course.do",
-                    type: "post",
-                    data: {_method: "DELETE", "id": ids},
-                    dataType: "json",
-                    success: function (result) {
-                        if (!result.status) {
-                            layer.msg(result.msg, {time: 2000});
-                            return false;
-                        }
-                        layer.msg("删除成功!", {time: 1000});
-                        active.reload();
-                    }
-                });
-                layer.close(selectedCourse);
-            })
-        }
     });
 </script>
 

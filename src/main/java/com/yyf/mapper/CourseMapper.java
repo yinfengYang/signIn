@@ -22,6 +22,21 @@ public interface CourseMapper extends BaseMapper<Course> {
 
     List<User> getUserByCourseId(@Param("courseId") String id);
 
+    /**
+     * 通过studentId 获取 课程
+     * @return
+     */
+    List<Course> getCourseByStudentId(RowBounds rowBounds,Course course);
+
+    /**
+     * 查询所有课程
+     * @param rowBounds
+     * @param course
+     * @return
+     */
+    List<Course> selectAll(RowBounds rowBounds,Course course);
+
+
 
 
 }

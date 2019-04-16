@@ -5,26 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a26735de-4ffa-466f-a470-b8f6023d4c8e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/course/teacher/addStudent.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/course/student/getCourseDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yyf/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yyf/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yyf/entity/Relevance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yyf/entity/Relevance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yyf/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yyf/entity/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yyf/mapper/CourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yyf/mapper/CourseMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yyf/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yyf/service/CourseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yyf/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yyf/service/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/course/addStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/course/addStudent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/course/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/course/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/course/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/course/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/course/student/selectedCourse.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/course/student/selectedCourse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/course/teacher/addStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/course/teacher/addStudent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/course/teacher/lookStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/course/teacher/lookStudent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/student/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/student/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yyf/controller/CourseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yyf/entity/Relevance.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yyf/entity/Relevance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yyf/service/impl/CourseServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/course/addStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/course/addStudent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/course/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/course/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/course/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/course/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yyf/controller/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yyf/controller/CourseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yyf/entity/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yyf/entity/Course.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yyf/mapper/CourseMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yyf/mapper/CourseMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yyf/service/CourseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yyf/service/CourseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yyf/service/impl/CourseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yyf/service/impl/CourseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CourseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/course/teacher/addStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/course/teacher/addStudent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/course/teacher/lookStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/course/teacher/lookStudent.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,29 +80,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CourseController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CourseController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/CourseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="207" column="30" selection-start-line="207" selection-start-column="22" selection-end-line="207" selection-end-column="30" />
+            <state relative-caret-position="29">
+              <caret line="396" column="26" selection-start-line="396" selection-start-column="26" selection-end-line="396" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lookStudent.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/teacher/lookStudent.html">
+      <file leaf-file-name="getCourseDetail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/student/getCourseDetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="14" />
+            <state relative-caret-position="230">
+              <caret line="211" column="40" selection-start-line="211" selection-start-column="30" selection-end-line="211" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -111,8 +101,8 @@
       <file leaf-file-name="CourseService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/CourseService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="86" column="13" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
+            <state relative-caret-position="185">
+              <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -120,11 +110,11 @@
       <file leaf-file-name="CourseServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/impl/CourseServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="244" column="47" selection-start-line="244" selection-start-column="47" selection-end-line="244" selection-end-column="47" />
+            <state relative-caret-position="280">
+              <caret line="260" column="53" lean-forward="true" selection-start-line="260" selection-start-column="53" selection-end-line="260" selection-end-column="53" />
               <folding>
-                <element signature="e#7555#7556#0" expanded="true" />
-                <element signature="e#7619#7620#0" expanded="true" />
+                <element signature="e#7759#7760#0" expanded="true" />
+                <element signature="e#7823#7824#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,20 +123,17 @@
       <file leaf-file-name="CourseMapper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/mapper/CourseMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+            <state relative-caret-position="279">
+              <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/index.html">
+      <file leaf-file-name="CourseMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="285" column="30" selection-start-line="285" selection-start-column="30" selection-end-line="285" selection-end-column="30" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="159">
+              <caret line="63" column="30" lean-forward="true" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -158,12 +145,12 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pwd</find>
       <find>showNotice</find>
       <find>skinValue</find>
       <find>navBar</find>
@@ -193,6 +180,7 @@
       <find>moduleTree</find>
       <find>tableId</find>
       <find>roleList</find>
+      <find>add_course</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -204,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/yyf/util/ResultResponse.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/teacher/add.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/controller/TeacherController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/util/Result.java" />
@@ -213,7 +200,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/util/ItdragonUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/util/DateUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yyf/entity/Course.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/entity/Term.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/CaseJopApplication.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
@@ -241,20 +227,22 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapper/LogMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/service/impl/LogServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/log/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/course/student/selectedCourse.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/course/edit.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/course/addStudent.html" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/entity/Relevance.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/student/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/course/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/course/teacher/addStudent.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/course/teacher/lookStudent.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/course/student/getCourseDetail.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yyf/entity/Course.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/mapper/CourseMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/service/impl/CourseServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/course/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/course/student/selectedCourse.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/service/CourseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yyf/controller/CourseController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/course/teacher/lookStudent.html" />
       </list>
     </option>
   </component>
@@ -275,7 +263,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -286,8 +274,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -345,7 +331,25 @@
               <item name="signIn" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yyf" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="signIn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="signIn" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="signIn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="signIn" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="signIn" type="b2602c69:ProjectViewProjectNode" />
@@ -363,6 +367,16 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="course" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="signIn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="signIn" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="course" type="462c0819:PsiDirectoryNode" />
+              <item name="student" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="signIn" type="b2602c69:ProjectViewProjectNode" />
@@ -411,10 +425,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelOrder2" value="2" />
@@ -556,11 +573,12 @@
       <workItem from="1554944171556" duration="24968000" />
       <workItem from="1555030765567" duration="23830000" />
       <workItem from="1555289745098" duration="24961000" />
+      <workItem from="1555376421827" duration="24214000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="276769000" />
+    <option name="totallyTimeSpent" value="300983000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -585,7 +603,7 @@
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" id="Debug" order="13" weight="0.30082646" />
+      <window_info anchor="bottom" id="Debug" order="13" weight="0.49917355" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289256" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.21983472" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
@@ -596,10 +614,9 @@
       <window_info anchor="bottom" id="Run" order="3" weight="0.3289256" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.49752066" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.26399395" />
+      <window_info content_ui="combo" id="Project" order="7" weight="0.18835099" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.07933884" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -608,6 +625,7 @@
       <window_info anchor="right" id="Module Dependencies" order="10" weight="0.32980332" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.07933884" />
       <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32980332" />
     </layout>
     <layout-to-restore>
@@ -634,7 +652,7 @@
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.5785124" />
       <window_info anchor="right" id="Maven Projects" order="9" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.07933884" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.26399395" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.18835099" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info id="Web" order="5" side_tool="true" />
@@ -643,7 +661,7 @@
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Coverage" order="11" side_tool="true" weight="0.32980332" />
-      <window_info anchor="bottom" id="Debug" order="13" weight="0.30082646" />
+      <window_info anchor="bottom" id="Debug" order="13" weight="0.49917355" />
       <window_info anchor="right" id="Bean Validation" order="8" />
     </layout-to-restore>
   </component>
@@ -665,7 +683,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="76" />
+      <option name="time" value="91" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
@@ -679,19 +697,16 @@
       </configuration>
     </watches-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="setValue">
+      <expression>
+        <expression-string>&quot;a70f94963ccd4fa3aafad4ad58e8b070&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/student/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-600" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/student/edit1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="82" column="33" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/user/detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="43">
@@ -762,19 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1883">
           <caret line="33" column="58" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="213" selection-start-line="213" selection-end-line="213" />
         </state>
       </provider>
     </entry>
@@ -831,13 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/student/selectedCourse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="93" column="59" selection-start-line="93" selection-start-column="59" selection-end-line="93" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -852,13 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/util/Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/systemSet/addMenu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2175" />
@@ -868,10 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="61" column="53" lean-forward="true" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,13 +868,6 @@
     </entry>
     <entry file="file://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.8.8/jackson-databind-2.8.8.pom">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="30" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/entity/Relevance.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -924,34 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/mapper/RelevanceMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="11" column="64" lean-forward="true" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-support/2.3.2/mybatis-plus-support-2.3.2-sources.jar!/com/baomidou/mybatisplus/mapper/BaseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="199" column="12" selection-start-line="199" selection-start-column="12" selection-end-line="199" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/mapper/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -966,48 +915,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/mapper/CourseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/impl/CourseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="244" column="47" selection-start-line="244" selection-start-column="47" selection-end-line="244" selection-end-column="47" />
-          <folding>
-            <element signature="e#7555#7556#0" expanded="true" />
-            <element signature="e#7619#7620#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/addStudent.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="59" column="34" lean-forward="true" selection-end-line="119" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/teacher/addStudent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="51" selection-start-line="51" selection-end-line="51" selection-end-column="78" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1018,17 +929,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teacher/index.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret line="42" selection-start-line="42" selection-end-line="46" selection-end-column="9" />
+        <state relative-caret-position="25">
+          <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/mapper/RelevanceMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="11" column="64" lean-forward="true" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/util/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="82" column="24" lean-forward="true" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="76" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="285" column="30" selection-start-line="285" selection-start-column="30" selection-end-line="285" selection-end-column="30" />
+        <state relative-caret-position="225">
+          <caret line="67" column="142" lean-forward="true" selection-start-line="67" selection-start-column="108" selection-end-line="67" selection-end-column="142" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -1037,39 +976,121 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/student/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="185" column="13" lean-forward="true" selection-start-line="185" selection-start-column="13" selection-end-line="198" selection-end-column="19" />
+        <state relative-caret-position="2360">
+          <caret line="168" column="9" lean-forward="true" selection-start-line="168" selection-start-column="9" selection-end-line="168" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/teacher/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="97" column="34" lean-forward="true" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-support/2.3.2/mybatis-plus-support-2.3.2-sources.jar!/com/baomidou/mybatisplus/mapper/BaseMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/studentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="1275">
           <caret line="67" column="39" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/CourseService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/teacher/addStudent.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="86" column="13" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/CourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="207" column="30" selection-start-line="207" selection-start-column="22" selection-end-line="207" selection-end-column="30" />
+        <state relative-caret-position="225">
+          <caret line="164" column="44" lean-forward="true" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#blockquote#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/teacher/lookStudent.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+        <state relative-caret-position="75">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/entity/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
+          <folding>
+            <element signature="e#1097#1098#0" expanded="true" />
+            <element signature="e#1147#1148#0" expanded="true" />
+            <element signature="e#1189#1190#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="213" selection-start-line="213" selection-end-line="213" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/student/selectedCourse.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="93" column="80" selection-start-line="93" selection-start-column="80" selection-end-line="93" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/CourseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/service/impl/CourseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="260" column="53" lean-forward="true" selection-start-line="260" selection-start-column="53" selection-end-line="260" selection-end-column="53" />
+          <folding>
+            <element signature="e#7759#7760#0" expanded="true" />
+            <element signature="e#7823#7824#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/mapper/CourseMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="63" column="30" lean-forward="true" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/course/student/getCourseDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="211" column="40" selection-start-line="211" selection-start-column="30" selection-end-line="211" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yyf/controller/CourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="396" column="26" selection-start-line="396" selection-start-column="26" selection-end-line="396" selection-end-column="26" />
         </state>
       </provider>
     </entry>

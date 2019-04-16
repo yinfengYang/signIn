@@ -52,9 +52,32 @@ public class Course implements Serializable {
      */
     private String name;
     /**
-     *
+     * 教师id
      */
     private String userId;
+
+    @TableField(exist = false)
+    private String studentId;
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    @TableField(exist = false)
+    private String teacherName;
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
     /**
      * 学生集合
      */

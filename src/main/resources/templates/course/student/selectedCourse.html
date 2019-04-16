@@ -90,40 +90,29 @@
     </div>
 </blockquote>
 <table id="userTables" lay-filter="userTables"></table>
-<!--验证当前用户是否拥有指定权限-->
-<shiro:hasPermission name="button:course:stu_cource:operate">
     <script type="text/html" id="operate">
-        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
-        <a class="layui-btn layui-btn-xs" lay-event="addStudent">添加上课学生</a>
-        {{# if(d.state == '关闭'){ }}
-        <a class="layui-btn layui-btn-xs" lay-event="open">开启签到</a>
-        {{# } }}
-        {{# if(d.state == '开启'){ }}
-        <a class="layui-btn layui-btn-xs" lay-event="cose">关闭签到</a>
-        <a class="layui-btn layui-btn-xs" lay-event="view">缺勤名单</a>
-        {{# } }}
+        <a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="del">申请退课</a>
     </script>
     <script type="text/html" id="header">
         <div class="layui-btn-container" style="overflow: hidden">
             <div style="float: right">
-                <button class="layui-btn layui-btn-sm" lay-event="addCourse">选课</button>
-            </div>
+s            </div>
         </div>
     </script>
-</shiro:hasPermission>
 <script type="text/javascript" src="/resource/common/layui/layui.js"></script>
 <script type="text/javascript" src=" /resource/js/user.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" th:inline="javascript">
 
-    var delStudent;
     layui.use(['table', 'layer', 'laydate', 'form'], function () {
         var table = layui.table,
             $ = layui.$,
             layer = layui.layer,
             form = layui.form;
 
-            //select 框数据从数据库渲染
+        var courseList = [[${courseList}]];
+        console.log(courseList)
+
+           /* select 框数据从数据库渲染*/
             $(function(){
                 $.ajax({
                     type:"get",
@@ -145,29 +134,29 @@
         var tableIns = table.render({
             elem: '#userTables'
             , height: 'full-' + otherHeight
-            , url: '/course/course.do' //数据接口
+            , url: '/course/getcourse.do' //数据接口
             , method: 'get'
             , toolbar: '#header'
             , page: true //开启分页
             , id: 'tableId'
             , where: {
-                status: 1
+
             }
             , limits: [10, 15, 30]
             , limit: 15
             , cols: [
                 [ //表头
-                    { field: 'name', title: '课程'},
-                     {field: 'time', title: '上课时间'},
-                     {field: 'week', title: '星期'},
-                     {field: 'room', title: '教室'},
-                     {field: 'userName', title: '任课教师'},
-                    /*逻辑有错，应该是点击进去查看学生详细信息，包括学号，姓名，班级，电话*/
-                     {field: 'users', title: '学生'},
-                     {title: '操作', toolbar: '#operate', 'fixed': 'right', 'width': 350}
+                    {field: 'name', title: '课程'},
+                    {field: 'time', title: '上课时间'},
+                    {field: 'week', title: '星期'},
+                    {field: 'room', title: '教室'},
+                    {field: 'term', title: '学期'},
+                    {field: 'teacherName', title: '任课教师'},
+                    {title: '添加到的课程', toolbar: '#operate',align:'center'}
                 ]
             ]
         });
+
         //搜索
         $('#search').on('click', function () {
             var type = $(this).data('type');

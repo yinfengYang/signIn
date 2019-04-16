@@ -112,10 +112,20 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public boolean delRelevanByUserId(String userId, String courseId) {
-        EntityWrapper<Relevance> wrapper = new EntityWrapper<>();
-        wrapper.eq("userId", userId);
-        wrapper.eq("courseId", courseId);
-        Integer delete = relevanceMapper.delete(wrapper);
+
+        Integer delete = 0;
+        String[] split = userId.split(",");
+
+        for(String studentId : split){
+            EntityWrapper<Relevance> wrapper = new EntityWrapper<>();
+            wrapper.eq("userId", studentId);
+            wrapper.eq("courseId", courseId);
+            delete = relevanceMapper.delete(wrapper);
+            if(delete == 0){
+                continue;
+            }
+        }
+
         if (delete > 0) {
             return true;
         }
@@ -243,5 +253,25 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<User>getUserBySelectedCourse(String courseId) {
         return  CourseMapper.getUserByCourseId(courseId);
+    }
+
+    @Override
+    public Page<Course> getAllCourse(Course course,int page,int limit) {
+        Page<Course> pageInfo = new Page<>(page, limit);
+        List<Course> resultList = CourseMapper.selectAll(pageInfo,course);
+        if (!resultList.isEmpty()) {
+            pageInfo.setRecords(resultList);
+        }
+        return pageInfo;
+    }
+
+    @Override
+    public Page<Course> getCourseByStudentId(Course course,int page,int limit) {
+        Page<Course> pageInfo = new Page<>(page, limit);
+        List<Course>  resultList = CourseMapper.getCourseByStudentId(pageInfo,course);
+        if (!resultList.isEmpty()) {
+            pageInfo.setRecords(resultList);
+        }
+        return pageInfo;
     }
 }

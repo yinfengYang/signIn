@@ -68,9 +68,71 @@ public class CourseController {
         return mv;
     }
 
+    @RequestMapping("/details.do")
+    public ModelAndView details(ModelAndView mv) {
+        mv.setViewName("course/student/getCourseDetail");
+        return mv;
+    }
+
     /**
-     *获取学期跳转界面
-     *
+     * 课程详细，查询所有未选课程
+     * @param course
+     * @param page
+     * @param limit
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/get_detail.do")
+    public TableResultResponse getDetail(Course course, int page, int limit){
+        List<Map<String, Object>> infoList = new ArrayList<>();
+        Page<Course> pageInfo = courseService.getAllCourse(course,page,limit);
+        for (Course record : pageInfo.getRecords()) {
+            Map<String, Object> resultMap = new HashMap<>(16);
+            resultMap.put("id",   record.getId());
+            resultMap.put("name", record.getName());
+            resultMap.put("room", record.getRoom());
+            resultMap.put("week", record.getWeek());
+            resultMap.put("term", record.getTerm());
+            resultMap.put("userId", record.getUserId());
+            resultMap.put("teacherName",record.getTeacherName());
+            resultMap.put("time", record.getTime() == null ? "" : record.getTime().substring(11, 19));
+            infoList.add(resultMap);
+        }
+        return Result.tableResule(pageInfo.getTotal(), infoList);
+    }
+
+
+    /**
+     * 学生已选课程
+     * @param course
+     * @param page
+     * @param limit
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/getcourse.do")
+    public TableResultResponse getstudentCourse(Course course, int page, int limit){
+        List<Map<String, Object>> infoList = new ArrayList<>();
+        String studentId = itdragonUtils.getSessionUser().getId();
+        course.setStudentId(studentId);
+        Page<Course> pageInfo = courseService.getCourseByStudentId(course,page,limit);
+        for (Course record : pageInfo.getRecords()) {
+            Map<String, Object> resultMap = new HashMap<>(16);
+            resultMap.put("id",   record.getId());
+            resultMap.put("name", record.getName());
+            resultMap.put("room", record.getRoom());
+            resultMap.put("week", record.getWeek());
+            resultMap.put("term", record.getTerm());
+            resultMap.put("userId", record.getUserId());
+            resultMap.put("teacherName",record.getTeacherName());
+            resultMap.put("time", record.getTime() == null ? "" : record.getTime().substring(11, 19));
+            infoList.add(resultMap);
+        }
+        return Result.tableResule(pageInfo.getTotal(), infoList);
+    }
+
+    /**
+     *  获取学期跳转界面
      * @param
      * @return
      */
@@ -212,7 +274,6 @@ public class CourseController {
         return mv;
     }
 
-
     /**
      * 修改
      *
@@ -259,7 +320,7 @@ public class CourseController {
     public ResultResponse student(Relevance relevance) {
         String[] split = relevance.getUserId().split(",");
         boolean result = false;
-        boolean flag = false;
+        boolean flag;
 
         for (String s : split) {
             Relevance relevance1 = new Relevance();
@@ -331,4 +392,26 @@ public class CourseController {
         mv.setViewName("course/view");
         return mv;
     }
+
+    /**
+     * 学生添加课程(未完成检验表中是否有数据)
+     * @param relevance
+     * @return
+     */
+    @RequestMapping("/add_course.do")
+    @ResponseBody
+    public ResultResponse addCourse(Relevance relevance){
+
+        boolean bool;
+        //获取学生信息
+        String studentId = itdragonUtils.getSessionUser().getId();
+        relevance.setUserId(studentId);
+        bool = courseService.insertRelevan(relevance);
+        if(!bool){
+            return Result.resuleError("添加失败");
+        }
+        return Result.resuleSuccess();
+    }
+
+
 }

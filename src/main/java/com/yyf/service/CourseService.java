@@ -91,4 +91,18 @@ public interface CourseService {
      */
     List<User> getUserBySelectedCourse(String courseId);
 
+    /**
+     * 获取所有未选课程
+     * @return
+     */
+    Page<Course> getAllCourse(Course course,int page,int limit);
+
+    /**
+     * 查询当前学生的所有课程
+     * @param course
+     * @param page
+     * @return
+     */
+    Page<Course> getCourseByStudentId(Course course,int page,int limit);
+
 }

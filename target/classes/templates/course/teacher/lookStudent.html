@@ -14,6 +14,13 @@
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
+<script type="text/html" id="header">
+    <div class="layui-btn-container" style="overflow: hidden">
+        <div style="float: right">
+            <button class="layui-btn layui-btn-sm layui-btn-xs" lay-event="delStudents">删除选中</button>
+        </div>
+    </div>
+</script>
 
 <script type="text/javascript" src="/resource/common/layui/layui.js"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
@@ -25,39 +32,85 @@
             form = layui.form;
 
         var userList = [[${userList}]];
+        var courseId = [[${courseId}]];
 
         //展示已知数据
         table.render({
             elem: '#demo'
+            ,toolbar:'#header'
             ,cols: [[ //标题栏
-                {field: 'number', title: '学号', width: 80, sort: true}
-                ,{field: 'userName', title: '用户名', width: 120}
-                ,{field: 'realName', title: '姓名', width: 120}
-                ,{field: 'sex', title: '性别', width: 120}
-                ,{field: 'classs', title: '班级', width: 120}
-                ,{field: 'email', title: '邮箱', minWidth: 120}
-                ,{field: 'iphone', title: '电话', minWidth: 120}
-                , {title: '操作', align:'center',toolbar: '#barDemo', 'fixed': 'right'},
-            ]]
-            ,data: userList
-            ,skin: 'line' //表格风格
-            ,even: true
-            ,page: true //是否显示分页
-            ,limits: [5, 7, 10]
-            ,limit: 5 //每页默认显示的数量
+                {'type': 'checkbox'},
+                {field: 'number', title: '学号', width: 80, sort: true},
+                {field: 'userName', title: '用户名', width: 120},
+                {field: 'realName', title: '姓名', width: 120},
+                {field: 'sex', title: '性别', width: 120},
+                {field: 'classs', title: '班级', width: 120},
+                {field: 'email', title: '邮箱', minWidth: 120},
+                {field: 'iphone', title: '电话', minWidth: 120},
+                {title: '操作', align:'center',toolbar: '#barDemo', 'fixed': 'right'},
+            ]],
+            data: userList,
+            skin: 'line', //表格风格
+            even: true,
+            page: true, //是否显示分页
+            id:'tableId',
+            limits: [5, 7, 10],
+            limit: 10 //每页默认显示的数量
+        });
+
+        table.on('toolbar(demo)', function (obj) {
+            var datas = table.checkStatus("tableId").data;
+            console.log(datas)
+            if (datas.length == 0) {
+                layer.alert("请选择数据后再进行操作！");
+            } else {
+                var ids = new Array();
+                for (d in datas) {
+                    ids.push(datas[d].id);
+                }
+                //删除选中
+                if (obj.event == "delStudents") {
+                    layer.confirm('确认删除选中？', function(index){
+                        index = parent.layer.getFrameIndex(window.name);
+                        deleteStudent(ids.toString(),courseId);
+                        //页面虚拟删除
+                       // parent.location.reload(); //刷新父页面
+                        parent.layer.close(index);
+
+                    });
+
+                }
+            }
         });
 
         //监听行工具事件
         table.on('tool(demo)', function(obj){
             var data = obj.data;
-            console.log(data)
             if(obj.event === 'del'){
-                layer.confirm('真的删除行么', function(index){
+                layer.confirm('确认删除行么？', function(index){
+                    deleteStudent(data.id,courseId);
+                    //页面虚拟删除
                     obj.del();
                     layer.close(index);
                 });
             }
         });
+
+       function  deleteStudent(ids,courseId){
+           $.ajax({
+               url: "/course/student.do",
+               type: "post",
+               data: {_method: "DELETE", "studentId": ids,"courseId":courseId},
+               dataType: "json",
+               success: function (result) {
+                   if (!result.status) {
+                       layer.msg(result.msg, {time: 2000});
+                       return false;
+                   }
+                   layer.msg("删除成功!", {time: 1000});
+               }
+           });
+       }
 
     });
 </script>
