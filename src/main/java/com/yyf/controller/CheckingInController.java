@@ -20,13 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 〈〉<br>
- *
- * @author
- * @create 2019/1/16 16:00
- * @since 1.0.0
- */
+
 @Controller
 @RequestMapping("/checkingIn")
 public class CheckingInController {

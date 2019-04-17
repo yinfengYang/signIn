@@ -160,7 +160,7 @@ public class studentController {
     public ModelAndView editUserHouser(ModelAndView mv, String id) {
         User student = userService.selectByPrimaryKey(id);
         mv.addObject("student", student);
-        mv.setViewName("student/edit1");
+        mv.setViewName("student/edit");
         return mv;
     }
 

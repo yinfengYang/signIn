@@ -203,65 +203,9 @@ s            </div>
         table.on('tool(userTables)', function (obj) {
             var data = obj.data;
             console.log(data);
-            if (obj.event === 'addStudent') {
-                //添加学生
-                layer.open({
-                    type: 2,
-                    title: "添加学生",
-                    shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
-                    content: "/course/addStudent.do?id=" + data.id
-                });
-            } else if (obj.event === 'del') {
+             if (obj.event === 'del') {
                 //删除
                 delUser(data.id);
-            } else if (obj.event === 'open') {
-                $.ajax({
-                    url: "/course/open.do",
-                    type: "post",
-                    data: {"id": data.id},
-                    dataType: "json",
-                    success: function (result) {
-                        if (!result.status) {
-                            layer.msg(result.msg, {time: 2000});
-                            return false;
-                        }
-                        layer.msg(result.msg, {time: 4000});
-                        active.reload();
-                    }
-                });
-            } else if (obj.event === 'cose') {
-                $.ajax({
-                    url: "/course/close.do",
-                    type: "put",
-                    data: {"id": data.id, "state": "关闭"},
-                    dataType: "json",
-                    success: function (result) {
-                        if (!result.status) {
-                            layer.msg(result.msg, {time: 2000});
-                            return false;
-                        }
-                        layer.msg('关闭成功', {time: 4000});
-                        active.reload();
-                    }
-                });
-            } else if (obj.event === 'view') {
-                layer.open({
-                    type: 2,
-                    title: "缺勤名单",
-                    shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
-                    content: "/course/view.do?id=" + data.id
-                });
-            } else if (obj.event === "edit") {
-                //修改用户
-                layer.open({
-                    type: 2,
-                    title: "修改信息",
-                    shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
-                    content: "/course/edit.do?id=" + data.id
-                });
             }
         });
 

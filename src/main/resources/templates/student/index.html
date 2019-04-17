@@ -88,8 +88,8 @@
                     {field: 'iphone',width:120, title: '电话'},
                     {field: 'number', title: '学号'},
                     {field: 'classs', title: '班级'},
-                    {field: 'createdDate', title: '创建时间'},
-                    {field: 'updateDate', title: '最后一次登录时间'},
+                    /*{field: 'createdDate', title: '创建时间'},
+                    {field: 'updateDate', title: '最后一次登录时间'},*/
                     {field: 'status',width:95,title:'状态',templet: statusTpl},
                     {title: '操作', toolbar: '#operate', 'fixed': 'right'},
                 ]
@@ -116,7 +116,7 @@
                     type: 2,
                     title: "新增学生",
                     shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '85%'],
+                    area: ['100%', '100%'],
                     content: "/student/add.do"
                 });
                 return false;
@@ -150,7 +150,7 @@
                     type: 2,
                     title: "修改信息",
                     shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '70%'],
+                    area: ['100%', '100%'],
                     content: "/student/edit.do?id=" + data.id
                 });
             }
@@ -163,8 +163,8 @@
                 type: 2,
                 title: "学生详细信息",
                 shadeClose: false,
-                area: ['60%','90%'],
-                content: "/user/details.do?id=" + id
+                area: ['100%','100%'],
+                content: "/user/to_details.do?id=" + id
             });
         }
 

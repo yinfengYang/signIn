@@ -166,16 +166,16 @@ public class CourseController {
             resultMap.put("userId", record.getUserId());
             resultMap.put("state",record.getState());
             resultMap.put("term", record.getTerm());
-            //学生集合
+          /*  //学生集合
             List<User> userList = courseService.getListByUserId(record.getId());
             String users = "";
             for (User user : userList) {
                 //返回带样式的users集合
                 users = users + "&nbsp;&nbsp; <span onclick=\"delStudent('" + user.getId() + "','" + record.getId() + "')\" style=\"color: #1e9fff\">" + user.getUserName() + "</span>";
             }
-            resultMap.put("users", users);
+            resultMap.put("users", users);*/
             resultMap.put("userName", userService.selectByPrimaryKey(record.getUserId()).getUserName());
-            resultMap.put("time", record.getTime() == null ? "" : record.getTime().substring(11, 19));
+            resultMap.put("time", record.getTime() == null ? "" : record.getTime());
             infoList.add(resultMap);
         }
         return Result.tableResule(pageInfo.getTotal(), infoList);
@@ -369,7 +369,7 @@ public class CourseController {
     public ResultResponse open(String id) {
         Course course = new Course();
         course.setId(id);
-        course.setState("开启");
+        course.setState(1);
         String yard = (int) ((Math.random() * 9 + 1) * 100000) + "";
         course.setYard(yard);
         boolean result = courseService.updateById(course);
@@ -394,7 +394,7 @@ public class CourseController {
     }
 
     /**
-     * 学生添加课程(未完成检验表中是否有数据)
+     * 学生添加课程
      * @param relevance
      * @return
      */

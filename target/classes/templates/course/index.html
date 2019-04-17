@@ -100,10 +100,10 @@
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
         <a class="layui-btn layui-btn-xs" lay-event="addStudent">添加上课学生</a>
-        {{# if(d.state == '关闭'){ }}
+        {{# if(d.state == 0){ }}
         <a class="layui-btn layui-btn-xs" lay-event="open">开启签到</a>
         {{# } }}
-        {{# if(d.state == '开启'){ }}
+        {{# if(d.state == 1){ }}
         <a class="layui-btn layui-btn-xs" lay-event="cose">关闭签到</a>
         <a class="layui-btn layui-btn-xs" lay-event="view">缺勤名单</a>
         {{# } }}
@@ -197,7 +197,7 @@
                     type: 2,
                     title: "新增课程",
                     shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '85%'],
+                    area: ['100%', '100%'],
                     content: "/course/add.do"
                 });
                 return false;
@@ -251,7 +251,7 @@
                 $.ajax({
                     url: "/course/close.do",
                     type: "put",
-                    data: {"id": data.id, "state": "关闭"},
+                    data: {"id": data.id, "state": 0},
                     dataType: "json",
                     success: function (result) {
                         if (!result.status) {

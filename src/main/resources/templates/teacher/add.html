@@ -16,6 +16,10 @@
     .layui-Myinput {
         width: 130%;
     }
+    .layui-form{
+        text-align:center;
+        padding: 0 ;
+    }
 </style>
 <body class="index">
 
@@ -101,6 +105,7 @@
             $ = layui.$,
             layer = layui.layer,
             form = layui.form;
+
         form.on('submit(Submit)', function (data) {
             $.ajax({
                 url: '/teacher/teacher.do',

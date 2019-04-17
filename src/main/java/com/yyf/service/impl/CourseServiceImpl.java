@@ -70,9 +70,8 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public boolean insert(Course course) {
 
-
       //  course.setTime(DateUtil.getTimeN()+"-"+ course.getTime());
-        course.setState("关闭");
+        course.setState(0);
         course.setUserId(itdragonUtils.getSessionUser().getId());
         Integer insert = CourseMapper.insert(course);
         if (insert > 0) {
@@ -189,20 +188,27 @@ public class CourseServiceImpl implements CourseService {
         return userList;
     }
 
+    /**
+     * 查询学生的所选课程中开启签到状态的课程
+     * @param userId
+     * @return
+     */
     @Override
     public List<Course> getCourseListByUserId(String userId) {
+
         //查询该学生报名了的课程
         List<Course> resultList = new ArrayList<>();
         EntityWrapper<Relevance> wrapper = new EntityWrapper<>();
         wrapper.eq("userId", userId);
         List<Relevance> relevanceList = relevanceMapper.selectList(wrapper);
+
         List<String> sList = new ArrayList<>();
         for (Relevance relevance : relevanceList) {
             sList.add(relevance.getCourseId());
         }
         //得到开启签到的课程
         EntityWrapper<Course> wrapper1 = new EntityWrapper<>();
-        wrapper1.eq("state", "开启");
+        wrapper1.eq("state", 1);
         List<Course> courseList = CourseMapper.selectList(wrapper1);
         for (Course course : courseList) {
             if (sList.contains(course.getId())) {

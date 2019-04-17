@@ -17,6 +17,7 @@
         width: 130%;
     }
 </style>
+
 <body class="index">
 
 <form class="layui-form" action="" style="margin:auto;margin-top:30px">
@@ -39,7 +40,17 @@
             </div>
         </div>
     </div>
+
     <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">课选择上课时间</label>
+            <div class="layui-input-block">
+                <a id="select_time" class="layui-btn layui-btn-primary layui-btn-sm">选择</a>
+            </div>
+        </div>
+    </div>
+
+   <!-- <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">星期</label>
             <div class="layui-input-block" style="width: 73%;">
@@ -63,7 +74,7 @@
                        class="layui-input layui-Myinput"/>
             </div>
         </div>
-    </div>
+    </div>-->
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">教室</label>
@@ -83,13 +94,16 @@
 <script type="text/javascript" src=" /resource/js/user.js"></script>
 <script type="text/javascript">
 
-
     layui.use(['table', 'layer', 'laydate', 'form'], function () {
         var table = layui.table,
             $ = layui.$,
             layer = layui.layer,
             laydate = layui.laydate,
             form = layui.form;
+
+        $("#select_time").on("click",function () {
+            layer.msg("别弄出来了")
+        });
 
         $(function(){
             $.ajax({

@@ -233,11 +233,36 @@ public class UserController {
      * @param mv
      * @return
      */
-    @RequestMapping("/details.do")
-    public ModelAndView detailsUserHouser(ModelAndView mv, String id) {
-        User user = userService.selectByPrimaryKey(id);
-        mv.addObject("user", user);
+    @RequestMapping("/to_details.do")
+    public ModelAndView detailsUser(ModelAndView mv, String id) {
+        mv.addObject("userId", id);
         mv.setViewName("user/detail");
         return mv;
+    }
+    /**
+     * 用户详细信息跳转界面
+     *
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/details.do")
+    @ResponseBody
+    public TableResultResponse detailsUserHouser(ModelAndView mv, String id) {
+        List<Map<String, Object>> infoList = new ArrayList<>();
+        User user = userService.selectByPrimaryKey(id);
+            Map<String, Object> userMap = new HashMap<>(16);
+            userMap.put("id", user.getId());
+            userMap.put("userName", user.getUserName());
+            userMap.put("realName", user.getRealName());
+            userMap.put("address", user.getAddress() == null ? "" : user.getAddress() );
+            userMap.put("number", user.getNumber());
+            userMap.put("iphone", user.getIphone());
+            userMap.put("sex", user.getSex() == null ? "" : user.getSex());
+            userMap.put("status", user.getStatus());
+            userMap.put("email", user.getEmail());
+            userMap.put("createdDate", user.getCreatedDate() == null ? "" : user.getCreatedDate().substring(0, 19));
+            userMap.put("updateDate", user.getUpdatedDate() == null ? "" : user.getUpdatedDate().substring(0, 19));
+            infoList.add(userMap);
+        return Result.tableResule(1,infoList);
     }
 }

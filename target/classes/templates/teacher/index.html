@@ -92,8 +92,6 @@
                     {field: 'realName',width:120,title: '姓名'},
                     {field: 'number', title: '教学工号'},
                     {field: 'iphone',title: '电话'},
-                    {field: 'createdDate', title: '创建时间'},
-                    {field: 'updateDate', title: '最后一次登录时间'},
                     {field: 'status', width:100,title: '状态',align:'center',templet: statusTpl},
                     {title: '操作', align:'center',toolbar: '#operate', 'fixed': 'right'},
                 ]
@@ -117,7 +115,7 @@
                     type: 2,
                     title: "新增教师",
                     shadeClose: false, //点击遮罩关闭层
-                    area: ['50%', '80%'],
+                    area: ['60%', '90%'],
                     content: "/teacher/add.do"
                 });
                 return false;
@@ -169,8 +167,8 @@
                 type: 2,
                 title: "教师详细信息",
                 shadeClose: false,
-                area: ['60%','90%'],
-                content: "/user/details.do?id=" + id
+                area: ['100%','100%'],
+                content: "/user/to_details.do?id=" + id
             });
         }
 
@@ -180,7 +178,7 @@
                type: 2,
                title: "修改信息",
                shadeClose: false, //点击遮罩关闭层
-               area: ['50%', '80%'],
+               area: ['100%', '100%'],
                content: "/teacher/edit.do?id=" + id
            });
        }
@@ -195,15 +193,6 @@
                 });
             }
         };
-       /* active = {
-            reload: function () {
-                var userName = $("#userName").val();
-                table.reload('tableId', {
-                    method: 'get',
-                    where: {userName: userName}
-                });
-            }
-        };*/
 
 
         //删除用户函数

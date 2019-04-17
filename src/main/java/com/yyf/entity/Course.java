@@ -86,11 +86,24 @@ public class Course implements Serializable {
     /**
      * 开启签到标识
      */
-    private String state;
+    private Integer state;
     /**
      * 签到码
      */
     private String yard;
+
+    /**
+     * 时间id
+     */
+    private String timeId;
+
+    public String getTimeId() {
+        return timeId;
+    }
+
+    public void setTimeId(String timeId) {
+        this.timeId = timeId;
+    }
 
     public String getId() {
         return id;
@@ -148,11 +161,11 @@ public class Course implements Serializable {
         this.studentList = studentList;
     }
 
-    public String getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(Integer state) {
         this.state = state;
     }
 

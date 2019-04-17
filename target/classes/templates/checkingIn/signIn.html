@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>修改密码--layui后台管理模板 2.0</title>
+    <title>签到</title>
     <meta name="renderer" content="webkit"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -65,7 +65,7 @@
 </div>
 <script type="text/javascript" src="/resource/common/layui/layui.js"></script>
 <script type="text/javascript" src=" /resource/js/user.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" th:inline="javascript">
 
 
     layui.use(['table', 'layer', 'laydate', 'form'], function () {
@@ -74,6 +74,10 @@
             layer = layui.layer,
             laydate = layui.laydate,
             form = layui.form;
+
+        var courseList = [[${courseList}]];
+        console.log(courseList)
+
         laydate.render({
             elem: '#time'
             , type: 'time'
