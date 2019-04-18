@@ -57,7 +57,7 @@ public class CourseController {
     }
 
     /**
-     * 管理界面跳转
+     * 已选课程跳转
      *
      * @param mv
      * @return
@@ -67,7 +67,23 @@ public class CourseController {
         mv.setViewName("course/student/selectedCourse");
         return mv;
     }
+    /**
+     * 新增课程页面跳转
+     *
+     * @param mv
+     * @return
+     */
+    @RequestMapping("/addCourse.do")
+    public ModelAndView add_cource(ModelAndView mv) {
+        mv.setViewName("course/teacher/addCourse");
+        return mv;
+    }
 
+    /**
+     * 课程详细页面跳转
+     * @param mv
+     * @return
+     */
     @RequestMapping("/details.do")
     public ModelAndView details(ModelAndView mv) {
         mv.setViewName("course/student/getCourseDetail");
@@ -142,6 +158,17 @@ public class CourseController {
         List<Term> termList = termService.getAllTerm();
         return termList;
     }
+    /**
+     *  获取当前教师对应的课程
+     * @param
+     * @return
+     */
+    @RequestMapping("/name.do")
+    @ResponseBody
+    public List<Course> getTeaIndex(Course course) {
+        List<Course> courseList = courseService.getCourseByTeacherId(course);
+        return courseList;
+    }
 
     /**
      * 管理界面列表
@@ -158,25 +185,19 @@ public class CourseController {
         course.setUserId(itdragonUtils.getSessionUser().getId());
         Page<Course> pageInfo = courseService.selectPage(course, page, limit);
         for (Course record : pageInfo.getRecords()) {
-            Map<String, Object> resultMap = new HashMap<>(16);
-            resultMap.put("id",   record.getId());
-            resultMap.put("name", record.getName());
-            resultMap.put("room", record.getRoom());
-            resultMap.put("week", record.getWeek());
-            resultMap.put("userId", record.getUserId());
-            resultMap.put("state",record.getState());
-            resultMap.put("term", record.getTerm());
-          /*  //学生集合
-            List<User> userList = courseService.getListByUserId(record.getId());
-            String users = "";
-            for (User user : userList) {
-                //返回带样式的users集合
-                users = users + "&nbsp;&nbsp; <span onclick=\"delStudent('" + user.getId() + "','" + record.getId() + "')\" style=\"color: #1e9fff\">" + user.getUserName() + "</span>";
+            if(record.getTime()!= null && record.getWeek() != null){
+                Map<String, Object> resultMap = new HashMap<>(16);
+                resultMap.put("id",   record.getId());
+                resultMap.put("name", record.getName());
+                resultMap.put("room", record.getRoom());
+                resultMap.put("week", record.getWeek());
+                resultMap.put("userId", record.getUserId());
+                resultMap.put("state",record.getState());
+                resultMap.put("term", record.getTerm());
+                resultMap.put("userName", userService.selectByPrimaryKey(record.getUserId()).getUserName());
+                resultMap.put("time", record.getTime() == null ? "" : record.getTime());
+                infoList.add(resultMap);
             }
-            resultMap.put("users", users);*/
-            resultMap.put("userName", userService.selectByPrimaryKey(record.getUserId()).getUserName());
-            resultMap.put("time", record.getTime() == null ? "" : record.getTime());
-            infoList.add(resultMap);
         }
         return Result.tableResule(pageInfo.getTotal(), infoList);
     }
@@ -203,11 +224,34 @@ public class CourseController {
     @PostMapping("/course.do")
     public ResultResponse add(Course course) {
 
+        boolean flag = courseService.selectCourse(course);
+        if(!flag){
+            return Result.resuleError("课程重复添加");
+        }
         boolean result = courseService.insert(course);
         if (!result) {
             return Result.resuleError("新增失败");
         }
         return Result.resuleSuccess();
+    }
+
+    /**
+     * 更新
+     *
+     * @param course
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/update.do")
+    public ResultResponse update(Course course) {
+
+       String courseId =  courseService.selectCourseId(course);
+       course.setId(courseId);
+        boolean result = courseService.updateById(course);
+        if (!result) {
+            return Result.resuleError("添加课程失败");
+        }
+        return Result.resuleSuccess(course,"添加课程成功！");
     }
 
     /**

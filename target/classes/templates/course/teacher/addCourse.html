@@ -21,14 +21,13 @@
 <body class="index">
 
 <form class="layui-form" action="" style="margin:auto;margin-top:30px">
-
     <div class="layui-row">
         <div class="layui-col-md4">
             <div class="layui-form-item">
                 <div class="layui-inline">
-                    <label class="layui-form-label">课程名</label>
+                    <label class="layui-form-label">学期</label>
                     <div class="layui-input-block" style="width: 73%;">
-                        <select name="name" id="name">
+                        <select name="term" id="term">
                             <option></option>
                             <option value=""></option>
                         </select>
@@ -39,9 +38,9 @@
         <div class="layui-col-md4">
             <div class="layui-form-item">
                 <div class="layui-inline">
-                    <label class="layui-form-label">教室</label>
-                    <div class="layui-input-block" style="width: 73%;">
-                        <input id="room" name="room" class="layui-input layui-Myinput"/>
+                    <label class="layui-form-label">课程名称</label>
+                    <div class="layui-input-block">
+                        <input id="name" name="name" lay-verify="required" class="layui-input layui-Myinput"/>
                     </div>
                 </div>
             </div>
@@ -51,19 +50,9 @@
         <div class="layui-col-md4">
             <div class="layui-form-item">
                 <div class="layui-inline">
-                    <label class="layui-form-label">星期</label>
-                    <div class="layui-input-block" style="width: 73%;">
-                        <input type="text" class="layui-input" id="inputWeek" name="week" disabled="disabled">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="layui-col-md4">
-            <div class="layui-form-item">
-                <div class="layui-inline">
-                    <label class="layui-form-label">上课时间</label>
-                    <div class="layui-input-inline">
-                        <input type="text" class="layui-input" id="time" name="time" placeholder="yyyy-MM-dd HH:mm:ss">
+                    <label class="layui-form-label">教室</label>
+                    <div class="layui-input-block">
+                        <input id="room" name="room" class="layui-input layui-Myinput"/>
                     </div>
                 </div>
             </div>
@@ -73,7 +62,7 @@
         <div class="layui-col-md-offset8">
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="Submit">立即提交</button>
+                    <button class="layui-btn layui-btn-sm" id="layerDemo" lay-submit="" lay-filter="Submit">立即提交</button>
                     <button type="reset" class="layui-btn layui-btn-sm layui-btn-primary">重置</button>
                 </div>
             </div>
@@ -94,28 +83,11 @@
         var week = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
         var date = new Date();
         $("#inputWeek").val(week[date.getDay()]);
-
         $(function(){
-            $.ajax({
-                type:"get",
-                url:"/course/name.do",
-                dataType:"json",
-                async:false,
-                success:function (data) {
-                    $.each(data,function (index,item) {
-                        $("#name").append(new Option(item.name));
-                    });
-                    layui.form.render("select");
-                },error:function () {
-                    layer.msg("查询课程失败");
-                }
-            });
-
             $.ajax({
                 type:"get",
                 url:"/course/term.do",
                 dataType:"json",
-                async:false,
                 success:function(data){
                     $.each(data,function(index,item){
                         $("#term").append(new Option(item.name));
@@ -127,34 +99,55 @@
             });
 
         });
-
         //时间组件
         laydate.render({
             elem: '#time',
             type: 'datetime'
         });
 
+        var active = {
+            offset: function(othis){
+                var type = othis.data('type')
+                    ,text = othis.text();
+                layer.open({
+                    type: 1
+                    ,offset: type //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+                    ,id: 'layerDemo'+type //防止重复弹出
+                    ,content: '<div style="padding: 20px 100px;">'+ text +'</div>'
+                    ,btn: '关闭全部'
+                    ,btnAlign: 'c' //按钮居中
+                    ,shade: 0 //不显示遮罩
+                    ,yes: function(){
+                        layer.closeAll();
+                    }
+                });
+            }
+        }
+
         form.on('submit(Submit)', function (data) {
             $.ajax({
-                url: '/course/update.do',
+                url: '/course/course.do',
                 type: 'post',
                 data: data.field,
                 dataType: 'json',
                 async: false,
                 success: function (result) {
-                    if (!result.status) {
+                    console.log(result)
+                   if (!result.status) {
                         parent.layer.msg(result.msg, {time: 2000});
                         return false;
-                    } else {
-                        layer.msg("添加成功!", {time: 1000});
-                        parent.layer.close(parent.layer.getFrameIndex(window.name));
-                        parent.layui.table.reload('tableId', {});
+                    }else{
+                       layer.msg("添加成功!", {time: 3000});
+                       alert("添加成功");
                     }
+
                 }
 
             });
         });
+
     });
+
 
 </script>
 

@@ -112,4 +112,25 @@ public interface CourseService {
      */
     Boolean countStudentWithCourseFromRelevance(Relevance relevance);
 
+    /**
+     * 获取当前教师的所有课程
+     * @param course
+     * @return
+     */
+    List<Course> getCourseByTeacherId(Course course);
+
+    /**
+     * 添加课程时，判断当前教师的课程是否已经添加
+     * @param course
+     * @return
+     */
+    Boolean selectCourse(Course course);
+
+    /**
+     * 通过课程名字和教师ID 获取课程ID
+     * @param course
+     * @return
+     */
+    String selectCourseId(Course course);
+
 }

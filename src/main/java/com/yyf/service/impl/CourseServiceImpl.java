@@ -289,4 +289,44 @@ public class CourseServiceImpl implements CourseService {
         }
         return true;
     }
+
+    @Override
+    public List<Course> getCourseByTeacherId(Course course) {
+
+        List<Course> courseList = new ArrayList<Course>();
+        String id = itdragonUtils.getSessionUser().getId();
+        course.setUserId(id);
+        List<Course> courses = CourseMapper.getCourseByTeacherId(course);
+        for(Course record : courses){
+            if(record.getWeek()== null && record.getTime()== null){
+                courseList.add(record);
+            }
+        }
+        return courseList;
+    }
+
+    @Override
+    public Boolean selectCourse(Course course) {
+
+        course.setUserId(itdragonUtils.getSessionUser().getId());
+        Integer result = CourseMapper.selectCourse(course);
+        if(result > 0){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String selectCourseId(Course course) {
+
+        String result = null;
+        course.setUserId(itdragonUtils.getSessionUser().getId());
+        String[] str = CourseMapper.getCourseID(course);
+        if(str.length > 1){
+            return null;
+        }else{
+            result = str[0];
+        }
+         return  result;
+        }
 }

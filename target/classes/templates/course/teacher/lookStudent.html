@@ -40,14 +40,14 @@
             ,toolbar:'#header'
             ,cols: [[ //标题栏
                 {'type': 'checkbox'},
-                {field: 'number', title: '学号', width: 80, sort: true},
-                {field: 'userName', title: '用户名', width: 120},
-                {field: 'realName', title: '姓名', width: 120},
-                {field: 'sex', title: '性别', width: 120},
-                {field: 'classs', title: '班级', width: 120},
+                {field: 'number', title: '学号',  sort: true},
+                {field: 'userName', title: '用户名'},
+                {field: 'realName', title: '姓名' },
+                {field: 'sex', title: '性别'},
+                {field: 'classs', title: '班级'},
                 {field: 'email', title: '邮箱', minWidth: 120},
                 {field: 'iphone', title: '电话', minWidth: 120},
-                {title: '操作', align:'center',toolbar: '#barDemo', 'fixed': 'right'},
+                {title: '操作', align:'center',toolbar: '#barDemo', 'fixed': 'right',width: 100},
             ]],
             data: userList,
             skin: 'line', //表格风格
@@ -55,7 +55,8 @@
             page: true, //是否显示分页
             id:'tableId',
             limits: [5, 7, 10],
-            limit: 10 //每页默认显示的数量
+            limit: 10, //每页默认显示的数量
+            bottom:0
         });
 
         table.on('toolbar(demo)', function (obj) {

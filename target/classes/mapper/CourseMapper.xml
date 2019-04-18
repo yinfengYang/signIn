@@ -84,4 +84,17 @@
 			 </if>
 		 </where>
 	</select>
+
+	<select id="getCourseByTeacherId" resultType="com.yyf.entity.Course" parameterType="com.yyf.entity.Course">
+		SELECT * FROM GM_COURSE
+			WHERE USERID = #{userId}
+	</select>
+	<select id="selectCourse" parameterType="com.yyf.entity.Course" resultType="int">
+		select count(*) from gm_course
+			where userId=#{userId} and name= #{name} and term= #{term}
+	</select>
+	<select id="getCourseID" parameterType="com.yyf.entity.Course" resultType="string">
+		select gm_course.id from gm_course
+			where userId= #{userId} and name= #{name}
+	</select>
 </mapper>

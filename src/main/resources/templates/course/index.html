@@ -94,7 +94,7 @@
 <shiro:hasPermission name="button:course:index:caozuo">
 
     <script type="text/html" id="studentDetail">
-        <a class="layui-btn layui-btn-xs" lay-event="lookStudent">查看</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="lookStudent">查看</a>
     </script>
     <script type="text/html" id="operate">
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
@@ -111,7 +111,7 @@
     <script type="text/html" id="header">
         <div class="layui-btn-container" style="overflow: hidden">
             <div style="float: right">
-                <button class="layui-btn layui-btn-sm" lay-event="addCourse">新增我的课程</button>
+                <button class="layui-btn layui-btn-sm" lay-event="addCourse">新增签到课程</button>
             </div>
         </div>
     </script>
@@ -155,7 +155,7 @@
             , page: true //开启分页
             , id: 'tableId'
             , where: {
-                status: 1
+
             }
             , limits: [10, 15, 30]
             , limit: 15
@@ -165,6 +165,7 @@
                      {field: 'time', title: '上课时间'},
                      {field: 'week', title: '星期'},
                      {field: 'room', title: '教室'},
+                     {field: 'term', title: '学期'},
                      /*{field: 'userName', title: '任课教师'},*/
                     /*逻辑有错，应该是点击进去查看学生详细信息，包括学号，姓名，班级，电话*/
                     {title: '查看选课学生', align:'center',toolbar: '#studentDetail', 'fixed': 'right'},
@@ -195,7 +196,7 @@
                 //新增课程
                 layer.open({
                     type: 2,
-                    title: "新增课程",
+                    title: "新增签到课程",
                     shadeClose: false, //点击遮罩关闭层
                     area: ['100%', '100%'],
                     content: "/course/add.do"

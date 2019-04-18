@@ -36,6 +36,17 @@ public interface CourseMapper extends BaseMapper<Course> {
      */
     List<Course> selectAll(RowBounds rowBounds,Course course);
 
+    /**
+     * 获取当前教师所课程
+     * @param course
+     * @return
+     */
+    List<Course> getCourseByTeacherId(Course course);
+
+    Integer selectCourse(Course course);
+
+    String[] getCourseID(Course course);
+
 
 
 
