@@ -85,7 +85,13 @@ public interface UserService {
      * @param user
      * @return
      */
-    boolean insert(User user);
+    Boolean insert(User user);
+
+    /**
+     * 注册返回用户Id
+     * @return
+     */
+    String insertUserGetId(User user);
 
     /**
      * 修改

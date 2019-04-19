@@ -8,10 +8,11 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
+
 /**
  * 角色数据访问层
  */
+@Mapper
 public interface RoleMapper extends BaseMapper<Role> {
     /**
      * 通过userId查询其下面的所有角色
@@ -60,4 +61,6 @@ public interface RoleMapper extends BaseMapper<Role> {
      * @return
      */
     int delUserByUserId(@Param(value = "userId") String userId);
+
+    Integer insertToRoleUserTable(@Param("roleId") String roleId,@Param("userId") String userId);
 }

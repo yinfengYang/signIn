@@ -31,4 +31,6 @@ public interface UserMapper extends BaseMapper<User> {
      * @return
      */
     User getUserByNumber(@Param("number") String number,@Param("roleId") String roleId);
+
+    Integer insertUserGetId(User user);
 }

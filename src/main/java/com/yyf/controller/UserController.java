@@ -3,12 +3,15 @@ package com.yyf.controller;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.yyf.entity.User;
 import com.yyf.service.LogService;
+import com.yyf.service.RoleService;
 import com.yyf.service.UserService;
+import com.yyf.util.ItdragonUtils;
 import com.yyf.util.Result;
 import com.yyf.util.ResultResponse;
 import com.yyf.util.TableResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,6 +34,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private LogService logService;
+    @Autowired
+    private RoleService roleService;
 
     /**
      * 用户管理界面跳转
@@ -214,17 +219,20 @@ public class UserController {
      */
     @ResponseBody
     @PostMapping("/userRegister.do")
+    @Transactional
     public ResultResponse userRegister(User user) {
-        System.out.println(user);
         User checkUser = userService.getUserByUserName(user.getUserName());
         if (checkUser != null) {
             return Result.resuleError("用户名已存在");
         }
-        boolean result = userService.insert(user);
-        if (!result) {
-            return Result.resuleError("新增失败");
+        String result = userService.insertUserGetId(user);
+        if (ItdragonUtils.stringIsNotBlack(result)) {
+            int count = roleService.insertToRoleUserTable(user.getRoleId(),result);
+            if(count > 0){
+                return Result.resuleSuccess();
+            }
         }
-        return Result.resuleSuccess();
+        return Result.resuleError("新增失败");
     }
 
     /**

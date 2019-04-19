@@ -70,4 +70,6 @@ public interface RoleService {
      */
     List<Role> getRoleList();
 
+    Integer insertToRoleUserTable(String roleId,String userId);
+
 }

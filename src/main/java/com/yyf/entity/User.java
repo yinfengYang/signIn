@@ -59,6 +59,7 @@ public class User implements Serializable {
      * 用户最后一次登录时间
      */
     private String updatedDate;
+
     /**
      * 一个用户拥有多个角色
      */

@@ -65,22 +65,34 @@ public class ItdragonUtils {
         return user;
     }
 
-    public String getOrderIdByUUId() {
+    /**
+     * 生成32的UUID，并且去掉“-”
+     * @return
+     */
+    public static String UUIDGenerator(){
+        return UUID.randomUUID().toString().replace("-","");
+    }
+
+    /**
+     * UUID 单号唯一生成器
+     * @return
+     */
+    public static  String getUserNumberByUUId() {
         int machineId = 1;//最大支持1-9个集群机器部署
         int hashCodeV = UUID.randomUUID().toString().hashCode();
         if (hashCodeV < 0) { //有可能是负数
             hashCodeV = -hashCodeV;
         }
 //         0 代表前面补充0     
-//         4 代表长度为4     
+//         10 代表长度为4     
 //         d 代表参数为正数型
-        return machineId + String.format("%015d", hashCodeV);
+        return machineId + String.format("%010d", hashCodeV);
     }
 
     /**
      * 判断用户是否登录
      */
-    public boolean isGogin() {
+    public  boolean isGogin() {
         Subject currentUser = SecurityUtils.getSubject();
         return currentUser.isAuthenticated();
     }
@@ -96,4 +108,19 @@ public class ItdragonUtils {
         }
         return false;
     }
+
+    /**
+     * 随机数生成器
+     * @return
+     */
+    public static String numberGenrator(){
+        Integer str = null;
+        Double random = Math.random();
+        Double random2 = Math.random();
+        str = random.hashCode()+ random2.hashCode();
+        str =  Math.abs(str);
+        return str.toString();
+    }
+
+
 }

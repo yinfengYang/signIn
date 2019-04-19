@@ -167,16 +167,32 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean insert(User user) {
+    public Boolean insert(User user) {
         user.setStatus(1);
         user.setCreatedDate(DateUtil.getCurrentTime("yyyy-MM-dd HH:mm:ss"));
+        //密码盐加密
         itdragonUtils.entryptPassword(user);
-        int result = userMapper.insert(user);
+        Integer result = userMapper.insert(user);
         if (result > 0) {
             return true;
         } else {
             return false;
         }
+    }
+
+    @Override
+    public String insertUserGetId(User user) {
+        user.setStatus(1);
+        user.setId(ItdragonUtils.UUIDGenerator());
+        user.setNumber(ItdragonUtils.getUserNumberByUUId());
+        user.setCreatedDate(DateUtil.getCurrentTime("yyyy-MM-dd HH:mm:ss"));
+        //密码盐加密
+        itdragonUtils.entryptPassword(user);
+        Integer result = userMapper.insertUserGetId(user);
+        if(result > 0){
+            return user.getId();
+        }
+        return null;
     }
 
     /**

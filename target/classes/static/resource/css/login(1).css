@@ -15,24 +15,32 @@ body,html{
 }
 body{
     /*background:url(/resource/image/web_login_bg.jpg) no-repeat center;*/
-    background:url(/resource/image/backg2.jpg) no-repeat center;
+    background:url(/resource/image/yyf_backg.jpg) no-repeat center;
     background-size: cover;
 }
 a{
-    color:#27A9E3;
+    color:#0f8277;
     text-decoration:none;
     cursor:pointer;
 }
-.login{
-    margin: 150px auto 0 auto;
+.reg{
+    margin-top: 4%;
+    margin-left: 35%;
     min-height: 420px;
     max-width: 420px;
     padding: 40px;
     background-color: #ffffff;
-    margin-left: auto;
-    margin-right: auto;
     border-radius: 4px;
-    /* overflow-x: hidden; */
+    box-sizing: border-box;
+}
+.login{
+    margin-top: 7%;
+    margin-left: 35%;
+    min-height: 420px;
+    max-width: 420px;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 4px;
     box-sizing: border-box;
 }
 a.logo{
@@ -42,13 +50,30 @@ a.logo{
     margin: 0 auto 30px auto;
     background-size: 167px 42px;
 }
+.help_css{
+    margin-top: 10px;
+    color: #795da3;
+    font-family: 华文隶书;
+    font-size: 16px;
+}
+.login_css{
+    color: #d2d2d2;
+    font-family: 华文行楷;
+    font-size: 30px;
+
+}
+.register_css{
+    font-size: 12px;
+    font-family: 华文隶书;
+}
 .message {
     margin: 10px 0 0 -58px;
     padding: 18px 10px 18px 60px;
-    background: #27A9E3;
+    background: #7D26CD;
     position: relative;
-    color: #fff;
-    font-size: 16px;
+    color: #C9C5C5;
+    font-size: 18px;
+    font-family: 华文隶书;
 }
 #darkbannerwrap {
     background: url(/resource/image/aiwrap.png);
@@ -56,6 +81,10 @@ a.logo{
     height: 10px;
     margin: 0 0 20px -58px;
     position: relative;
+}
+
+.checkBtn {
+    color: #4E5465;
 }
 
 input[type=text],

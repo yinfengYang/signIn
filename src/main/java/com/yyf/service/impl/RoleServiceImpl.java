@@ -77,4 +77,9 @@ public class RoleServiceImpl implements RoleService {
         List<Role> roleList = roleMapper.selectList(searchInfo);
         return roleList;
     }
+
+    @Override
+    public Integer insertToRoleUserTable(String roleId, String userId) {
+        return roleMapper.insertToRoleUserTable(roleId,userId);
+    }
 }

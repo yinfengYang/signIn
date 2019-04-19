@@ -23,19 +23,36 @@
 
 <body>
 <div class="login">
-    <div class="message">签到系统</div>
+    <div class="message">Sign In System</div>
     <div id="darkbannerwrap"></div>
 
     <form method="post">
         <input name="action" value="login" type="hidden">
-        <input name="logname" id="logname" placeholder="用户名" required="" type="text">
+        <input name="logname" id="logname" placeholder="UserName" required="" type="text">
         <hr class="hr15">
-        <input name="logpass" id="logpass" placeholder="密码" required="" type="password">
+        <input name="logpass" id="logpass" placeholder="Password" required="" type="password">
         <hr class="hr15">
-        <input value="登录" style="width:100%;" type="button" onClick="login()">
-        <hr class="hr20">
-      <!--   <a href="/reg.html">去注册></a>-->
-        帮助<a onClick="layer.alert('请联系管理员修改密码！', {icon: 6});">忘记密码</a>
+        <div class="login_css" >
+            <input value="Login" style="width:100%;background:url(/resource/image/btn1.jpg)" type="button" onClick="login()">
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-sm-offset9">
+                <div class="register_css" >
+                    <!--<input class="register_css" type="button" id="registerBtn" value="sign up">-->
+                    <input type="button" id="registerBtn" value="sign up"
+                           style="color: #AAAAAA;text-align:center;
+                           background-color: #2B2E37;
+                           height: 30px;width: 60px;
+                           margin:0px; padding:0px; border:2px;margin-top: 10px;">
+                </div>
+            </div>
+            <div class="layui-col-sm-offset6">
+                <div class="help_css">
+                    help：<a onClick="layer.alert('请联系管理员修改密码！', {icon: 6});">forgive password？</a>
+                </div>
+            </div>
+        </div>
+
     </form>
 
 
@@ -46,6 +63,16 @@
 <script type="text/javascript" src=" /resource/js/user.js"></script>
 <script type="text/javascript">
 
+    $("#registerBtn").on("click",function () {
+        layer.open({
+            title:"注册页面",
+            type: 2,
+            shadeClose: false, //点击遮罩关闭层
+            area: ['100%', '100%'],
+            content: "/reg"
+        });
+
+    })
 
     function login() {
 
