@@ -68,7 +68,6 @@
             data: {"userName": username, "plainPassword": password,"roleId":roleId},
             success: function (result) {
                 if (result.status) {
-                    layer.msg("注册成功！");
                     alert("注册成功");
                     location.href = "/loginWbe";
                 } else {

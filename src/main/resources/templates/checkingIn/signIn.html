@@ -27,7 +27,7 @@
                 <select id="courseId" name="courseId" lay-verify="required">
                     <option></option>
                     <option th:each="course:${courseList}" th:value="${course.id}"
-                            th:text="${course.name+'-'+course.room+'-'+course.week+'-'+#strings.substring(course.time,11,19)}"></option>
+                            th:text="${course.name+'-'+course.room+'-'+course.week+'-'+course.time}"></option>
                 </select>
             </div>
         </div>
@@ -76,12 +76,12 @@
             form = layui.form;
 
         var courseList = [[${courseList}]];
-        console.log(courseList)
 
-        laydate.render({
+        /*laydate.render({
             elem: '#time'
             , type: 'time'
-        });
+        });*/
+
         $('#leave').on('click', function () {
             //修改用户
             layer.open({

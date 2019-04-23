@@ -97,4 +97,6 @@
 		select gm_course.id from gm_course
 			where userId= #{userId} and name= #{name}
 	</select>
+
+
 </mapper>

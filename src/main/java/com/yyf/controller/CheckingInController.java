@@ -64,7 +64,7 @@ public class CheckingInController {
     }
 
     /**
-     * 新增
+     * 新增签到
      *
      * @param
      * @return
@@ -73,16 +73,22 @@ public class CheckingInController {
     @PostMapping("/addSignIn.do")
     public ResultResponse addSignIn(String courseId, String yard) {
         Course course = courseService.getOneById(courseId);
-        if (!yard.equals(course.getYard())) {
+        String studentId = itdragonUtils.getSessionUser().getId();
+       /* if (!yard.equals(course.getYard())) {
             return Result.resuleError("签到码错误");
-        }
+        }*/
+
         CheckingIn checkingIn = new CheckingIn();
         checkingIn.setCourseId(courseId);
-        checkingIn.setStudentId(itdragonUtils.getSessionUser().getId());
+        checkingIn.setStudentId(studentId);
         checkingIn.setStauts("已签到");
+        Integer count = checkingInService.selectOne(checkingIn);
+        if(count > 0){
+            return Result.resuleError("已经签到，不能重复签到");
+        }
         boolean result = checkingInService.insert(checkingIn);
         if (!result) {
-            return Result.resuleError("新增失败");
+            return Result.resuleError("签到失败");
         }
         return Result.resuleSuccess();
     }

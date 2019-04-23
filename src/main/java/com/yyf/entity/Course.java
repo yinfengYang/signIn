@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import lombok.Data;
 
+import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
  */
 @Data
 @TableName("gm_course")
+@Entity
 public class Course implements Serializable {
     /**
      * 自增长主键
@@ -90,20 +92,13 @@ public class Course implements Serializable {
     /**
      * 签到码
      */
-    private String yard;
+    private Integer yardId;
 
     /**
-     * 时间id
+     * 是否添加到签到页面
      */
-    private String timeId;
+    private Integer flag;
 
-    public String getTimeId() {
-        return timeId;
-    }
-
-    public void setTimeId(String timeId) {
-        this.timeId = timeId;
-    }
 
     public String getId() {
         return id;
@@ -169,11 +164,4 @@ public class Course implements Serializable {
         this.state = state;
     }
 
-    public String getYard() {
-        return yard;
-    }
-
-    public void setYard(String yard) {
-        this.yard = yard;
-    }
 }

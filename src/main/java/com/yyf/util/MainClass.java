@@ -3,8 +3,9 @@ package com.yyf.util;
 public class MainClass {
     public static void main(String[] args){
         String uuid = null;
-            uuid = ItdragonUtils.UUIDGenerator();
-            System.out.println(uuid);
+        for(int i=0;i<1000;i++){
+            System.out.println(RandomCodeUtil.randomCode());
+        }
 
 
     }

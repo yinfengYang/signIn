@@ -8,8 +8,11 @@ import com.yyf.mapper.CourseMapper;
 import com.yyf.mapper.RelevanceMapper;
 import com.yyf.mapper.UserMapper;
 import com.yyf.service.CourseService;
+import com.yyf.service.YardService;
 import com.yyf.util.DateUtil;
 import com.yyf.util.ItdragonUtils;
+import com.yyf.util.RandomCodeUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.DateUtils;
 
@@ -27,16 +30,17 @@ import java.util.List;
  */
 @Service
 public class CourseServiceImpl implements CourseService {
-    @Resource
+    @Autowired
     private CourseMapper CourseMapper;
-    @Resource
+    @Autowired
     private RelevanceMapper relevanceMapper;
-    @Resource
+    @Autowired
     private ItdragonUtils itdragonUtils;
-    @Resource
+    @Autowired
     private UserMapper userMapper;
-    @Resource
+    @Autowired
     private CheckingInMapper checkingInMapper;
+
 
     @Override
     public Page<Course> selectPage(Course course, int page, int limit) {
@@ -57,6 +61,9 @@ public class CourseServiceImpl implements CourseService {
         if (ItdragonUtils.stringIsNotBlack(course.getUserId())) {
             searchInfo.eq("userId", course.getUserId());
         }
+        if (course.getFlag() != null) {
+            searchInfo.eq("flag", course.getFlag());
+        }
         searchInfo.orderBy("time desc");
 
         //mybatis-plus分页查询
@@ -70,8 +77,6 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public boolean insert(Course course) {
 
-      //  course.setTime(DateUtil.getTimeN()+"-"+ course.getTime());
-        course.setState(0);
         course.setUserId(itdragonUtils.getSessionUser().getId());
         Integer insert = CourseMapper.insert(course);
         if (insert > 0) {
@@ -90,8 +95,10 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public boolean updateById(Course Course) {
-        Integer update = CourseMapper.updateById(Course);
+    public boolean updateById(Course course) {
+
+       /* course.setTime(course.getTime());*/
+        Integer update = CourseMapper.updateById(course);
         if (update > 0) {
             return true;
         }
@@ -298,7 +305,7 @@ public class CourseServiceImpl implements CourseService {
         course.setUserId(id);
         List<Course> courses = CourseMapper.getCourseByTeacherId(course);
         for(Course record : courses){
-            if(record.getWeek()== null && record.getTime()== null){
+            if(record.getFlag() == 0){
                 courseList.add(record);
             }
         }
@@ -329,4 +336,17 @@ public class CourseServiceImpl implements CourseService {
         }
          return  result;
         }
+
+    @Override
+    public Boolean updateFlagByCourseId(String courseId) {
+        Course course = new Course();
+        course.setId(courseId);
+        course.setFlag(0);
+        course.setState(0);
+        Integer result = CourseMapper.updateById(course);
+        if(result > 0){
+            return true;
+        }
+        return false;
+    }
 }

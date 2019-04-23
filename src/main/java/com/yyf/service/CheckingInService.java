@@ -45,4 +45,11 @@ public interface CheckingInService {
      */
     List<CheckingIn> getListByType(String type);
 
+    /**
+     * 查询学生在此次课程是否已经签到
+     * @param CheckingIn
+     * @return
+     */
+    Integer selectOne(CheckingIn CheckingIn);
+
 }

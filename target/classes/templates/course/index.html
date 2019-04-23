@@ -98,7 +98,7 @@
     </script>
     <script type="text/html" id="operate">
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="remove">移除</a>
         <a class="layui-btn layui-btn-xs" lay-event="addStudent">添加上课学生</a>
         {{# if(d.state == 0){ }}
         <a class="layui-btn layui-btn-xs" lay-event="open">开启签到</a>
@@ -147,30 +147,26 @@
 
         var otherHeight = Math.ceil($("blockquote").height() + 20);
         var tableIns = table.render({
-            elem: '#userTables'
-            , height: 'full-' + otherHeight
-            , url: '/course/course.do' //数据接口
-            , method: 'get'
-            , toolbar: '#header'
-            , page: true //开启分页
-            , id: 'tableId'
-            , where: {
-
-            }
-            , limits: [10, 15, 30]
-            , limit: 15
-            , cols: [
+            elem: '#userTables',
+            height: 'full-' + otherHeight,
+            url: '/course/course.do', //数据接口
+            method: 'get',
+            toolbar: '#header',
+            page: true ,//开启分页
+            id: 'tableId',
+            where: {
+                flag:1
+            },
+            limits: [10, 15, 30], limit: 15,
+            cols: [
                 [ //表头
                     { field: 'name', title: '课程'},
-                     {field: 'time', title: '上课时间'},
-                     {field: 'week', title: '星期'},
-                     {field: 'room', title: '教室'},
-                     {field: 'term', title: '学期'},
-                     /*{field: 'userName', title: '任课教师'},*/
-                    /*逻辑有错，应该是点击进去查看学生详细信息，包括学号，姓名，班级，电话*/
+                    {field: 'time', title: '上课时间'},
+                    {field: 'week', title: '星期'},
+                    {field: 'room', title: '教室'},
+                    {field: 'term', title: '学期'},
                     {title: '查看选课学生', align:'center',toolbar: '#studentDetail', 'fixed': 'right'},
-                     /*{field: 'users', title: '学生'},*/
-                     {title: '操作', toolbar: '#operate', 'fixed': 'right', 'width': 350}
+                    {title: '操作', toolbar: '#operate', 'fixed': 'right', 'width': 350}
                 ]
             ]
         });
@@ -219,7 +215,6 @@
         //监听工具条
         table.on('tool(userTables)', function (obj) {
             var data = obj.data;
-            console.log(data);
             if (obj.event === 'addStudent') {
                 //添加学生
                 var data = obj.data;
@@ -230,9 +225,11 @@
                     area: ['100%', '100%'],
                     content: "/course/addStudent.do?userId="+data.userId+"&id="+data.id
                 });
-            } else if (obj.event === 'del') {
+            } else if (obj.event === 'remove') {
                 //删除
-                delUser(data.id);
+               // delUser(data.id);
+                remmoveCourse(data.id);
+
             } else if (obj.event === 'open') {
                 $.ajax({
                     url: "/course/open.do",
@@ -316,20 +313,41 @@
                     });
             }
         };
-        delStudent = function (id, courseId) {
-            console.log(courseId)
-            layer.confirm('是否剔除改学生?', function (index) {
+
+      /*  delStudent = function (id, courseId) {
+                console.log(courseId)
+                layer.confirm('是否剔除改学生?', function (index) {
+                    $.ajax({
+                        url: "/course/student.do",
+                        type: "post",
+                        data: {_method: "DELETE", "id": id, "courseId": courseId},
+                        dataType: "json",
+                        success: function (result) {
+                            if (!result.status) {
+                                layer.msg(result.msg, {time: 2000});
+                                return false;
+                            }
+                            layer.msg("删除成功!", {time: 1000});
+                            active.reload();
+                        }
+                    });
+                    layer.close(index);
+                });
+        }*/
+
+        function remmoveCourse(ids){
+            layer.confirm('是否移除课程?', function (index) {
                 $.ajax({
-                    url: "/course/student.do",
+                    url: "/course/removeStudent.do",
                     type: "post",
-                    data: {_method: "DELETE", "id": id, "courseId": courseId},
+                    data: {"courseId": ids},
                     dataType: "json",
                     success: function (result) {
                         if (!result.status) {
                             layer.msg(result.msg, {time: 2000});
                             return false;
                         }
-                        layer.msg("删除成功!", {time: 1000});
+                        layer.msg("移除成功!", {time: 1000});
                         active.reload();
                     }
                 });

@@ -34,7 +34,7 @@ public interface CourseService {
     /**
      * 修改
      */
-    boolean updateById(Course Course);
+    boolean updateById(Course  course);
 
     /**
      * 得到单个对象
@@ -132,5 +132,12 @@ public interface CourseService {
      * @return
      */
     String selectCourseId(Course course);
+
+    /**
+     * 教师移除课程
+     * @param courseId
+     * @return
+     */
+    Boolean updateFlagByCourseId(String courseId);
 
 }

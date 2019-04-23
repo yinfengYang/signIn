@@ -94,4 +94,9 @@ public class CheckingInServiceImpl implements CheckingInService {
         EntityWrapper<CheckingIn> searchInfo = new EntityWrapper<>();
         return CheckingInMapper.selectList(searchInfo);
     }
+
+    @Override
+    public Integer selectOne(CheckingIn checkingIn) {
+        return CheckingInMapper.getOneByCourseIdAndStudentId(checkingIn);
+    }
 }

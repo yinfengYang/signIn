@@ -27,9 +27,10 @@
                     <div class="layui-inline">
                         <div class="layui-input-inline">
                             <select id="courseId">
+                                <!--th:text="${course.name+'-'+course.room+'-'+course.week+'-'+#strings.substring(course.time,11,19)}"-->
                                 <option></option>
                                 <option th:each="course:${courseList}" th:value="${course.id}"
-                                        th:text="${course.name+'-'+course.room+'-'+course.week+'-'+#strings.substring(course.time,11,19)}"></option>
+                                        th:text="${course.name+'-'+course.room+'-'+course.week+'-'+course.time}"></option>
                             </select>
                         </div>
                     </div>

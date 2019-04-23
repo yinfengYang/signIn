@@ -1,27 +1,15 @@
 package com.yyf.controller;
 
 import com.baomidou.mybatisplus.plugins.Page;
-import com.yyf.entity.Course;
-import com.yyf.entity.Relevance;
-import com.yyf.entity.Term;
-import com.yyf.entity.User;
-import com.yyf.service.CheckingInService;
-import com.yyf.service.CourseService;
-import com.yyf.service.TermService;
-import com.yyf.service.UserService;
-import com.yyf.util.ItdragonUtils;
-import com.yyf.util.Result;
-import com.yyf.util.ResultResponse;
-import com.yyf.util.TableResultResponse;
+import com.yyf.entity.*;
+import com.yyf.service.*;
+import com.yyf.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 〈〉<br>
@@ -43,6 +31,8 @@ public class CourseController {
     private ItdragonUtils itdragonUtils;
     @Autowired
     private TermService termService;
+    @Autowired
+    private YardService yardService;
 
     /**
      * 管理界面跳转
@@ -111,7 +101,7 @@ public class CourseController {
             resultMap.put("term", record.getTerm());
             resultMap.put("userId", record.getUserId());
             resultMap.put("teacherName",record.getTeacherName());
-            resultMap.put("time", record.getTime() == null ? "" : record.getTime().substring(11, 19));
+            resultMap.put("time", record.getTime() == null ? "" : record.getTime());
             infoList.add(resultMap);
         }
         return Result.tableResule(pageInfo.getTotal(), infoList);
@@ -141,7 +131,7 @@ public class CourseController {
             resultMap.put("term", record.getTerm());
             resultMap.put("userId", record.getUserId());
             resultMap.put("teacherName",record.getTeacherName());
-            resultMap.put("time", record.getTime() == null ? "" : record.getTime().substring(11, 19));
+            resultMap.put("time", record.getTime() == null ? "" : record.getTime());
             infoList.add(resultMap);
         }
         return Result.tableResule(pageInfo.getTotal(), infoList);
@@ -196,6 +186,7 @@ public class CourseController {
                 resultMap.put("term", record.getTerm());
                 resultMap.put("userName", userService.selectByPrimaryKey(record.getUserId()).getUserName());
                 resultMap.put("time", record.getTime() == null ? "" : record.getTime());
+              //  resultMap.put("time", record.getTime() == null ? "" : record.getTime().substring(11, 19));
                 infoList.add(resultMap);
             }
         }
@@ -247,6 +238,7 @@ public class CourseController {
 
        String courseId =  courseService.selectCourseId(course);
        course.setId(courseId);
+        course.setFlag(1);
         boolean result = courseService.updateById(course);
         if (!result) {
             return Result.resuleError("添加课程失败");
@@ -283,6 +275,23 @@ public class CourseController {
         mv.addObject("course", course);
         mv.setViewName("course/edit");
         return mv;
+    }
+
+    /**
+     * 移除当前课程
+     */
+    @ResponseBody
+    @PostMapping("/removeStudent.do")
+    public ResultResponse removeCourse(String courseId){
+        boolean bool = false;
+        /*
+        * 根据courseID 把 flag 置为 0
+        * */
+       bool =  courseService.updateFlagByCourseId(courseId);
+       if(bool){
+        return Result.resuleSuccess();
+       }
+        return Result.resuleError("移除失败");
     }
 
     /**
@@ -327,7 +336,6 @@ public class CourseController {
     @ResponseBody
     @PutMapping("/course.do")
     public ResultResponse edit(Course course) {
-        course.setTime("2000-10-10 " + course.getTime());
         boolean result = courseService.updateById(course);
         if (!result) {
             return Result.resuleError("修改失败,未知错误");
@@ -403,7 +411,7 @@ public class CourseController {
     }
 
     /**
-     * 删除
+     * 开启签到
      *
      * @param id
      * @return
@@ -414,13 +422,14 @@ public class CourseController {
         Course course = new Course();
         course.setId(id);
         course.setState(1);
-        String yard = (int) ((Math.random() * 9 + 1) * 100000) + "";
-        course.setYard(yard);
+        String yardCode = RandomCodeUtil.randomCode();
+        Integer yardId = yardService.insertYard(yardCode);
+        course.setYardId(yardId);
         boolean result = courseService.updateById(course);
         if (!result) {
             return Result.resuleError("删除失败");
         }
-        return Result.resuleSuccess(null, "本次签到码" + yard);
+        return Result.resuleSuccess(null, "本次签到码" + yardCode);
     }
 
     /**
