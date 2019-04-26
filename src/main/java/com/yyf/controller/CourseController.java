@@ -352,12 +352,19 @@ public class CourseController {
     @ResponseBody
     @PutMapping("/close.do")
     public ResultResponse close(Course course) {
+        boolean bool = false;
+        String msg = null;
+        //删除签到码表中应的数据
+        bool = yardService.deleteYard(course);
+        if(bool){
+            msg = "已清理本次签到码";
+        }
         boolean result = courseService.updateById(course);
         if (!result) {
             return Result.resuleError("修改失败,未知错误");
         }
-        checkingInService.delByCourseId(course.getId());
-        return Result.resuleSuccess();
+       // checkingInService.delByCourseId(course.getId()); 删除签到表的对应课程签到信息
+        return Result.resuleSuccess(null,"关闭签到 ，"+msg);
     }
 
     /**
@@ -418,9 +425,7 @@ public class CourseController {
      */
     @ResponseBody
     @PostMapping("/open.do")
-    public ResultResponse open(String id) {
-        Course course = new Course();
-        course.setId(id);
+    public ResultResponse open(Course course) {
         course.setState(1);
         String yardCode = RandomCodeUtil.randomCode();
         Integer yardId = yardService.insertYard(yardCode);

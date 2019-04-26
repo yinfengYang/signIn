@@ -6,7 +6,11 @@
 
 		insert into gm_yard (yard)
 				values(#{yard,jdbcType=VARCHAR})
-
 	</insert>
+
+	<delete id="deleteYard" parameterType="com.yyf.entity.Course">
+		delete gm_yard from gm_yard,gm_course
+				where gm_yard.id = gm_course.yardId and gm_course.id = #{id};
+	</delete>
 
 </mapper>

@@ -3,10 +3,7 @@ package com.yyf.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.yyf.entity.*;
-import com.yyf.mapper.CheckingInMapper;
-import com.yyf.mapper.CourseMapper;
-import com.yyf.mapper.RelevanceMapper;
-import com.yyf.mapper.UserMapper;
+import com.yyf.mapper.*;
 import com.yyf.service.CourseService;
 import com.yyf.service.YardService;
 import com.yyf.util.DateUtil;
@@ -40,6 +37,8 @@ public class CourseServiceImpl implements CourseService {
     private UserMapper userMapper;
     @Autowired
     private CheckingInMapper checkingInMapper;
+    @Autowired
+    YardMapper yardMapper;
 
 
     @Override
@@ -349,4 +348,14 @@ public class CourseServiceImpl implements CourseService {
         }
         return false;
     }
+
+    @Override
+    public Course getCourseByIdAndYard(String courseId, String yard) {
+        Course course = new Course();
+        course.setId(courseId);
+        course.setYard(yard);
+        return CourseMapper.checkInYard(course);
+    }
+
+
 }

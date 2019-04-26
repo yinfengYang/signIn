@@ -3,10 +3,7 @@ package com.yyf.controller;
 import com.yyf.entity.User;
 import com.yyf.service.LogService;
 import com.yyf.service.UserService;
-import com.yyf.util.DateUtil;
-import com.yyf.util.ItdragonUtils;
-import com.yyf.util.Result;
-import com.yyf.util.ResultResponse;
+import com.yyf.util.*;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -19,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -112,4 +110,5 @@ public class LoginController {
             System.err.println(e.getMessage());
         }
     }
+
 }

@@ -72,12 +72,25 @@ public class CheckingInController {
     @ResponseBody
     @PostMapping("/addSignIn.do")
     public ResultResponse addSignIn(String courseId, String yard) {
-        Course course = courseService.getOneById(courseId);
-        String studentId = itdragonUtils.getSessionUser().getId();
-       /* if (!yard.equals(course.getYard())) {
-            return Result.resuleError("签到码错误");
-        }*/
 
+        Long ktime = null;
+        Course course = courseService.getCourseByIdAndYard(courseId,yard);
+        if(course == null){
+            return Result.resuleError("签到码错误");
+        }
+        if (course.getYardTime()!= null) {
+            //设置签到时间3分钟死亡机制
+            ktime = course.getYardTime().getTime()+300000;
+            if(ktime < System.currentTimeMillis()){
+                return Result.resuleError("签到码过期，请联系教师处理");
+            }
+        }
+        /*
+         * 逻辑应该是，在规定的时间内到处缺勤名单，自动会清除签到表中的内容
+         */
+
+
+        String studentId = itdragonUtils.getSessionUser().getId();
         CheckingIn checkingIn = new CheckingIn();
         checkingIn.setCourseId(courseId);
         checkingIn.setStudentId(studentId);

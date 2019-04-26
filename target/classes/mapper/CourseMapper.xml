@@ -98,5 +98,11 @@
 			where userId= #{userId} and name= #{name}
 	</select>
 
+	<select id="checkInYard" parameterType="com.yyf.entity.Course" resultType="com.yyf.entity.Course">
+		select gm_yard.yardTime from gm_yard
+			left join gm_course on gm_course.yardId = gm_yard.id
+					where gm_yard.yard = #{yard} ;
+	</select>
+
 
 </mapper>

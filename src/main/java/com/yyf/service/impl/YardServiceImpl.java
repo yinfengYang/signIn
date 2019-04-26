@@ -1,5 +1,6 @@
 package com.yyf.service.impl;
 
+import com.yyf.entity.Course;
 import com.yyf.entity.Yard;
 import com.yyf.mapper.YardMapper;
 import com.yyf.service.YardService;
@@ -23,5 +24,14 @@ public class YardServiceImpl implements YardService {
             return yard.getId();
         }
         return null;
+    }
+
+    @Override
+    public Boolean deleteYard(Course course) {
+        Integer result = yardMapper.deleteYard(course);
+        if(result > 0){
+            return true;
+        }
+        return false;
     }
 }

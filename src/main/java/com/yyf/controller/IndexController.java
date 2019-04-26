@@ -9,6 +9,7 @@ import com.yyf.entity.SubSystemInfo;
 import com.yyf.entity.User;
 import com.yyf.service.PermissionService;
 import com.yyf.service.UserService;
+import com.yyf.util.IpAdrressUtil;
 import com.yyf.util.ItdragonUtils;
 import com.yyf.util.Result;
 import com.yyf.util.ResultResponse;
@@ -21,7 +22,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import sun.net.util.IPAddressUtil;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -267,6 +270,13 @@ public class IndexController {
     @RequestMapping("/login")
     public ModelAndView login1(ModelAndView mv) {
         mv.setViewName("/login");
+        return mv;
+    }
+
+
+    @RequestMapping("/test")
+    public ModelAndView test(ModelAndView mv) {
+        mv.setViewName("/test");
         return mv;
     }
 }

@@ -60,7 +60,6 @@
     </div>
 </div>
 <div style="margin-top: 10px;text-align: center" id="myDiv" hidden>
-    签到码:
     <input class="layui-input layui-Myinput" id="yard" style="margin-left: 25%">
 </div>
 <script type="text/javascript" src="/resource/common/layui/layui.js"></script>
@@ -88,7 +87,7 @@
                 type: 2,
                 title: "请假申请",
                 shadeClose: false, //点击遮罩关闭层
-                area: ['600px', '250px'],
+                area: ['50%', '50%'],
                 content: "/checkingIn/leaveHouse.do"
             });
         });
@@ -114,7 +113,7 @@
         form.on('submit(Submit)', function (data) {
             var index = layer.open({
                 type: 1,
-                title: "签单码",
+                title: "签到码",
                 btn: ["确认"],
                 shadeClose: false, //点击遮罩关闭层
                 area: ['40%', '40%'],

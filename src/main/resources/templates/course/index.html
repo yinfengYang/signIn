@@ -241,7 +241,7 @@
                             layer.msg(result.msg, {time: 2000});
                             return false;
                         }
-                        layer.msg(result.msg, {time: 4000});
+                        layer.msg(result.msg, {time: 10000});
                         active.reload();
                     }
                 });
@@ -256,7 +256,7 @@
                             layer.msg(result.msg, {time: 2000});
                             return false;
                         }
-                        layer.msg('关闭成功', {time: 4000});
+                        layer.msg(result.msg, {time: 4000});
                         active.reload();
                     }
                 });

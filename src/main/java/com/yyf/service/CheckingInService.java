@@ -28,6 +28,7 @@ public interface CheckingInService {
      * 删除
      */
     boolean delById(String id);
+
     boolean delByCourseId(String courseId);
 
     /**

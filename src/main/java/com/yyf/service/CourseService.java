@@ -140,4 +140,7 @@ public interface CourseService {
      */
     Boolean updateFlagByCourseId(String courseId);
 
+    Course getCourseByIdAndYard(String courseId,String yard);
+
+
 }

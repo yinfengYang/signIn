@@ -8,6 +8,7 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -90,7 +91,7 @@ public class Course implements Serializable {
      */
     private Integer state;
     /**
-     * 签到码
+     * 签到码Id
      */
     private Integer yardId;
 
@@ -98,6 +99,12 @@ public class Course implements Serializable {
      * 是否添加到签到页面
      */
     private Integer flag;
+
+    @TableField(exist = false)
+    private String yard;
+
+    @TableField(exist = false)
+    private Date yardTime;
 
 
     public String getId() {

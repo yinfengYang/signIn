@@ -2,6 +2,7 @@ package com.yyf.mapper;
 
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.yyf.entity.Course;
 import com.yyf.entity.Role;
 import com.yyf.entity.Yard;
 import org.apache.ibatis.annotations.Mapper;
@@ -22,4 +23,12 @@ public interface YardMapper extends BaseMapper<Yard> {
      * @return
      */
     Integer insertYard(Yard yard);
+
+    /**
+     * 通过课程id 去查询关联yard表的数据进行关闭签到后删除数据
+     * @param course
+     * @return
+     */
+
+    Integer deleteYard(Course course);
 }

@@ -47,6 +47,8 @@ public interface CourseMapper extends BaseMapper<Course> {
 
     String[] getCourseID(Course course);
 
+    Course checkInYard(Course course);
+
 
 
 
