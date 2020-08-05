@@ -1,0 +1,57 @@
+
+wsquid:S1488Å"ZImmediately return this expression instead of assigning it to the temporary variable "dd".(Í÷¸øÿÿÿÿ
+V"squid:SwitchLastCaseIsDefaultCheckŒ""Add a default case to this switch.(Áç† üÿÿÿÿ
+Gsquid:S00108º")Either remove or fill this block of code.(âÃƒŠıÿÿÿÿ
+jsquid:S00117Ò"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ò½
+xsquid:S1488"`Immediately return this expression instead of assigning it to the temporary variable "firstDay".(Î¦†ª
+asquid:S2259›"DA "NullPointerException" could be thrown; "dBegin" is nullable here.(®æŸŠøÿÿÿÿ
+xsquid:S1488Ã"`Immediately return this expression instead of assigning it to the temporary variable "firstDay".(˜óÆÜ
+wsquid:S1488Î"ZImmediately return this expression instead of assigning it to the temporary variable "dd".(Í÷¸øÿÿÿÿ
+Asquid:S2140Ì")Use "java.util.Random.nextInt()" instead.(ãØŸ“
+Psquid:S3252¸"8Use static access with "java.util.Calendar" for "MONTH".(û†³¿
+\squid:S3252¢"?Use static access with "java.util.Calendar" for "DAY_OF_MONTH".(’àŞÁüÿÿÿÿ
+`squid:S2259Ù"CA "NullPointerException" could be thrown; "date1" is nullable here.(³¸²üÿÿÿÿ
+zsquid:S1488&"^Immediately return this expression instead of assigning it to the temporary variable "format".(İÎÿÿÿÿÿ
+Qsquid:S2130…"9Use "Integer.parseInt" for this string-to-int conversion.(Îó˜Á
+Vsquid:S3252³">Use static access with "java.util.Calendar" for "DAY_OF_WEEK".(èëšì
+Wsquid:S3252Á"?Use static access with "java.util.Calendar" for "WEEK_OF_YEAR".(ÿÃ·Å
+wsquid:S1488é"ZImmediately return this expression instead of assigning it to the temporary variable "dd".(Í÷¸øÿÿÿÿ
+^squid:S1126"AReplace this if-then-else statement by a single return statement.(‘œòÙøÿÿÿÿ
+ƒsquid:S1488©"fImmediately return this expression instead of assigning it to the temporary variable "lastDayOfMonth".(Åçåúÿÿÿÿ
+wsquid:S1488à"ZImmediately return this expression instead of assigning it to the temporary variable "dd".(ê®Ÿ¦øÿÿÿÿ
+hsquid:CommentedOutCodeLine©"<This block of commented-out lines of code should be removed.(§¢û˜ùÿÿÿÿ
+\squid:S3252¹"?Use static access with "java.util.Calendar" for "DAY_OF_MONTH".(’àŞÁüÿÿÿÿ
+xsquid:S1488©"`Immediately return this expression instead of assigning it to the temporary variable "firstDay".(Î¦†ª
+Zsquid:S2259G"CA "NullPointerException" could be thrown; "begin" is nullable here.(ä‚›ª
+Bsquid:S00108ó")Either remove or fill this block of code.(”ı¾
+Zsquid:S2259œ"BA "NullPointerException" could be thrown; "dEnd" is nullable here.(¢ÏõÎ
+rsquid:S1488Ô"ZImmediately return this expression instead of assigning it to the temporary variable "dd".(Ü—†
+xsquid:S1488œ"`Immediately return this expression instead of assigning it to the temporary variable "firstDay".(Î¦†ª
+Bsquid:S00108€")Either remove or fill this block of code.(”ı¾
+ssquid:S4144Õ"[Update this method so that its implementation is not identical to "getNowDate" on line 579.(ˆç–ƒ
+gsquid:S1192¸"JDefine a constant instead of duplicating this literal "yyyyMMdd" 13 times.(™†àÖıÿÿÿÿ
+hsquid:CommentedOutCodeLine§"<This block of commented-out lines of code should be removed.(Á ÿ³ûÿÿÿÿ
+bsquid:S11929"LDefine a constant instead of duplicating this literal "yyyy-MM-dd" 19 times.(¬ü¯-
+xsquid:S1488İ"`Immediately return this expression instead of assigning it to the temporary variable "firstDay".(˜óÆÜ
+xsquid:S1488ö"`Immediately return this expression instead of assigning it to the temporary variable "firstDay".(Î¦†ª
+wsquid:S1488×"ZImmediately return this expression instead of assigning it to the temporary variable "dd".(Í÷¸øÿÿÿÿ
+wsquid:S1149…"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(îà¡
+isquid:S00117µ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ”Û
+psquid:S2293C"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ä„ƒ
+Tsquid:S3252º"7Use static access with "java.util.Calendar" for "DATE".(„ÎÌ¤ûÿÿÿÿ
+wsquid:S1488ƒ"_Immediately return this expression instead of assigning it to the temporary variable "lastDay".(·ì•ô
+wsquid:S1488é"_Immediately return this expression instead of assigning it to the temporary variable "lastDay".(Ûæê™
+psquid:S1192+"TDefine a constant instead of duplicating this literal "yyyy-MM-dd HH:mm:ss" 6 times.(ÏâãŒûÿÿÿÿ
+Vsquid:S2130‘"9Use "Integer.parseInt" for this string-to-int conversion.(¢¼¬ßúÿÿÿÿ
+ƒsquid:S1488˜"fImmediately return this expression instead of assigning it to the temporary variable "lastDayOfMonth".(Åçåúÿÿÿÿ
+hsquid:CommentedOutCodeLine­"<This block of commented-out lines of code should be removed.(ÖîĞĞıÿÿÿÿ
+`squid:S2259Ù"CA "NullPointerException" could be thrown; "date2" is nullable here.(³¸²üÿÿÿÿ
+Qsquid:S2130Ğ"9Use "Integer.parseInt" for this string-to-int conversion.(Îó˜Á
+Nsquid:S3252±"7Use static access with "java.util.Calendar" for "YEAR".(µâÅ
+Xsquid:S2259G"AA "NullPointerException" could be thrown; "end" is nullable here.(ä‚›ª
+Qsquid:S2130ö"9Use "Integer.parseInt" for this string-to-int conversion.(Îó˜Á
+wsquid:S1488ò"ZImmediately return this expression instead of assigning it to the temporary variable "dd".(ê®Ÿ¦øÿÿÿÿ
+Zsquid:S2259š"BA "NullPointerException" could be thrown; "date" is nullable here.(İ±Ëç
+~squid:S1488ü"aImmediately return this expression instead of assigning it to the temporary variable "changeStr".(Ìü÷ôùÿÿÿÿ
+Psquid:S3252É"8Use static access with "java.util.Calendar" for "MONTH".(û†³¿
+wsquid:S1488Ğ"_Immediately return this expression instead of assigning it to the temporary variable "lastDay".(Ûæê™

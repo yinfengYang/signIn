@@ -56,7 +56,6 @@ public class ITDragonShiroRealm extends AuthorizingRealm {
         return authorizationInfo;
     }
 
-
     /**
      * 身份认证
      */

@@ -1,0 +1,17 @@
+
+fsquid:S1192‘"NDefine a constant instead of duplicating this literal "loginUserInfo" 4 times.(åíø–
+Gsquid:S2065)"0Remove the "transient" modifier from this field.(ıÉÉ
+fsquid:UselessImportCheck"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(ø©¹…
+Zsquid:S3752f">Add a "method" parameter to this "@RequestMapping" annotation.(¾°íşÿÿÿÿÿ
+[squid:S3752î">Add a "method" parameter to this "@RequestMapping" annotation.(î¾ú¨ûÿÿÿÿ
+Jsquid:S28648"4Iterate over the "entrySet" instead of the "keySet".(»Ú•@
+Qsquid:S1191"5Use classes from the Java API instead of Sun classes.(“Ç‡ÿÿÿÿÿ
+[squid:UselessImportCheck"7Remove this unused import 'com.yyf.util.IpAdrressUtil'.(êªÆå
+[squid:S3752„">Add a "method" parameter to this "@RequestMapping" annotation.(…‡×–ùÿÿÿÿ
+`squid:UselessImportCheck"7Remove this unused import 'sun.net.util.IPAddressUtil'.(“Ç‡ÿÿÿÿÿ
+[squid:S3752…">Add a "method" parameter to this "@RequestMapping" annotation.(ùÁÆãüÿÿÿÿ
+Vsquid:S3752">Add a "method" parameter to this "@RequestMapping" annotation.(ô¸èÉ
+Vsquid:S3752•">Add a "method" parameter to this "@RequestMapping" annotation.(•…¥
+vsquid:S2293ü"YReplace the type specification in this constructor call with the diamond operator ("<>").(„Ü×¹üÿÿÿÿ
+Zsquid:S3752x">Add a "method" parameter to this "@RequestMapping" annotation.(©êä¥ûÿÿÿÿ
+>squid:S1068)"'Remove this unused "log" private field.(ıÉÉ

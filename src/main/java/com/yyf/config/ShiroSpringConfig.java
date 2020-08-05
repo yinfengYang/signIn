@@ -29,7 +29,6 @@ import java.util.Map;
  */
 
 @Configuration
-
 public class ShiroSpringConfig {
 
     private static final transient Logger log = LoggerFactory.getLogger(ShiroSpringConfig.class);
@@ -72,9 +71,9 @@ public class ShiroSpringConfig {
         filterChainDefinitionMap.put("/reg", "anon");
         //登录界面
         filterChainDefinitionMap.put("/login", "anon");
-        /*filterChainDefinitionMap.put("/registerWbe", "anon");*/
         //注册匿名访问
         filterChainDefinitionMap.put("/user/userRegister.do", "anon");
+
         //以下是根据需求放行的接口地址
         filterChainDefinitionMap.put("/home/index.do", "anon");
         filterChainDefinitionMap.put("/carousel/carouselList.do", "anon");

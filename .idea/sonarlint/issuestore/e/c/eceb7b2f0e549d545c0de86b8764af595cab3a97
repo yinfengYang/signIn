@@ -1,0 +1,15 @@
+
+Ssquid:S2629I"7Use the built-in formatting to construct this argument.(¼˜–Ûüÿÿÿÿ
+]squid:S34571"AFormat specifiers should be used instead of string concatenation.(çéÓÿùÿÿÿÿ
+Ksquid:S1066<"/Merge this if statement with the enclosing one.(å¸Úøøÿÿÿÿ
+Ssquid:S26291"7Use the built-in formatting to construct this argument.(çéÓÿùÿÿÿÿ
+]squid:S34575"AFormat specifiers should be used instead of string concatenation.(Şê¬“ıÿÿÿÿ
+Xsquid:S3457U"AFormat specifiers should be used instead of string concatenation.(¦˜×¡
+]squid:S3457I"AFormat specifiers should be used instead of string concatenation.(¼˜–Ûüÿÿÿÿ
+?squid:S1148\"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Qsquid:S1141@"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+fsquid:UselessImportCheck"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(ø©¹…
+T
+squid:S106n"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ
+Lsquid:S2065&"0Remove the "transient" modifier from this field.(ê¶”ôÿÿÿÿÿ
+bsquid:CommentedOutCodeLine?"<This block of commented-out lines of code should be removed.(ë¤¡÷
